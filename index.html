@@ -8,6 +8,50 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Главный CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Дополнительные стили для фото */
+        .quote-form {
+            padding: 0 !important;
+            overflow: hidden;
+            background: transparent !important;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
+        }
+        
+        .quote-form-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+            border-radius: 10px;
+        }
+        
+        .quote-form:hover .quote-form-image {
+            transform: scale(1.05);
+        }
+        
+        .quote-form {
+            position: relative;
+        }
+        
+        .quote-form::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,180,70,0.2), rgba(0,0,0,0.3));
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            border-radius: 10px;
+        }
+        
+        .quote-form:hover::after {
+            opacity: 1;
+        }
+    </style>
 </head>
 <body>
     <!-- Верхняя полоса с контактами -->
@@ -49,7 +93,7 @@
         </div>
     </header>
 
-    <!-- Hero секция с формой -->
+    <!-- Hero секция с фото вместо формы -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -57,27 +101,10 @@
                     <h2>Адал азамат <span></span><br></h2>
                     <p>Біртұтас тәрбие бағдарламасын жүзеге асырудағы педагогикалық тәжірибе.</p>
                 </div>
+                
+                <!-- ЗДЕСЬ ТЕПЕРЬ ФОТО ВМЕСТО ФОРМЫ -->
                 <div class="quote-form">
-                    <h3>REQUEST FREE QUOTE</h3>
-                    <p>Мекеме: 41 мектеп-лицей.</p>
-                    
-                    <form id="quoteForm">
-                        <div class="form-row">
-                            <input type="text" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-row">
-                            <input type="email" placeholder="Email Address" required>
-                        </div>
-                        <div class="form-row">
-                            <textarea placeholder="Message" rows="4"></textarea>
-                        </div>
-                        <div class="form-checkbox">
-                            <label>
-                                <input type="checkbox"> Yes, I am interested in receiving the free Transformations newsletter which has remodeling news for my lifestyle and my point of view. I prefer to receive the newsletter.
-                            </label>
-                        </div>
-                        <button type="submit" class="submit-btn">SEND REQUEST</button>
-                    </form>
+                    <img src="images/your-photo.jpg" alt="Адал азамат" class="quote-form-image" onerror="this.src='https://via.placeholder.com/600x500?text=Ваше+фото+здесь'">
                 </div>
             </div>
         </div>

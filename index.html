@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Repair HTML</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Главный CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Верхняя полоса с контактами -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-left">
+                <span><i class="far fa-clock"></i> Mon - Fri 9.00 - 19.00</span>
+                <span><i class="fas fa-phone-alt"></i> +1 (800) 456 78 90</span>
+            </div>
+            <div class="top-bar-right">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Основной хедер с навигацией -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1>HOUSE <span>REPAIR</span></h1>
+                <p class="logo-text">BUILDING SERVICES</p>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#" class="active">HOME</a></li>
+                    <li><a href="#">ABOUT US</a></li>
+                    <li><a href="#">SERVICES</a></li>
+                    <li><a href="#">BLOG</a></li>
+                    <li><a href="#">CONTACTS</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="quote-btn">REQUEST FREE QUOTE</a>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero секция с формой -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2>WE ARE <span>PROFESSIONAL</span><br>IN REPAIR SERVICES</h2>
+                    <p>We turn your home into the coziest place on earth. Many year experience and hundreds of projects have made our team a professional on this area.</p>
+                </div>
+                <div class="quote-form">
+                    <h3>REQUEST FREE QUOTE</h3>
+                    <p>Please fill in the form below to request a free quote and one of our experts will contact you to arrange a meeting. This visit will serve to evaluate your needs and give you a personalized and competitive quotation.</p>
+                    
+                    <form id="quoteForm">
+                        <div class="form-row">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-row">
+                            <input type="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-row">
+                            <textarea placeholder="Message" rows="4"></textarea>
+                        </div>
+                        <div class="form-checkbox">
+                            <label>
+                                <input type="checkbox"> Yes, I am interested in receiving the free Transformations newsletter which has remodeling news for my lifestyle and my point of view. I prefer to receive the newsletter.
+                            </label>
+                        </div>
+                        <button type="submit" class="submit-btn">SEND REQUEST</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция отзывов Client Stories -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">CLIENT STORIES</h2>
+            <div class="testimonials-slider" id="testimonialsSlider">
+                <div class="testimonials-track">
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Great theme & fast Support."</p>
+                        <p class="client-name">Nicole Smith <span>Purchaser</span></p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"A friend recommended M2, and I couldn't be happier… it was fast, easy, and most importantly, it allowed me to focus on my business while leaving the construction matters to the professionals."</p>
+                        <p class="client-name">John Doe <span>SEO, Some Co.</span></p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Best purchase i made on ThemeForest. Great Theme!"</p>
+                        <p class="client-name">Anna Smith <span>Purchaser</span></p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Hi! I've just check and it works perfectly! Thank you very much for your kindness and for all the work you've done to solve all issues. I'll write about your fantastic support wherever I can. Thanks again."</p>
+                        <p class="client-name">Anna Black <span>Purchaser</span></p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Hello All, Firstly, thank you so much for the great template! I have spent around 10hrs looking for a good template and yours was the best!"</p>
+                        <p class="client-name">Mike Doe <span>Purchaser</span></p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Great theme & fast Support."</p>
+                        <p class="client-name">Nicole Smith <span>Purchaser</span></p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"A friend recommended M2, and I couldn't be happier… it was fast, easy, and most importantly, it allowed me to focus on my business while leaving the construction matters to the professionals."</p>
+                        <p class="client-name">John Doe <span>SEO, Some Co.</span></p>
+                    </div>
+                </div>
+                <div class="slider-nav">
+                    <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блог секция -->
+    <section class="blog">
+        <div class="container">
+            <h2 class="section-title">BLOG</h2>
+            <p class="section-subtitle">We are happy to share a sampling of our media appearances and mentions with you here</p>
+            
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="images/deck-rescue.jpg" alt="Deck Rescue" onerror="this.src='https://via.placeholder.com/380x250'">
+                    </div>
+                    <div class="blog-content">
+                        <h3>Deck Rescue: Renew Your Deck</h3>
+                        <p>Aenean convallis elementum sollicitudin. Duis suscipit ex eget sagittis finibus. Pellentesque in eleifend enim, eget sagittis erat. Nulla vestibulum lorem...</p>
+                        <a href="#" class="read-more">READ MORE</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="images/remove-wall.jpg" alt="Remove Wall" onerror="this.src='https://via.placeholder.com/380x250'">
+                    </div>
+                    <div class="blog-content">
+                        <h3>How to Remove a Wall</h3>
+                        <p>Nulla tempus massa libero, at luctus lorem sagittis sit amet. Maecenas faucibus dapibus nisl, in euismod nunc efficitur vitae. Mauris blandit ut tellus ac...</p>
+                        <a href="#" class="read-more">READ MORE</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="images/soundproof.jpg" alt="Soundproof Room" onerror="this.src='https://via.placeholder.com/380x250'">
+                    </div>
+                    <div class="blog-content">
+                        <h3>How to Soundproof a Room</h3>
+                        <p>Nunc id purus porta, dignissim ligula sit amet, laoreet odio. Nunc dignissim venenatis dolor, eu dictum libero mollis at. Phasellus ac feugiat quam. Morbi...</p>
+                        <a href="#" class="read-more">READ MORE</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us + Skills -->
+    <section class="why-choose">
+        <div class="container">
+            <div class="why-choose-grid">
+                <div class="why-choose-content">
+                    <h2>WHY CHOOSE US</h2>
+                    <p>We turn your home into the coziest place on earth. Many year experience and hundreds of projects have made our team a professional on this area. We are attentive to our customers and we stand behind our promise to deliver timely and quality service. Our company does its work with the customer in mind. That is why your are getting the best service in the country to fulfill your most sophisticated demands.</p>
+                </div>
+                <div class="skills-section">
+                    <h3>SKILLS</h3>
+                    
+                    <div class="skill-item">
+                        <div class="skill-label">
+                            <span>Electrical</span>
+                            <span class="skill-percent" data-target="95">0%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-label">
+                            <span>Cabinet Repairs</span>
+                            <span class="skill-percent" data-target="90">0%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-label">
+                            <span>Plumbing Repairs</span>
+                            <span class="skill-percent" data-target="99">0%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Style Panel -->
+    <section class="style-panel">
+        <div class="container">
+            <h3>Choose Your Style</h3>
+            <div class="style-options">
+                <div class="style-option">
+                    <span>Body style:</span>
+                    <button class="style-btn light-btn active">Light</button>
+                    <button class="style-btn dark-btn">Dark</button>
+                </div>
+                <div class="style-option">
+                    <span>Theme colors:</span>
+                    <div class="color-picker">
+                        <span class="color-dot active" data-color="#ffb347" style="background: #ffb347"></span>
+                        <span class="color-dot" data-color="#3498db" style="background: #3498db"></span>
+                        <span class="color-dot" data-color="#2ecc71" style="background: #2ecc71"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>HOUSE REPAIR</h4>
+                    <p>Professional building services since 2005</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Main Street, New York</p>
+                    <p><i class="fas fa-phone"></i> +1 (800) 456 78 90</p>
+                    <p><i class="fas fa-envelope"></i> info@houserepair.com</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 House Repair HTML. All rights reserved.</p>
+                <div class="login-links">
+                    <a href="#"><i class="fas fa-lock"></i> Login</a>
+                    <span>|</span>
+                    <a href="#">Problem with login?</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -305,6 +305,7 @@
             min-height: 350px;
             display: flex;
             flex-direction: column;
+            cursor: pointer;
         }
 
         .project-card::before {
@@ -410,22 +411,21 @@
             font-weight: 600;
         }
 
-        .project-stats {
+        .view-more {
+            margin-top: 20px;
             display: flex;
-            gap: 15px;
-            margin-top: auto;
+            align-items: center;
+            gap: 10px;
             font-size: 14px;
             color: rgba(255,255,255,0.9);
         }
 
-        .project-stats span {
-            display: flex;
-            align-items: center;
-            gap: 5px;
+        .view-more i {
+            transition: transform 0.3s;
         }
 
-        .project-stats i {
-            color: #ffb347;
+        .project-card:hover .view-more i {
+            transform: translateX(5px);
         }
 
         /* Градиентные цвета для карточек */
@@ -443,6 +443,237 @@
         }
         .card-5 { 
             background: linear-gradient(145deg, #6C5CE7, #5A4AB3);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 2000;
+            backdrop-filter: blur(5px);
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            width: 95%;
+            max-width: 1200px;
+            margin: 40px auto;
+            border-radius: 40px;
+            padding: 40px;
+            position: relative;
+            animation: modalOpen 0.5s;
+        }
+
+        @keyframes modalOpen {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: #ffb347;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #1e2a3a;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+            background: #ff9f1a;
+        }
+
+        .modal-header {
+            margin-bottom: 30px;
+            padding-right: 50px;
+        }
+
+        .modal-header h2 {
+            font-size: 36px;
+            color: #1e2a3a;
+            margin-bottom: 10px;
+        }
+
+        .modal-header .project-badge {
+            background: #ffb347;
+            color: #1e2a3a;
+            margin-bottom: 15px;
+        }
+
+        .modal-body {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        /* Video Section */
+        .video-section h3, .photos-section h3 {
+            font-size: 24px;
+            color: #1e2a3a;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .video-section h3 i, .photos-section h3 i {
+            color: #ffb347;
+        }
+
+        .video-container {
+            width: 100%;
+            background: #000;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Photos Grid */
+        .photos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .photo-item {
+            position: relative;
+            padding-bottom: 75%;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .photo-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .photo-item::after {
+            content: '\f00e';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 30px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .photo-item:hover::after {
+            opacity: 1;
+        }
+
+        .photo-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1;
+        }
+
+        .photo-item:hover::before {
+            opacity: 1;
+        }
+
+        /* Image Lightbox */
+        .image-lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 2500;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .image-lightbox.active {
+            display: flex;
+        }
+
+        .image-lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .image-lightbox .close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: white;
+            font-size: 50px;
+            cursor: pointer;
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .image-lightbox .close:hover {
+            background: #ffb347;
+            color: #1e2a3a;
+            transform: rotate(90deg);
         }
 
         /* Footer */
@@ -629,6 +860,15 @@
             .program-highlight h3 {
                 font-size: 28px;
             }
+            .modal-content {
+                padding: 20px;
+            }
+            .modal-header h2 {
+                font-size: 24px;
+            }
+            .photos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     </style>
 </head>
@@ -638,6 +878,13 @@
         <div class="container">
             <div class="top-bar-left">
                 <span><i class="far fa-clock"></i> 21.02.2026</span>
+            </div>
+            <div class="top-bar-right">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     </div>
@@ -682,57 +929,113 @@
             <!-- 5 жоба - әдемі карточкалар -->
             <div class="projects-grid">
                 <!-- №1 Жоба -->
-                <div class="project-card card-1">
+                <div class="project-card card-1" onclick="openModal(1)">
                     <span class="project-badge"><i class="fas fa-shield-alt"></i> №1 Жоба</span>
                     <div class="project-icon">
                         <i class="fas fa-hand-peace"></i>
                     </div>
                     <h2>«Stop bullying»</h2>
                     <p><strong>Мақсаты:</strong> Буллингтің алдын алу, білім беру ортасында оқушылар мен жасөспірімдер арасында қорлау, мазақтау, зорлық-зомбылық пен кибербуллинг алдын алу, жолын кесу, достық қарым-қатынасты нығайту және қауіпсіз, сыйластыққа негізделген орта қалыптастыру.</p>
+                    <div class="view-more">
+                        <span>Толығырақ көру</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
                 </div>
 
                 <!-- №2 Жоба -->
-                <div class="project-card card-2">
+                <div class="project-card card-2" onclick="openModal(2)">
                     <span class="project-badge"><i class="fas fa-smile"></i> №2 Жоба</span>
                     <div class="project-icon">
                         <i class="fas fa-gamepad"></i>
                     </div>
                     <h2>«Көңілді үзіліс»</h2>
                     <p><strong>Мақсаты:</strong> Көңілді үзіліс-оқушылардың сабақ арасындағы бос уақытын тиімді, белсенді әрі қызықты өткізуге бағытталған шара. Басты мақсаты - балалардың зейінін дамылдырып, физикалық және эмоцияналдық күйін көтеру, сондай-ақ қимыл-қозғалыс ойындары арқылы ұйымшылдықты дамытып, сабаққа ынтасын арттыру.</p>
+                    <div class="view-more">
+                        <span>Толығырақ көру</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
                 </div>
 
                 <!-- №3 Жоба -->
-                <div class="project-card card-3">
+                <div class="project-card card-3" onclick="openModal(3)">
                     <span class="project-badge"><i class="fas fa-flag"></i> №3 Жоба</span>
                     <div class="project-icon">
                         <i class="fas fa-hand-holding-heart"></i>
                     </div>
                     <h2>«Ұрпаққа аманат»</h2>
                     <p><strong>Мақсаты:</strong> Өскелең ұрпақ бойына «Мен қазақпын» деген аса мақтаныш сезімін ұялату мақсатында бабалар ерлігін, ұлылар даналығын, ата-баба дәстүрін, әдет-ғұрыпын дәріптеу арқылы туған жер, атамекен, Отанға деген сүйіспеншілікті, құрметті үйрету.</p>
+                    <div class="view-more">
+                        <span>Толығырақ көру</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
                 </div>
 
                 <!-- №4 Жоба -->
-                <div class="project-card card-4">
+                <div class="project-card card-4" onclick="openModal(4)">
                     <span class="project-badge"><i class="fas fa-book"></i> №4 Жоба</span>
                     <div class="project-icon">
                         <i class="fas fa-book-open"></i>
                     </div>
                     <h2>«Зерек оқырман»</h2>
                     <p><strong>Мақсаты:</strong> Оқушылардың оқу сауаттылығын арттыру, көркем шығармаларды саналы әрі сыни тұрғыда оқуға баулу, кітап оқуға деген қызығушылығын ояту, оқырман мәдениетін қалыптастыру. Құндылықтарды қалыптастырудағы жүйелі және кешенді жұмыс оқу-тәрбие процесінде күн сайын және апта сайын іске асырылатын іс-шараларды қамтиды.</p>
+                    <div class="view-more">
+                        <span>Толығырақ көру</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
                 </div>
 
                 <!-- №5 Жоба -->
-                <div class="project-card card-5">
+                <div class="project-card card-5" onclick="openModal(5)">
                     <span class="project-badge"><i class="fas fa-futbol"></i> №5 Жоба</span>
                     <div class="project-icon">
                         <i class="fas fa-family"></i>
                     </div>
                     <h2>«Белсенді жұма»</h2>
                     <p><strong>Мақсаты:</strong> Ата-ана, мектеп, бала үштігінің байланысын нығайту арқылы, ата-ана жауапкершілігін арттыру. Қоғам өмірінде жаңашыл, белсенді ата-аналар легін көбейтіп, салауаттылыққа шақыру.</p>
+                    <div class="view-more">
+                        <span>Толығырақ көру</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Modal для отображения контента проекта -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <div class="modal-close" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="modal-header">
+                <span class="project-badge" id="modalBadge">№1 Жоба</span>
+                <h2 id="modalTitle">«Stop bullying»</h2>
+            </div>
+            <div class="modal-body">
+                <!-- Видео секция -->
+                <div class="video-section">
+                    <h3><i class="fas fa-video"></i> Видео</h3>
+                    <div class="video-container" id="videoContainer">
+                        <!-- Видео будет вставлено через JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Фото галерея -->
+                <div class="photos-section">
+                    <h3><i class="fas fa-images"></i> Фотосуреттер</h3>
+                    <div class="photos-grid" id="photosGrid">
+                        <!-- Фото будут вставлены через JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Lightbox для увеличения фото -->
+    <div class="image-lightbox" id="imageLightbox" onclick="closeImageLightbox()">
+        <span class="close" onclick="closeImageLightbox()">&times;</span>
+        <img id="lightboxImage" src="" alt="Үлкейтілген фото">
+    </div>
 
     <!-- Футер -->
     <footer class="footer">
@@ -780,6 +1083,131 @@
     </footer>
 
     <script>
+        // Данные для каждого проекта (жергілікті файлдар)
+        const projectsData = {
+            1: {
+                badge: '№1 Жоба',
+                title: '«Stop bullying»',
+                video: 'videos/project1/video.mp4',
+                photos: [
+                    'images/project1/photo1.jpg',
+                    'images/project1/photo2.jpg',
+                    'images/project1/photo3.jpg',
+                    'images/project1/photo4.jpg',
+                    'images/project1/photo5.jpg'
+                ]
+            },
+            2: {
+                badge: '№2 Жоба',
+                title: '«Көңілді үзіліс»',
+                video: 'videos/project2/video.mp4',
+                photos: [
+                    'images/project2/photo1.jpg',
+                    'images/project2/photo2.jpg',
+                    'images/project2/photo3.jpg'
+                ]
+            },
+            3: {
+                badge: '№3 Жоба',
+                title: '«Ұрпаққа аманат»',
+                video: 'videos/project3/video.mp4',
+                photos: [
+                    'images/project3/photo1.jpg',
+                    'images/project3/photo2.jpg',
+                    'images/project3/photo3.jpg',
+                    'images/project3/photo4.jpg'
+                ]
+            },
+            4: {
+                badge: '№4 Жоба',
+                title: '«Зерек оқырман»',
+                video: 'videos/project4/video.mp4',
+                photos: [
+                    'images/project4/photo1.jpg',
+                    'images/project4/photo2.jpg',
+                    'images/project4/photo3.jpg'
+                ]
+            },
+            5: {
+                badge: '№5 Жоба',
+                title: '«Белсенді жұма»',
+                video: 'videos/project5/video.mp4',
+                photos: [
+                    'images/project5/photo1.jpg',
+                    'images/project5/photo2.jpg',
+                    'images/project5/photo3.jpg',
+                    'images/project5/photo4.jpg',
+                    'images/project5/photo5.jpg'
+                ]
+            }
+        };
+
+        function openModal(projectNumber) {
+            const modal = document.getElementById('projectModal');
+            const data = projectsData[projectNumber];
+            
+            // Обновляем содержимое модала
+            document.getElementById('modalBadge').textContent = data.badge;
+            document.getElementById('modalTitle').textContent = data.title;
+            
+            // Вставляем видео (жергілікті файл)
+            const videoContainer = document.getElementById('videoContainer');
+            videoContainer.innerHTML = `
+                <video controls poster="images/project${projectNumber}/poster.jpg">
+                    <source src="${data.video}" type="video/mp4">
+                    Сіздің браузеріңіз видео тегін қолдамайды.
+                </video>
+            `;
+            
+            // Вставляем фото
+            const photosGrid = document.getElementById('photosGrid');
+            photosGrid.innerHTML = data.photos.map(photo => `
+                <div class="photo-item" onclick="openImageLightbox('${photo}')">
+                    <img src="${photo}" alt="Project photo" onerror="this.src='https://via.placeholder.com/300x200?text=Фото+жүктелмеді'">
+                </div>
+            `).join('');
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('projectModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+            
+            // Останавливаем видео
+            const videoContainer = document.getElementById('videoContainer');
+            videoContainer.innerHTML = '';
+        }
+
+        function openImageLightbox(src) {
+            const lightbox = document.getElementById('imageLightbox');
+            const img = document.getElementById('lightboxImage');
+            img.src = src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImageLightbox() {
+            document.getElementById('imageLightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Закрытие модала при клике вне контента
+        document.getElementById('projectModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Закрытие по ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+                closeImageLightbox();
+            }
+        });
+
         // Күн жаңарту
         document.addEventListener('DOMContentLoaded', function() {
             const clockIcons = document.querySelectorAll('.top-bar-left .fa-clock');

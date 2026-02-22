@@ -62,11 +62,13 @@
             justify-content: center;
             background: rgba(255,255,255,0.1);
             border-radius: 50%;
+            text-decoration: none;
         }
 
         .top-bar-right a:hover {
             color: #ffb347;
             background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
         }
 
         /* Main Header */
@@ -435,6 +437,7 @@
             color: #fff;
             transition: all 0.3s;
             font-size: 18px;
+            text-decoration: none;
         }
 
         .social-links a:hover {
@@ -624,9 +627,16 @@
     </style>
 </head>
 <body>
-    <!-- Верхняя полоса с контактами -->
+    <!-- Верхняя полоса с контактами и социальными сетями -->
     <div class="top-bar">
         <div class="container">
+            <div class="top-bar-left">
+                <!-- Здесь можно добавить контактную информацию если нужно -->
+            </div>
+            <div class="top-bar-right">
+                <a href="https://www.instagram.com/shy_nar.02/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@shynar02" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
         </div>
     </div>
 
@@ -737,6 +747,10 @@
                     <i class="far fa-copyright"></i> 2026 Адал азамат. Барлық құқықтар қорғалған. 
                     <span style="color: #ffb347; margin-left: 10px;">#БіртұтасТәрбие</span>
                 </p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/erlankyzy_shynar_?igsh=MThzbXR5ODVudXNzNg==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="www.youtube.com/@Nasibolla.shynar" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
             </div>
             
             <div style="text-align: center; margin-top: 20px; color: rgba(255,255,255,0.3); font-size: 12px;">
@@ -788,7 +802,7 @@
                     const color = this.dataset.color;
                     document.documentElement.style.setProperty('--primary-color', color);
                     
-                    document.querySelectorAll('.footer-section h4, .footer-section p i, .stat-number, .qr-label').forEach(el => {
+                    document.querySelectorAll('.footer-section h4, .footer-section p i, .stat-number, .qr-label, .top-bar-right a:hover').forEach(el => {
                         el.style.color = color;
                     });
                 });

@@ -567,17 +567,23 @@
         }
 
         .video-wrapper {
-            width: 100%;
-            background: #000;
-            border-radius: 10px;
-            overflow: hidden;
-        }
+    width: 100%;
+    max-width: 500px;     /* Видео енін шектеу (керек болса өзгертіңіз) */
+    margin: 0 auto;       /* Ортаға туралау */
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
 
-        .video-wrapper video {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+.video-wrapper video {
+    width: 100%;
+    height: auto;
+    max-height: 280px;    /* Видео биіктігін шектеу (керек болса өзгертіңіз) */
+    display: block;
+    object-fit: contain;  /* Видео толық көріну үшін */
+    background: #000;
+}
 
         /* Photos Grid */
         .photos-grid {

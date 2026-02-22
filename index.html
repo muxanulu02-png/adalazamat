@@ -6,34 +6,251 @@
     <title>Адал азамат - Шынар Ерланқызы</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Главный CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Дополнительные стили для фото */
-        .quote-form {
-            padding: 0 !important;
-            overflow: hidden;
-            background: transparent !important;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: #1e2a3a;
+            color: #fff;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .top-bar-left span {
+            margin-right: 20px;
+        }
+
+        .top-bar-left i {
+            margin-right: 8px;
+            color: #ffb347;
+        }
+
+        .top-bar-right a {
+            color: #fff;
+            margin-left: 15px;
+            transition: color 0.3s;
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .top-bar-right a:hover {
+            color: #ffb347;
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Main Header */
+        .main-header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            color: #1e2a3a;
+        }
+
+        .logo h1 span {
+            color: #ffb347;
+            font-weight: 700;
+        }
+
+        .logo-text {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+            letter-spacing: 1px;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #1e2a3a;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ffb347;
+            transition: width 0.3s;
+        }
+
+        .main-nav a:hover {
+            color: #ffb347;
+        }
+
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+
+        .main-nav a.active {
+            color: #ffb347;
+            font-weight: 600;
+        }
+
+        .main-nav a.active::after {
+            width: 100%;
+        }
+
+        .quote-btn {
+            background: linear-gradient(45deg, #ffb347, #ff9f1a);
+            color: #1e2a3a !important;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+            border: none;
+            box-shadow: 0 5px 15px rgba(255,180,70,0.3);
+        }
+
+        .quote-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255,180,70,0.4);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #1e2a3a;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-text h2 {
+            font-size: 48px;
+            color: #fff;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h2 span {
+            color: #ffb347;
+            display: block;
+            font-size: 36px;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: #ffb347;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .quote-form {
+            background: transparent;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
         .quote-form-image {
             width: 100%;
-            height: 100%;
+            height: 500px;
             object-fit: cover;
             display: block;
-            transition: transform 0.5s ease;
-            border-radius: 10px;
+            transition: transform 0.5s;
         }
-        
+
         .quote-form:hover .quote-form-image {
             transform: scale(1.05);
         }
-        
-        .quote-form {
-            position: relative;
-        }
-        
+
         .quote-form::after {
             content: '';
             position: absolute;
@@ -41,30 +258,289 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, rgba(255,180,70,0.2), rgba(0,0,0,0.3));
-            opacity: 0;
-            transition: opacity 0.3s;
+            background: linear-gradient(45deg, rgba(255,180,70,0.3), rgba(0,0,0,0.2));
             pointer-events: none;
-            border-radius: 10px;
         }
-        
-        .quote-form:hover::after {
-            opacity: 1;
+
+        /* Style Panel */
+        .style-panel {
+            background: #fff;
+            padding: 40px 0;
+            border-bottom: 1px solid #eee;
         }
-        
-        /* Стили для активных ссылок */
-        .main-nav a {
+
+        .style-panel h3 {
+            text-align: center;
+            font-size: 24px;
+            color: #1e2a3a;
+            margin-bottom: 30px;
+        }
+
+        .style-options {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .style-option {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .style-option span {
+            font-weight: 500;
+            color: #666;
+        }
+
+        .style-btn {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 25px;
             cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            background: #f0f0f0;
+        }
+
+        .style-btn.active {
+            background: #ffb347;
+            color: #fff;
+        }
+
+        .light-btn:hover {
+            background: #e0e0e0;
+        }
+
+        .dark-btn:hover {
+            background: #333;
+            color: #fff;
+        }
+
+        .color-picker {
+            display: flex;
+            gap: 10px;
+        }
+
+        .color-dot {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s;
+            border: 3px solid transparent;
+        }
+
+        .color-dot:hover {
+            transform: scale(1.2);
+        }
+
+        .color-dot.active {
+            border-color: #333;
+        }
+
+        /* Footer - Новый красивый дизайн */
+        .footer {
+            background: linear-gradient(135deg, #1e2a3a 0%, #2c3e50 100%);
+            color: #fff;
+            padding: 60px 0 20px;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ffb347, #ff9f1a, #ffb347);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-section h4 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 12px;
+            color: #ffb347;
+        }
+
+        .footer-section h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #ffb347, #ff9f1a);
+            border-radius: 2px;
+        }
+
+        .footer-section p {
+            margin-bottom: 12px;
+            color: rgba(255,255,255,0.8);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .footer-section p i {
+            margin-right: 10px;
+            color: #ffb347;
+            width: 20px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul li a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+            font-size: 15px;
+        }
+
+        .footer-section ul li a:hover {
+            color: #ffb347;
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: #fff;
+            transition: all 0.3s;
+            font-size: 18px;
+        }
+
+        .social-links a:hover {
+            background: #ffb347;
+            color: #1e2a3a;
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+        }
+
+        .login-links {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .login-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 14px;
             transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
-        
-        .main-nav a:hover {
+
+        .login-links a:hover {
             color: #ffb347;
         }
-        
-        .main-nav a.active {
-            color: #ffb347;
-            font-weight: bold;
+
+        .login-links span {
+            color: rgba(255,255,255,0.2);
+        }
+
+        .footer-badge {
+            background: #ffb347;
+            color: #1e2a3a;
+            padding: 5px 15px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .main-nav {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h2 {
+                font-size: 36px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .top-bar .container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .top-bar-left span {
+                margin-right: 10px;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 15px;
+            }
         }
     </style>
 </head>
@@ -74,13 +550,15 @@
         <div class="container">
             <div class="top-bar-left">
                 <span><i class="far fa-clock"></i> 21.02.2026</span>
-                <span><i class="fas fa-phone-alt"></i></span>
+                <span><i class="fas fa-phone-alt"></i> +7 (777) 123-45-67</span>
+                <span><i class="fas fa-envelope"></i> shynar@school.kz</span>
             </div>
             <div class="top-bar-right">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     </div>
@@ -89,50 +567,67 @@
     <header class="main-header">
         <div class="container">
             <div class="logo">
-                <h1> <span>Адал азамат</span></h1>
-                <p class="logo-text">Мұғалім: Насиболла Шынар Ерланқызы</p>
+                <h1><span>Адал азамат</span></h1>
+                <p class="logo-text">Насиболла Шынар Ерланқызы</p>
             </div>
             <nav class="main-nav">
                 <ul>
                     <li><a href="index.html" class="active">Басты бет</a></li>
                     <li><a href="kundylyktar.html">Құндылықтар</a></li>
                     <li><a href="ai-ataulary.html">Ай атаулары</a></li>
-                    <li><a href="adal-azamat.html">Адал азамат - біртұтас тәрбие</a></li>
+                    <li><a href="adal-azamat.html">Адал азамат</a></li>
+                    <li><a href="menin-synybym.html">Менің сыныбым</a></li>
                     <li><a href="jeke-derekter.html">Жеке деректер</a></li>
                 </ul>
             </nav>
-            <a href="#" class="quote-btn">Насиболла Шынар Ерланқызы</a>
+            <a href="#" class="quote-btn"><i class="fas fa-user-graduate"></i> 41 мектеп-лицей</a>
             <div class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </div>
         </div>
     </header>
 
-    <!-- Hero секция с фото вместо формы -->
+    <!-- Hero секция -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h2>Адал азамат <span></span><br></h2>
-                    <p>Мұғалім: Насиболла Шынар Ерланқызы<br>
-Мекеме: 41 мектеп-лицей<br>
-Лауазымы: Ағылшын тілі пәні мұғалімі</p>
+                    <h2>Адал азамат <span>Біртұтас тәрбие</span></h2>
+                    <p><i class="fas fa-user"></i> Мұғалім: Насиболла Шынар Ерланқызы<br>
+                    <i class="fas fa-school"></i> Мекеме: 41 мектеп-лицей<br>
+                    <i class="fas fa-language"></i> Лауазымы: Ағылшын тілі пәні мұғалімі</p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">24</span>
+                            <span class="stat-label">Оқушы</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">12</span>
+                            <span class="stat-label">Қыз</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">12</span>
+                            <span class="stat-label">Ұл</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">15</span>
+                            <span class="stat-label">Жыл тәжірибе</span>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- ЗДЕСЬ ТЕПЕРЬ ФОТО ВМЕСТО ФОРМЫ -->
                 <div class="quote-form">
-                    <img src="images/your-photo.jpg" alt="Адал азамат" class="quote-form-image" onerror="this.src='https://via.placeholder.com/600x500?text=Ваше+фото+здесь'">
+                    <img src="images/your-photo.jpg" alt="Адал азамат" class="quote-form-image" onerror="this.src='https://via.placeholder.com/600x500?text=Шынар+Ерланқызы'">
                 </div>
             </div>
         </div>
     </section>
 
-  
-
     <!-- Style Panel -->
     <section class="style-panel">
         <div class="container">
-            <h3>Тақырып таңдау</h3>
+            <h3><i class="fas fa-palette"></i> Тақырып таңдау</h3>
             <div class="style-options">
                 <div class="style-option">
                     <span>Фон түсі:</span>
@@ -145,62 +640,110 @@
                         <span class="color-dot active" data-color="#ffb347" style="background: #ffb347"></span>
                         <span class="color-dot" data-color="#3498db" style="background: #3498db"></span>
                         <span class="color-dot" data-color="#2ecc71" style="background: #2ecc71"></span>
+                        <span class="color-dot" data-color="#e74c3c" style="background: #e74c3c"></span>
+                        <span class="color-dot" data-color="#9b59b6" style="background: #9b59b6"></span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Футер -->
+    <!-- Футер - Жаңа, әдемі дизайн -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-section">
+                    <div class="footer-badge">БІЗДІҢ МЕКТЕП</div>
                     <h4>АДАЛ АЗАМАТ</h4>
-                    <p>Мұғалім: Насиболла Шынар Ерланқызы</p>
-                    <p>41 мектеп-лицей</p>
+                    <p><i class="fas fa-user"></i> Мұғалім: Насиболла Шынар Ерланқызы</p>
+                    <p><i class="fas fa-school"></i> 41 мектеп-лицей</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Астана қ., Қазақстан</p>
+                    <p><i class="fas fa-phone"></i> +7 (777) 123-45-67</p>
+                    <p><i class="fas fa-envelope"></i> shynar.nasibolla@school.kz</p>
                 </div>
+                
                 <div class="footer-section">
-                    <h4>Мәзір</h4>
+                    <h4>МӘЗІР</h4>
                     <ul>
-                        <li><a href="index.html">Басты бет</a></li>
-                        <li><a href="kundylyktar.html">Құндылықтар</a></li>
-                        <li><a href="ai-ataulary.html">Ай атаулары</a></li>
-                        <li><a href="adal-azamat.html">Адал азамат - біртұтас тәрбие</a></li>
-                        <li><a href="jeke-derekter.html">Жеке деректер</a></li>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Басты бет</a></li>
+                        <li><a href="kundylyktar.html"><i class="fas fa-chevron-right"></i> Құндылықтар</a></li>
+                        <li><a href="ai-ataulary.html"><i class="fas fa-chevron-right"></i> Ай атаулары</a></li>
+                        <li><a href="adal-azamat.html"><i class="fas fa-chevron-right"></i> Адал азамат</a></li>
+                        <li><a href="menin-synybym.html"><i class="fas fa-chevron-right"></i> Менің сыныбым</a></li>
+                        <li><a href="jeke-derekter.html"><i class="fas fa-chevron-right"></i> Жеке деректер</a></li>
                     </ul>
                 </div>
+                
                 <div class="footer-section">
-                    <h4>Байланыс</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> 41 мектеп-лицей, Қазақстан</p>
-                    <p><i class="fas fa-phone"></i> +7 (XXX) XXX XX XX</p>
-                    <p><i class="fas fa-envelope"></i> shynar@school.kz</p>
+                    <h4>СЫНЫП ТУРАЛЫ</h4>
+                    <p><i class="fas fa-users"></i> Барлығы: 24 оқушы</p>
+                    <p><i class="fas fa-female"></i> Қыздар: 12</p>
+                    <p><i class="fas fa-male"></i> Ұлдар: 12</p>
+                    <p><i class="fas fa-star"></i> Үздіктер: 5</p>
+                    <p><i class="fas fa-medal"></i> Екпінділер: 12</p>
                 </div>
+                
                 <div class="footer-section">
-                    <h4>Әлеуметтік желілер</h4>
+                    <h4>ӘЛЕУМЕТТІК ЖЕЛІЛЕР</h4>
+                    <p>Бізге жазылыңыз:</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                    </div>
+                    
+                    <div style="margin-top: 25px;">
+                        <p><i class="fas fa-clock"></i> Жұмыс уақыты:</p>
+                        <p>Дс-Жм: 8:00 - 18:00</p>
+                        <p>Сб: 9:00 - 14:00</p>
                     </div>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2026 Адал азамат. Барлық құқықтар қорғалған.</p>
+                <p>
+                    <i class="far fa-copyright"></i> 2026 Адал азамат. Барлық құқықтар қорғалған. 
+                    <span style="color: #ffb347; margin-left: 10px;">#БіртұтасТәрбие</span>
+                </p>
                 <div class="login-links">
                     <a href="#"><i class="fas fa-lock"></i> Кіру</a>
                     <span>|</span>
-                    <a href="#">Кіруде проблема бар?</a>
+                    <a href="#"><i class="fas fa-question-circle"></i> Кіруде проблема бар?</a>
+                    <span>|</span>
+                    <a href="#"><i class="fas fa-sitemap"></i> Сайт картасы</a>
                 </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 20px; color: rgba(255,255,255,0.3); font-size: 12px;">
+                <i class="fas fa-heart" style="color: #ffb347;"></i> 41 мектеп-лицей ұжымымен жасалды
             </div>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
     <script>
-        // Активация текущей страницы в меню
+        // Автоматты күн жаңарту
         document.addEventListener('DOMContentLoaded', function() {
+            const clockIcons = document.querySelectorAll('.top-bar-left .fa-clock');
+            
+            if (clockIcons.length > 0) {
+                clockIcons.forEach(icon => {
+                    const parentSpan = icon.parentElement;
+                    if (parentSpan) {
+                        const today = new Date();
+                        const day = String(today.getDate()).padStart(2, '0');
+                        const month = String(today.getMonth() + 1).padStart(2, '0');
+                        const year = today.getFullYear();
+                        const formattedDate = `${day}.${month}.${year}`;
+                        
+                        parentSpan.innerHTML = `<i class="far fa-clock"></i> ${formattedDate}`;
+                    }
+                });
+            }
+            
+            // Активті сілтеме
             const currentPage = window.location.pathname.split('/').pop();
             const navLinks = document.querySelectorAll('.main-nav a');
             
@@ -212,31 +755,46 @@
                     link.classList.remove('active');
                 }
             });
-        });
-    </script>
-    
-    <!-- КОД ДЛЯ АВТОМАТИЧЕСКОГО ОБНОВЛЕНИЯ ДАТЫ -->
-    <script>
-        // Барлық беттердегі күнді автоматты түрде жаңарту
-        document.addEventListener('DOMContentLoaded', function() {
-            // Барлық '.top-bar-left' ішіндегі 'fa-clock' иконасы бар элементті іздейміз
-            const clockIcons = document.querySelectorAll('.top-bar-left .fa-clock');
             
-            if (clockIcons.length > 0) {
-                // Әрбір иконаның ата-анасының (parentElement) ішіндегі тексті өзгертеміз
-                clockIcons.forEach(icon => {
-                    const parentSpan = icon.parentElement; // Бұл <span><i class="far fa-clock"></i> 21.02.2026</span> дегенді білдіреді
-                    if (parentSpan) {
-                        // Жаңа күнді аламыз
-                        const today = new Date();
-                        const day = String(today.getDate()).padStart(2, '0');
-                        const month = String(today.getMonth() + 1).padStart(2, '0'); // Қаңтар = 0
-                        const year = today.getFullYear();
-                        const formattedDate = `${day}.${month}.${year}`;
-                        
-                        // Тексті өзгертеміз (иконаны сақтап қаламыз)
-                        parentSpan.innerHTML = `<i class="far fa-clock"></i> ${formattedDate}`;
-                    }
+            // Түс таңдау
+            const colorDots = document.querySelectorAll('.color-dot');
+            colorDots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    colorDots.forEach(d => d.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const color = this.dataset.color;
+                    document.documentElement.style.setProperty('--primary-color', color);
+                    
+                    document.querySelectorAll('.footer-section h4, .footer-section p i, .stat-number').forEach(el => {
+                        el.style.color = color;
+                    });
+                });
+            });
+            
+            // Фон түсі
+            const lightBtn = document.querySelector('.light-btn');
+            const darkBtn = document.querySelector('.dark-btn');
+            
+            if (lightBtn) {
+                lightBtn.addEventListener('click', function() {
+                    document.body.style.background = '#fff';
+                    document.body.style.color = '#333';
+                    document.querySelectorAll('.program-section, .profile-card, .month-card').forEach(el => {
+                        el.style.background = '#fff';
+                        el.style.color = '#333';
+                    });
+                });
+            }
+            
+            if (darkBtn) {
+                darkBtn.addEventListener('click', function() {
+                    document.body.style.background = '#1e2a3a';
+                    document.body.style.color = '#fff';
+                    document.querySelectorAll('.program-section, .profile-card, .month-card').forEach(el => {
+                        el.style.background = '#2c3e50';
+                        el.style.color = '#fff';
+                    });
                 });
             }
         });

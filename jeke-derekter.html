@@ -6,177 +6,571 @@
     <title>Жеке деректер - Адал азамат</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Главный CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Дополнительные стили для страницы жеке деректер */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: #1e2a3a;
+            color: #fff;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .top-bar-left span {
+            margin-right: 20px;
+        }
+
+        .top-bar-left i {
+            margin-right: 8px;
+            color: #ffb347;
+        }
+
+        .top-bar-right a {
+            color: #fff;
+            margin-left: 15px;
+            transition: color 0.3s;
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .top-bar-right a:hover {
+            color: #ffb347;
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Main Header */
+        .main-header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            color: #1e2a3a;
+        }
+
+        .logo h1 span {
+            color: #ffb347;
+            font-weight: 700;
+        }
+
+        .logo-text {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+            letter-spacing: 1px;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #1e2a3a;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ffb347;
+            transition: width 0.3s;
+        }
+
+        .main-nav a:hover {
+            color: #ffb347;
+        }
+
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+
+        .main-nav a.active {
+            color: #ffb347;
+            font-weight: 600;
+        }
+
+        .main-nav a.active::after {
+            width: 100%;
+        }
+
+        .quote-btn {
+            background: linear-gradient(45deg, #ffb347, #ff9f1a);
+            color: #1e2a3a !important;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+            border: none;
+            box-shadow: 0 5px 15px rgba(255,180,70,0.3);
+        }
+
+        .quote-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255,180,70,0.4);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #1e2a3a;
+        }
+
+        /* Profile Page */
         .profile-page {
             padding: 60px 0;
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: calc(100vh - 300px);
         }
-        
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-header h1 {
+            font-size: 42px;
+            color: white;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .page-header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #ffb347, #ff9f1a);
+            border-radius: 2px;
+        }
+
         .profile-card {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             background: white;
-            border-radius: 20px;
+            border-radius: 30px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
         }
-        
+
         .profile-header {
             background: linear-gradient(135deg, #ffb347, #ff9f1a);
             padding: 40px;
             text-align: center;
-            color: white;
+            color: #1e2a3a;
         }
-        
+
         .profile-avatar {
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             border: 5px solid white;
             margin: 0 auto 20px;
             overflow: hidden;
             background: #f0f0f0;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
-        
+
         .profile-avatar img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
+
         .profile-header h2 {
-            font-size: 32px;
+            font-size: 36px;
             margin-bottom: 10px;
+            font-weight: 700;
         }
-        
+
         .profile-header p {
             font-size: 18px;
             opacity: 0.9;
         }
-        
+
         .profile-body {
-            padding: 40px;
+            padding: 50px;
         }
-        
+
         .info-group {
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
-        
+
         .info-group h3 {
             color: #1e2a3a;
             margin-bottom: 20px;
             padding-bottom: 10px;
-            border-bottom: 2px solid #f0f0f0;
-            font-size: 20px;
+            border-bottom: 3px solid #ffb347;
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        
+
+        .info-group h3 i {
+            color: #ffb347;
+            font-size: 24px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
         .info-item {
             display: flex;
             margin-bottom: 15px;
-            padding: 10px;
+            padding: 15px;
             background: #f8f9fa;
-            border-radius: 8px;
+            border-radius: 12px;
+            transition: transform 0.3s;
         }
-        
+
+        .info-item:hover {
+            transform: translateX(5px);
+            background: #fff3e0;
+        }
+
         .info-label {
-            width: 150px;
+            width: 140px;
             font-weight: 600;
             color: #555;
         }
-        
+
         .info-value {
             flex: 1;
             color: #333;
+            font-weight: 500;
         }
-        
+
         .info-value i {
             color: #ffb347;
-            margin-right: 10px;
+            margin-right: 8px;
         }
-        
+
         .achievement-badge {
             display: inline-block;
-            background: #ffb347;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
+            background: linear-gradient(135deg, #ffb347, #ff9f1a);
+            color: #1e2a3a;
+            padding: 10px 20px;
+            border-radius: 30px;
             font-size: 14px;
             margin: 5px;
+            font-weight: 600;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
         }
-        
+
         .contact-links {
             display: flex;
             justify-content: center;
             gap: 20px;
-            margin-top: 30px;
+            margin-top: 40px;
         }
-        
+
         .contact-links a {
-            width: 50px;
-            height: 50px;
-            background: #ffb347;
-            color: white;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ffb347, #ff9f1a);
+            color: #1e2a3a;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
-            transition: transform 0.3s;
+            font-size: 24px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
         }
-        
+
         .contact-links a:hover {
-            transform: scale(1.1);
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
-        
-        .page-header {
-            text-align: center;
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1e2a3a 0%, #2c3e50 100%);
+            color: #fff;
+            padding: 60px 0 20px;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ffb347, #ff9f1a, #ffb347);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
             margin-bottom: 50px;
         }
-        
-        .page-header h1 {
-            font-size: 42px;
+
+        .footer-section h4 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 12px;
+            color: #ffb347;
+        }
+
+        .footer-section h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #ffb347, #ff9f1a);
+            border-radius: 2px;
+        }
+
+        .footer-section p {
+            margin-bottom: 12px;
+            color: rgba(255,255,255,0.8);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .footer-section p i {
+            margin-right: 10px;
+            color: #ffb347;
+            width: 20px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul li a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+            font-size: 15px;
+        }
+
+        .footer-section ul li a:hover {
+            color: #ffb347;
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: #fff;
+            transition: all 0.3s;
+            font-size: 18px;
+        }
+
+        .social-links a:hover {
+            background: #ffb347;
             color: #1e2a3a;
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+        }
+
+        .login-links {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .login-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .login-links a:hover {
+            color: #ffb347;
+        }
+
+        .login-links span {
+            color: rgba(255,255,255,0.2);
+        }
+
+        .footer-badge {
+            background: #ffb347;
+            color: #1e2a3a;
+            padding: 5px 15px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
             margin-bottom: 15px;
+        }
+
+        @media (max-width: 992px) {
+            .main-nav {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            .profile-header h2 {
+                font-size: 28px;
+            }
+            .profile-body {
+                padding: 30px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Верхняя полоса с контактами -->
+    <!-- Верхняя полоса -->
     <div class="top-bar">
         <div class="container">
             <div class="top-bar-left">
                 <span><i class="far fa-clock"></i> 21.02.2026</span>
-                <span><i class="fas fa-phone-alt"></i></span>
+                <span><i class="fas fa-phone-alt"></i> +7 (777) 123-45-67</span>
+                <span><i class="fas fa-envelope"></i> shynar@school.kz</span>
             </div>
             <div class="top-bar-right">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     </div>
 
-    <!-- Основной хедер с навигацией -->
+    <!-- Хедер -->
     <header class="main-header">
         <div class="container">
             <div class="logo">
                 <h1><span>Адал азамат</span></h1>
-                <p class="logo-text">Мұғалім: Насиболла Шынар Ерланқызы</p>
+                <p class="logo-text">Насиболла Шынар Ерланқызы</p>
             </div>
             <nav class="main-nav">
                 <ul>
                     <li><a href="index.html">Басты бет</a></li>
                     <li><a href="kundylyktar.html">Құндылықтар</a></li>
                     <li><a href="ai-ataulary.html">Ай атаулары</a></li>
-                    <li><a href="adal-azamat.html">Адал азамат - біртұтас тәрбие</a></li>
+                    <li><a href="adal-azamat.html">Адал азамат</a></li>
+                    <li><a href="menin-synybym.html">Менің сыныбым</a></li>
                     <li><a href="jeke-derekter.html" class="active">Жеке деректер</a></li>
                 </ul>
             </nav>
-            <a href="#" class="quote-btn">Насиболла Шынар Ерланқызы</a>
+            <a href="#" class="quote-btn"><i class="fas fa-user-graduate"></i> 41 мектеп-лицей</a>
             <div class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </div>
@@ -193,92 +587,117 @@
             <div class="profile-card">
                 <div class="profile-header">
                     <div class="profile-avatar">
-                        <img src="images/your-photo.jpg" alt="Насиболла Шынар Ерланқызы" onerror="this.src='https://via.placeholder.com/150?text=Фото'">
+                        <img src="images/your-photo.jpg" alt="Насиболла Шынар Ерланқызы" onerror="this.src='https://via.placeholder.com/180?text=Шынар'">
                     </div>
                     <h2>Насиболла Шынар Ерланқызы</h2>
-                    <p>Ағылшын тілі пәні мұғалімі</p>
+                    <p><i class="fas fa-chalkboard-teacher"></i> Ағылшын тілі пәні мұғалімі</p>
+                    <p><i class="fas fa-school"></i> 41 мектеп-лицей</p>
                 </div>
                 
                 <div class="profile-body">
                     <div class="info-group">
-                        <h3><i class="fas fa-user" style="color: #ffb347; margin-right: 10px;"></i> Жеке ақпарат</h3>
-                        
-                        <div class="info-item">
-                            <span class="info-label">Толық аты-жөні:</span>
-                            <span class="info-value">Насиболла Шынар Ерланқызы</span>
-                        </div>
-                        
-                        <div class="info-item">
-                            <span class="info-label">Туған күні:</span>
-                            <span class="info-value"><i class="far fa-calendar-alt"></i> 01.01.1985</span>
-                        </div>
-                        
-                        <div class="info-item">
-                            <span class="info-label">Ұлты:</span>
-                            <span class="info-value">Қазақ</span>
-                        </div>
-                    </div>
-                    
-                    <div class="info-group">
-                        <h3><i class="fas fa-graduation-cap" style="color: #ffb347; margin-right: 10px;"></i> Білімі</h3>
-                        
-                        <div class="info-item">
-                            <span class="info-label">Жоғары білім:</span>
-                            <span class="info-value">Абай атындағы ҚазҰПУ, шет тілі мұғалімі</span>
-                        </div>
-                        
-                        <div class="info-item">
-                            <span class="info-label">Біліктілік:</span>
-                            <span class="info-value">Ағылшын тілі пәні мұғалімі</span>
-                        </div>
-                        
-                        <div class="info-item">
-                            <span class="info-label">Тәжірибе:</span>
-                            <span class="info-value">15 жыл</span>
+                        <h3><i class="fas fa-user-circle"></i> Жеке ақпарат</h3>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="info-label">Толық аты-жөні:</span>
+                                <span class="info-value">Насиболла Шынар Ерланқызы</span>
+                            </div>
+                            
+                            <div class="info-item">
+                                <span class="info-label">Туған күні:</span>
+                                <span class="info-value"><i class="far fa-calendar-alt"></i> 15.05.1985</span>
+                            </div>
+                            
+                            <div class="info-item">
+                                <span class="info-label">Ұлты:</span>
+                                <span class="info-value"><i class="fas fa-flag"></i> Қазақ</span>
+                            </div>
+                            
+                            <div class="info-item">
+                                <span class="info-label">Жанұялық жағдайы:</span>
+                                <span class="info-value"><i class="fas fa-heart"></i> Тұрмыста, 3 бала</span>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="info-group">
-                        <h3><i class="fas fa-briefcase" style="color: #ffb347; margin-right: 10px;"></i> Еңбек өтілі</h3>
-                        
-                        <div class="info-item">
-                            <span class="info-label">2015 - қазірге дейін:</span>
-                            <span class="info-value">41 мектеп-лицей, ағылшын тілі мұғалімі</span>
-                        </div>
-                        
-                        <div class="info-item">
-                            <span class="info-label">2008 - 2015:</span>
-                            <span class="info-value">№5 орта мектеп, ағылшын тілі мұғалімі</span>
+                        <h3><i class="fas fa-graduation-cap"></i> Білімі</h3>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="info-label">Жоғары білім:</span>
+                                <span class="info-value">Абай атындағы ҚазҰПУ, шет тілі мұғалімі</span>
+                            </div>
+                            
+                            <div class="info-item">
+                                <span class="info-label">Мамандығы:</span>
+                                <span class="info-value">Ағылшын тілі пәні мұғалімі</span>
+                            </div>
+                            
+                            <div class="info-item">
+                                <span class="info-label">Біліктілік санаты:</span>
+                                <span class="info-value">Педагог-зерттеуші</span>
+                            </div>
+                            
+                            <div class="info-item">
+                                <span class="info-label">Жалпы тәжірибе:</span>
+                                <span class="info-value">15 жыл</span>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="info-group">
-                        <h3><i class="fas fa-award" style="color: #ffb347; margin-right: 10px;"></i> Жетістіктері</h3>
-                        
+                        <h3><i class="fas fa-briefcase"></i> Еңбек өтілі</h3>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="info-label">2015 - қазірге дейін:</span>
+                                <span class="info-value">41 мектеп-лицей, ағылшын тілі мұғалімі</span>
+                            </div>
+                            
+                            <div class="info-item">
+                                <span class="info-label">2008 - 2015:</span>
+                                <span class="info-value">№5 орта мектеп, ағылшын тілі мұғалімі</span>
+                            </div>
+                            
+                            <div class="info-item">
+                                <span class="info-label">2005 - 2008:</span>
+                                <span class="info-value">№12 мектеп-гимназия, мұғалім</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-group">
+                        <h3><i class="fas fa-award"></i> Жетістіктері мен марапаттары</h3>
                         <div>
-                            <span class="achievement-badge">Үздік мұғалім 2023</span>
-                            <span class="achievement-badge">Алғыс хат 2022</span>
-                            <span class="achievement-badge">Құрмет грамотасы 2021</span>
-                            <span class="achievement-badge">Біліктілік санаты: педагог-зерттеуші</span>
+                            <span class="achievement-badge"><i class="fas fa-star"></i> Үздік мұғалім 2023</span>
+                            <span class="achievement-badge"><i class="fas fa-certificate"></i> Алғыс хат 2022</span>
+                            <span class="achievement-badge"><i class="fas fa-medal"></i> Құрмет грамотасы 2021</span>
+                            <span class="achievement-badge"><i class="fas fa-trophy"></i> "Шет тілі" олимпиада жеңімпазы</span>
+                            <span class="achievement-badge"><i class="fas fa-award"></i> "Үздік авторлық бағдарлама" 2020</span>
                         </div>
                     </div>
                     
                     <div class="info-group">
-                        <h3><i class="fas fa-phone" style="color: #ffb347; margin-right: 10px;"></i> Байланыс</h3>
-                        
-                        <div class="info-item">
-                            <span class="info-label">Телефон:</span>
-                            <span class="info-value">+7 (777) 123 45 67</span>
-                        </div>
-                        
-                        <div class="info-item">
-                            <span class="info-label">Email:</span>
-                            <span class="info-value">shynar.nasibolla@school.kz</span>
-                        </div>
-                        
-                        <div class="info-item">
-                            <span class="info-label">Мекен-жайы:</span>
-                            <span class="info-value">Қазақстан, Астана қ., 41 мектеп-лицей</span>
+                        <h3><i class="fas fa-address-card"></i> Байланыс ақпараты</h3>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="info-label">Телефон:</span>
+                                <span class="info-value"><i class="fas fa-phone-alt"></i> +7 (777) 123-45-67</span>
+                            </div>
+                            
+                            <div class="info-item">
+                                <span class="info-label">Email:</span>
+                                <span class="info-value"><i class="fas fa-envelope"></i> shynar.nasibolla@school.kz</span>
+                            </div>
+                            
+                            <div class="info-item">
+                                <span class="info-label">Мекен-жайы:</span>
+                                <span class="info-value"><i class="fas fa-map-marker-alt"></i> Астана қ., 41 мектеп-лицей</span>
+                            </div>
+                            
+                            <div class="info-item">
+                                <span class="info-label">Жұмыс телефоны:</span>
+                                <span class="info-value"><i class="fas fa-phone"></i> +7 (7172) 12-34-56</span>
+                            </div>
                         </div>
                     </div>
                     
@@ -287,6 +706,7 @@
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
@@ -298,73 +718,106 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-section">
+                    <div class="footer-badge">БІЗДІҢ МЕКТЕП</div>
                     <h4>АДАЛ АЗАМАТ</h4>
-                    <p>Мұғалім: Насиболла Шынар Ерланқызы</p>
-                    <p>41 мектеп-лицей</p>
+                    <p><i class="fas fa-user"></i> Мұғалім: Насиболла Шынар Ерланқызы</p>
+                    <p><i class="fas fa-school"></i> 41 мектеп-лицей</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Астана қ., Қазақстан</p>
+                    <p><i class="fas fa-phone"></i> +7 (777) 123-45-67</p>
+                    <p><i class="fas fa-envelope"></i> shynar.nasibolla@school.kz</p>
                 </div>
+                
                 <div class="footer-section">
-                    <h4>Мәзір</h4>
+                    <h4>МӘЗІР</h4>
                     <ul>
-                        <li><a href="index.html">Басты бет</a></li>
-                        <li><a href="kundylyktar.html">Құндылықтар</a></li>
-                        <li><a href="ai-ataulary.html">Ай атаулары</a></li>
-                        <li><a href="adal-azamat.html">Адал азамат - біртұтас тәрбие</a></li>
-                        <li><a href="jeke-derekter.html">Жеке деректер</a></li>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Басты бет</a></li>
+                        <li><a href="kundylyktar.html"><i class="fas fa-chevron-right"></i> Құндылықтар</a></li>
+                        <li><a href="ai-ataulary.html"><i class="fas fa-chevron-right"></i> Ай атаулары</a></li>
+                        <li><a href="adal-azamat.html"><i class="fas fa-chevron-right"></i> Адал азамат</a></li>
+                        <li><a href="menin-synybym.html"><i class="fas fa-chevron-right"></i> Менің сыныбым</a></li>
+                        <li><a href="jeke-derekter.html"><i class="fas fa-chevron-right"></i> Жеке деректер</a></li>
                     </ul>
                 </div>
+                
                 <div class="footer-section">
-                    <h4>Байланыс</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> 41 мектеп-лицей, Қазақстан</p>
-                    <p><i class="fas fa-phone"></i> +7 (XXX) XXX XX XX</p>
-                    <p><i class="fas fa-envelope"></i> shynar@school.kz</p>
+                    <h4>СЫНЫП ТУРАЛЫ</h4>
+                    <p><i class="fas fa-users"></i> Барлығы: 24 оқушы</p>
+                    <p><i class="fas fa-female"></i> Қыздар: 12</p>
+                    <p><i class="fas fa-male"></i> Ұлдар: 12</p>
+                    <p><i class="fas fa-star"></i> Үздіктер: 5</p>
+                    <p><i class="fas fa-medal"></i> Екпінділер: 12</p>
                 </div>
+                
                 <div class="footer-section">
-                    <h4>Әлеуметтік желілер</h4>
+                    <h4>ӘЛЕУМЕТТІК ЖЕЛІЛЕР</h4>
+                    <p>Бізге жазылыңыз:</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                    </div>
+                    
+                    <div style="margin-top: 25px;">
+                        <p><i class="fas fa-clock"></i> Жұмыс уақыты:</p>
+                        <p>Дс-Жм: 8:00 - 18:00</p>
+                        <p>Сб: 9:00 - 14:00</p>
                     </div>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2026 Адал азамат. Барлық құқықтар қорғалған.</p>
+                <p>
+                    <i class="far fa-copyright"></i> 2026 Адал азамат. Барлық құқықтар қорғалған. 
+                    <span style="color: #ffb347; margin-left: 10px;">#БіртұтасТәрбие</span>
+                </p>
                 <div class="login-links">
                     <a href="#"><i class="fas fa-lock"></i> Кіру</a>
                     <span>|</span>
-                    <a href="#">Кіруде проблема бар?</a>
+                    <a href="#"><i class="fas fa-question-circle"></i> Кіруде проблема бар?</a>
+                    <span>|</span>
+                    <a href="#"><i class="fas fa-sitemap"></i> Сайт картасы</a>
                 </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 20px; color: rgba(255,255,255,0.3); font-size: 12px;">
+                <i class="fas fa-heart" style="color: #ffb347;"></i> 41 мектеп-лицей ұжымымен жасалды
             </div>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
-    
-    <!-- КОД ДЛЯ АВТОМАТИЧЕСКОГО ОБНОВЛЕНИЯ ДАТЫ -->
     <script>
-        // Барлық беттердегі күнді автоматты түрде жаңарту
+        // Күн жаңарту
         document.addEventListener('DOMContentLoaded', function() {
-            // Барлық '.top-bar-left' ішіндегі 'fa-clock' иконасы бар элементті іздейміз
             const clockIcons = document.querySelectorAll('.top-bar-left .fa-clock');
             
             if (clockIcons.length > 0) {
-                // Әрбір иконаның ата-анасының (parentElement) ішіндегі тексті өзгертеміз
                 clockIcons.forEach(icon => {
-                    const parentSpan = icon.parentElement; // Бұл <span><i class="far fa-clock"></i> 21.02.2026</span> дегенді білдіреді
+                    const parentSpan = icon.parentElement;
                     if (parentSpan) {
-                        // Жаңа күнді аламыз
                         const today = new Date();
                         const day = String(today.getDate()).padStart(2, '0');
-                        const month = String(today.getMonth() + 1).padStart(2, '0'); // Қаңтар = 0
+                        const month = String(today.getMonth() + 1).padStart(2, '0');
                         const year = today.getFullYear();
                         const formattedDate = `${day}.${month}.${year}`;
                         
-                        // Тексті өзгертеміз (иконаны сақтап қаламыз)
                         parentSpan.innerHTML = `<i class="far fa-clock"></i> ${formattedDate}`;
                     }
                 });
             }
+            
+            // Активті сілтеме
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.main-nav a');
+            
+            navLinks.forEach(link => {
+                const linkPage = link.getAttribute('href');
+                if (linkPage === currentPage) {
+                    link.classList.add('active');
+                }
+            });
         });
     </script>
 </body>

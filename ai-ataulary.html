@@ -6,187 +6,555 @@
     <title>Ай атаулары - Адал азамат</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Главный CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Дополнительные стили для страницы ай атаулары */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: #1e2a3a;
+            color: #fff;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .top-bar-left span {
+            margin-right: 20px;
+        }
+
+        .top-bar-left i {
+            margin-right: 8px;
+            color: #ffb347;
+        }
+
+        .top-bar-right a {
+            color: #fff;
+            margin-left: 15px;
+            transition: color 0.3s;
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .top-bar-right a:hover {
+            color: #ffb347;
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Main Header */
+        .main-header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            color: #1e2a3a;
+        }
+
+        .logo h1 span {
+            color: #ffb347;
+            font-weight: 700;
+        }
+
+        .logo-text {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+            letter-spacing: 1px;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #1e2a3a;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ffb347;
+            transition: width 0.3s;
+        }
+
+        .main-nav a:hover {
+            color: #ffb347;
+        }
+
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+
+        .main-nav a.active {
+            color: #ffb347;
+            font-weight: 600;
+        }
+
+        .main-nav a.active::after {
+            width: 100%;
+        }
+
+        .quote-btn {
+            background: linear-gradient(45deg, #ffb347, #ff9f1a);
+            color: #1e2a3a !important;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+            border: none;
+            box-shadow: 0 5px 15px rgba(255,180,70,0.3);
+        }
+
+        .quote-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255,180,70,0.4);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #1e2a3a;
+        }
+
+        /* Months Page */
         .months-page {
             padding: 60px 0;
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         }
-        
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-header h1 {
+            font-size: 42px;
+            color: #1e2a3a;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .page-header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #ffb347, #ff9f1a);
+            border-radius: 2px;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: #666;
+            max-width: 700px;
+            margin: 20px auto 0;
+        }
+
+        /* Adal Azamat Section */
+        .adal-azamat-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 50px;
+            border-radius: 30px;
+            margin-bottom: 60px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .adal-azamat-section h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .adal-azamat-section h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #ffb347;
+        }
+
+        .adal-azamat-values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .adal-azamat-card {
+            padding: 30px;
+            border-radius: 20px;
+            color: white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            text-align: left;
+        }
+
+        .adal-azamat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.3);
+        }
+
+        .adal-azamat-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .adal-azamat-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: rgba(255,255,255,0.5);
+        }
+
+        /* Months Grid */
         .months-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             margin-top: 40px;
         }
-        
+
         .month-card {
             background: white;
-            border-radius: 10px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
         }
-        
+
         .month-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.15);
         }
-        
+
         .month-header {
-            background: #ffb347;
+            background: linear-gradient(135deg, #ffb347, #ff9f1a);
             color: white;
-            padding: 20px;
+            padding: 25px;
             text-align: center;
         }
-        
+
         .month-header h3 {
-            font-size: 24px;
+            font-size: 28px;
             margin-bottom: 5px;
+            font-weight: 700;
         }
-        
+
         .month-body {
             padding: 25px;
         }
-        
+
         .month-body p {
             color: #666;
             line-height: 1.8;
             margin-bottom: 15px;
+            font-size: 16px;
         }
-        
+
         .month-info {
             display: flex;
             justify-content: space-between;
             padding-top: 15px;
-            border-top: 1px solid #eee;
+            border-top: 2px solid #f0f0f0;
             font-size: 14px;
             color: #888;
         }
-        
-        .page-header {
-            text-align: center;
+
+        .month-info i {
+            color: #ffb347;
+            margin-right: 5px;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1e2a3a 0%, #2c3e50 100%);
+            color: #fff;
+            padding: 60px 0 20px;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ffb347, #ff9f1a, #ffb347);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
             margin-bottom: 50px;
         }
-        
-        .page-header h1 {
-            font-size: 42px;
+
+        .footer-section h4 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 12px;
+            color: #ffb347;
+        }
+
+        .footer-section h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #ffb347, #ff9f1a);
+            border-radius: 2px;
+        }
+
+        .footer-section p {
+            margin-bottom: 12px;
+            color: rgba(255,255,255,0.8);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .footer-section p i {
+            margin-right: 10px;
+            color: #ffb347;
+            width: 20px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul li a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+            font-size: 15px;
+        }
+
+        .footer-section ul li a:hover {
+            color: #ffb347;
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: #fff;
+            transition: all 0.3s;
+            font-size: 18px;
+        }
+
+        .social-links a:hover {
+            background: #ffb347;
             color: #1e2a3a;
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+        }
+
+        .login-links {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .login-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .login-links a:hover {
+            color: #ffb347;
+        }
+
+        .login-links span {
+            color: rgba(255,255,255,0.2);
+        }
+
+        .footer-badge {
+            background: #ffb347;
+            color: #1e2a3a;
+            padding: 5px 15px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
             margin-bottom: 15px;
         }
-        
-        .page-header p {
-            font-size: 18px;
-            color: #666;
-            max-width: 700px;
-            margin: 0 auto;
+
+        @media (max-width: 992px) {
+            .main-nav {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .months-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
-        
-        /* === ЖАҢА СТИЛЬДЕР (Адал Азамат секциясы) === */
-        .adal-azamat-section {
-            background: linear-gradient(to bottom, #FFF59D, #FFEB3B);
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto 40px auto;
-            border-radius: 20px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-            text-align: center;
-            color: #333;
+
+        @media (max-width: 768px) {
+            .months-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            .adal-azamat-section h1 {
+                font-size: 32px;
+            }
+            .adal-azamat-section h2 {
+                font-size: 24px;
+            }
         }
-        
-        .adal-azamat-section h1 { 
-            font-size: 3.8em; 
-            color: #C62828; 
-            margin: 0; 
-            text-transform: uppercase; 
-            letter-spacing: 3px; 
-        }
-        
-        .adal-azamat-section h2 { 
-            font-size: 2.4em; 
-            color: #1565C0; 
-            margin: 10px 0 40px; 
-        }
-        
-        .adal-azamat-values {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 60px;
-        }
-        
-        .adal-azamat-card {
-            padding: 25px;
-            border-radius: 20px;
-            color: white;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-            transition: transform 0.3s;
-        }
-        
-        .adal-azamat-card:hover { transform: translateY(-10px); }
-        
-        .adal-azamat-card h3 { font-size: 1.5em; margin-bottom: 10px; }
-        
-        .adal-azamat-months {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
-        
-        .adal-azamat-month-card {
-            background: #333;
-            color: white;
-            padding: 18px 12px;
-            border-radius: 12px;
-            width: 160px;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-        
-        .adal-azamat-month-card strong { 
-            display: block; 
-            font-size: 1.3em; 
-            margin-bottom: 8px; 
-        }
-        /* === ЖАҢА СТИЛЬДЕР СОҢЫ === */
     </style>
 </head>
 <body>
-    <!-- Верхняя полоса с контактами -->
+    <!-- Верхняя полоса -->
     <div class="top-bar">
         <div class="container">
             <div class="top-bar-left">
                 <span><i class="far fa-clock"></i> 21.02.2026</span>
-                <span><i class="fas fa-phone-alt"></i></span>
+                <span><i class="fas fa-phone-alt"></i> +7 (777) 123-45-67</span>
+                <span><i class="fas fa-envelope"></i> shynar@school.kz</span>
             </div>
             <div class="top-bar-right">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     </div>
 
-    <!-- Основной хедер с навигацией -->
+    <!-- Хедер -->
     <header class="main-header">
         <div class="container">
             <div class="logo">
                 <h1><span>Адал азамат</span></h1>
-                <p class="logo-text">Мұғалім: Насиболла Шынар Ерланқызы</p>
+                <p class="logo-text">Насиболла Шынар Ерланқызы</p>
             </div>
             <nav class="main-nav">
                 <ul>
                     <li><a href="index.html">Басты бет</a></li>
                     <li><a href="kundylyktar.html">Құндылықтар</a></li>
                     <li><a href="ai-ataulary.html" class="active">Ай атаулары</a></li>
-                    <li><a href="adal-azamat.html">Адал азамат - біртұтас тәрбие</a></li>
+                    <li><a href="adal-azamat.html">Адал азамат</a></li>
+                    <li><a href="menin-synybym.html">Менің сыныбым</a></li>
                     <li><a href="jeke-derekter.html">Жеке деректер</a></li>
                 </ul>
             </nav>
-            <a href="#" class="quote-btn">Насиболла Шынар Ерланқызы</a>
+            <a href="#" class="quote-btn"><i class="fas fa-user-graduate"></i> 41 мектеп-лицей</a>
             <div class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </div>
@@ -196,44 +564,43 @@
     <!-- Ай атаулары беті -->
     <section class="months-page">
         <div class="container">
-            <!-- ===== АДАЛ АЗАМАТ СЕКЦИЯСЫ (ЖОҒАРЫДА) ===== -->
+            <!-- Адал Азамат секциясы -->
             <div class="adal-azamat-section">
                 <h1>"АДАЛ АЗАМАТ"</h1>
                 <h2>БІРТҰТАС ТӘРБИЕ БАҒДАРЛАМАСЫ</h2>
 
                 <div class="adal-azamat-values">
-                    <div class="adal-azamat-card" style="background:#2196F3;">
+                    <div class="adal-azamat-card" style="background: linear-gradient(135deg, #2196F3, #1976D2);">
                         <h3>Тәуелсіздік және Отаншылдық</h3>
                         <p>Елін, жерін сүйетін, ұлттық мүддеге қызмет ететін, Отан дамуына үлес қосатын азаматты тәрбиелеу.</p>
                     </div>
-                    <div class="adal-azamat-card" style="background:#4CAF50;">
+                    <div class="adal-azamat-card" style="background: linear-gradient(135deg, #4CAF50, #388E3C);">
                         <h3>Бірлік және Ынтымақ</h3>
                         <p>Қоғамдағы бірлікті, өзара сыйластық пен көмекті нығайту, ұлттық тұтастықты сақтау.</p>
                     </div>
-                    <div class="adal-azamat-card" style="background:#FF9800;">
+                    <div class="adal-azamat-card" style="background: linear-gradient(135deg, #FF9800, #F57C00);">
                         <h3>Әділдік және Жауапкершілік</h3>
                         <p>Әділеттілікті, сөз бен іске жауапкершілікті, моральдық тазалықты қалыптастыру.</p>
                     </div>
-                    <div class="adal-azamat-card" style="background:#9C27B0;">
+                    <div class="adal-azamat-card" style="background: linear-gradient(135deg, #9C27B0, #7B1FA2);">
                         <h3>Еңбекқорлық және Кәсіби біліктілік</h3>
                         <p>Адал еңбекке, білімге, кәсіби дамуға ұмтылу, өзін-өзі жетілдіру.</p>
                     </div>
-                    <div class="adal-azamat-card" style="background:#E91E63;">
+                    <div class="adal-azamat-card" style="background: linear-gradient(135deg, #E91E63, #C2185B);">
                         <h3>Жасампаздық және Жаңашылдық</h3>
                         <p>Шығармашылық, инновация, проблемаларды шешу, қоғамға пайда әкелу.</p>
                     </div>
-                    <div class="adal-azamat-card" style="background:#607D8B;">
+                    <div class="adal-azamat-card" style="background: linear-gradient(135deg, #607D8B, #455A64);">
                         <h3>Заң және Тәртіп</h3>
                         <p>Заңға бағыну, тәртіпті сақтау, қоғамдық қауіпсіздікті қамтамасыз ету.</p>
                     </div>
                 </div>
             </div>
-            <!-- ===== АДАЛ АЗАМАТ СЕКЦИЯСЫ СОҢЫ ===== -->
             
-            <!-- ===== АЙ АТАУЛАРЫ СЕКЦИЯСЫ (ТӨМЕНДЕ) ===== -->
+            <!-- Ай атаулары секциясы -->
             <div class="page-header">
                 <h1>АЙ АТАУЛАРЫ</h1>
-                <p>Қазақша ай атауларының мағынасы мен ерекшеліктері</p>
+                <p><i class="fas fa-calendar-alt" style="color: #ffb347;"></i> Қазақша ай атауларының мағынасы мен ерекшеліктері</p>
             </div>
             
             <div class="months-grid">
@@ -242,10 +609,10 @@
                         <h3>Қаңтар</h3>
                     </div>
                     <div class="month-body">
-                        <p>Қаңтар - заң және тәртіп айы.</p>
+                        <p>Қаңтар - заң және тәртіп айы. Жаңа жылдың басталуы, жаңа мақсаттар мен жоспарлар айы.</p>
                         <div class="month-info">
                             <span><i class="far fa-calendar"></i> 31 күн</span>
-                            <span><i class="fas fa-snowflake"></i> Қыс мезгілі</span>
+                            <span><i class="fas fa-snowflake"></i> Қыс</span>
                         </div>
                     </div>
                 </div>
@@ -255,10 +622,10 @@
                         <h3>Ақпан</h3>
                     </div>
                     <div class="month-body">
-                        <p>Ақпан - жасампаздық және жаңашылдық айы.</p>
+                        <p>Ақпан - жасампаздық және жаңашылдық айы. Қыстың соңғы айы, көктемге дайындық.</p>
                         <div class="month-info">
                             <span><i class="far fa-calendar"></i> 28/29 күн</span>
-                            <span><i class="fas fa-snowflake"></i> Қыс мезгілі</span>
+                            <span><i class="fas fa-snowflake"></i> Қыс</span>
                         </div>
                     </div>
                 </div>
@@ -268,10 +635,10 @@
                         <h3>Наурыз</h3>
                     </div>
                     <div class="month-body">
-                        <p>Наурыз - тәуелсіздік және отаншылдық айы.</p>
+                        <p>Наурыз - тәуелсіздік және отаншылдық айы. Ұлыстың ұлы күні, жаңару мен жаңғыру айы.</p>
                         <div class="month-info">
                             <span><i class="far fa-calendar"></i> 31 күн</span>
-                            <span><i class="fas fa-leaf"></i> Көктем мезгілі</span>
+                            <span><i class="fas fa-leaf"></i> Көктем</span>
                         </div>
                     </div>
                 </div>
@@ -281,10 +648,10 @@
                         <h3>Сәуір</h3>
                     </div>
                     <div class="month-body">
-                        <p>Сәуір - еңбекқорлық және кәсіби біліктілік айы.</p>
+                        <p>Сәуір - еңбекқорлық және кәсіби біліктілік айы. Табиғаттың гүлденуі, еңбек маусымының басталуы.</p>
                         <div class="month-info">
                             <span><i class="far fa-calendar"></i> 30 күн</span>
-                            <span><i class="fas fa-leaf"></i> Көктем мезгілі</span>
+                            <span><i class="fas fa-leaf"></i> Көктем</span>
                         </div>
                     </div>
                 </div>
@@ -294,10 +661,10 @@
                         <h3>Мамыр</h3>
                     </div>
                     <div class="month-body">
-                        <p>Мамыр - бірлік және ынтымақ айы.</p>
+                        <p>Мамыр - бірлік және ынтымақ айы. Жеңіс күні, бірлік пен татулық мерекелері.</p>
                         <div class="month-info">
                             <span><i class="far fa-calendar"></i> 31 күн</span>
-                            <span><i class="fas fa-leaf"></i> Көктем мезгілі</span>
+                            <span><i class="fas fa-leaf"></i> Көктем</span>
                         </div>
                     </div>
                 </div>
@@ -307,10 +674,10 @@
                         <h3>Маусым</h3>
                     </div>
                     <div class="month-body">
-                        <p>Маусым - жасампаздық және жаңашылдық айы.</p>
+                        <p>Маусым - жасампаздық және жаңашылдық айы. Жазғы демалыс, жаңа жетістіктер айы.</p>
                         <div class="month-info">
                             <span><i class="far fa-calendar"></i> 30 күн</span>
-                            <span><i class="fas fa-sun"></i> Жаз мезгілі</span>
+                            <span><i class="fas fa-sun"></i> Жаз</span>
                         </div>
                     </div>
                 </div>
@@ -320,10 +687,10 @@
                         <h3>Шілде</h3>
                     </div>
                     <div class="month-body">
-                        <p>Шілде - заң және тәртіп айы.</p>
+                        <p>Шілде - заң және тәртіп айы. Астана күні, мемлекеттілікті нығайту айы.</p>
                         <div class="month-info">
                             <span><i class="far fa-calendar"></i> 31 күн</span>
-                            <span><i class="fas fa-sun"></i> Жаз мезгілі</span>
+                            <span><i class="fas fa-sun"></i> Жаз</span>
                         </div>
                     </div>
                 </div>
@@ -333,10 +700,10 @@
                         <h3>Тамыз</h3>
                     </div>
                     <div class="month-body">
-                        <p>Тамыз - заң және тәртіп айы.</p>
+                        <p>Тамыз - заң және тәртіп айы. Конституция күні, заң мен тәртіптің салтанат құруы.</p>
                         <div class="month-info">
                             <span><i class="far fa-calendar"></i> 31 күн</span>
-                            <span><i class="fas fa-sun"></i> Жаз мезгілі</span>
+                            <span><i class="fas fa-sun"></i> Жаз</span>
                         </div>
                     </div>
                 </div>
@@ -346,10 +713,10 @@
                         <h3>Қыркүйек</h3>
                     </div>
                     <div class="month-body">
-                        <p>Қыркүйек - еңбекқорлық және кәсіби біліктілік айы.</p>
+                        <p>Қыркүйек - еңбекқорлық және кәсіби біліктілік айы. Білім күні, оқу жылының басталуы.</p>
                         <div class="month-info">
                             <span><i class="far fa-calendar"></i> 30 күн</span>
-                            <span><i class="fas fa-leaf"></i> Күз мезгілі</span>
+                            <span><i class="fas fa-leaf"></i> Күз</span>
                         </div>
                     </div>
                 </div>
@@ -359,10 +726,10 @@
                         <h3>Қазан</h3>
                     </div>
                     <div class="month-body">
-                        <p>Қазан - тәуелсіздік және отаншылдық айы.</p>
+                        <p>Қазан - тәуелсіздік және отаншылдық айы. Тіл мерекесі, ұлттық құндылықтарды дәріптеу.</p>
                         <div class="month-info">
                             <span><i class="far fa-calendar"></i> 31 күн</span>
-                            <span><i class="fas fa-leaf"></i> Күз мезгілі</span>
+                            <span><i class="fas fa-leaf"></i> Күз</span>
                         </div>
                     </div>
                 </div>
@@ -372,10 +739,10 @@
                         <h3>Қараша</h3>
                     </div>
                     <div class="month-body">
-                        <p>Қараша - әділдік және жауапкершілік айы.</p>
+                        <p>Қараша - әділдік және жауапкершілік айы. Ұлттық валюта күні, экономикалық тәуелсіздік.</p>
                         <div class="month-info">
                             <span><i class="far fa-calendar"></i> 30 күн</span>
-                            <span><i class="fas fa-leaf"></i> Күз мезгілі</span>
+                            <span><i class="fas fa-leaf"></i> Күз</span>
                         </div>
                     </div>
                 </div>
@@ -385,16 +752,14 @@
                         <h3>Желтоқсан</h3>
                     </div>
                     <div class="month-body">
-                        <p>Желтоқсан - бірлік және ынтымақ айы.</p>
+                        <p>Желтоқсан - бірлік және ынтымақ айы. Тәуелсіздік күні, еліміздің ең маңызды мерекесі.</p>
                         <div class="month-info">
                             <span><i class="far fa-calendar"></i> 31 күн</span>
-                            <span><i class="fas fa-snowflake"></i> Қыс мезгілі</span>
+                            <span><i class="fas fa-snowflake"></i> Қыс</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- ===== АЙ АТАУЛАРЫ СЕКЦИЯСЫ СОҢЫ ===== -->
-            
         </div>
     </section>
 
@@ -403,68 +768,106 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-section">
+                    <div class="footer-badge">БІЗДІҢ МЕКТЕП</div>
                     <h4>АДАЛ АЗАМАТ</h4>
-                    <p>Мұғалім: Насиболла Шынар Ерланқызы</p>
-                    <p>41 мектеп</p>
+                    <p><i class="fas fa-user"></i> Мұғалім: Насиболла Шынар Ерланқызы</p>
+                    <p><i class="fas fa-school"></i> 41 мектеп-лицей</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Астана қ., Қазақстан</p>
+                    <p><i class="fas fa-phone"></i> +7 (777) 123-45-67</p>
+                    <p><i class="fas fa-envelope"></i> shynar.nasibolla@school.kz</p>
                 </div>
+                
                 <div class="footer-section">
-                    <h4>Мәзір</h4>
+                    <h4>МӘЗІР</h4>
                     <ul>
-                        <li><a href="index.html">Басты бет</a></li>
-                        <li><a href="kundylyktar.html">Құндылықтар</a></li>
-                        <li><a href="ai-ataulary.html">Ай атаулары</a></li>
-                        <li><a href="adal-azamat.html">Адал азамат - біртұтас тәрбие</a></li>
-                        <li><a href="jeke-derekter.html">Жеке деректер</a></li>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Басты бет</a></li>
+                        <li><a href="kundylyktar.html"><i class="fas fa-chevron-right"></i> Құндылықтар</a></li>
+                        <li><a href="ai-ataulary.html"><i class="fas fa-chevron-right"></i> Ай атаулары</a></li>
+                        <li><a href="adal-azamat.html"><i class="fas fa-chevron-right"></i> Адал азамат</a></li>
+                        <li><a href="menin-synybym.html"><i class="fas fa-chevron-right"></i> Менің сыныбым</a></li>
+                        <li><a href="jeke-derekter.html"><i class="fas fa-chevron-right"></i> Жеке деректер</a></li>
                     </ul>
                 </div>
+                
                 <div class="footer-section">
-                    <h4>Байланыс</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> 41 мектеп</p>
-                    <p><i class="fas fa-phone"></i> +7 (XXX) XXX XX XX</p>
-                    <p><i class="fas fa-envelope"></i> muxanulu02@gmail.com</p>
+                    <h4>СЫНЫП ТУРАЛЫ</h4>
+                    <p><i class="fas fa-users"></i> Барлығы: 24 оқушы</p>
+                    <p><i class="fas fa-female"></i> Қыздар: 12</p>
+                    <p><i class="fas fa-male"></i> Ұлдар: 12</p>
+                    <p><i class="fas fa-star"></i> Үздіктер: 5</p>
+                    <p><i class="fas fa-medal"></i> Екпінділер: 12</p>
                 </div>
+                
                 <div class="footer-section">
-                    <h4></h4>
+                    <h4>ӘЛЕУМЕТТІК ЖЕЛІЛЕР</h4>
+                    <p>Бізге жазылыңыз:</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                    </div>
+                    
+                    <div style="margin-top: 25px;">
+                        <p><i class="fas fa-clock"></i> Жұмыс уақыты:</p>
+                        <p>Дс-Жм: 8:00 - 18:00</p>
+                        <p>Сб: 9:00 - 14:00</p>
                     </div>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2026 Адал азамат. Барлық құқықтар қорғалған.</p>
+                <p>
+                    <i class="far fa-copyright"></i> 2026 Адал азамат. Барлық құқықтар қорғалған. 
+                    <span style="color: #ffb347; margin-left: 10px;">#БіртұтасТәрбие</span>
+                </p>
                 <div class="login-links">
-                    <a href="#"><i class="fas fa-lock"></i> </a>
+                    <a href="#"><i class="fas fa-lock"></i> Кіру</a>
                     <span>|</span>
-                    <a href="#"></a>
+                    <a href="#"><i class="fas fa-question-circle"></i> Кіруде проблема бар?</a>
+                    <span>|</span>
+                    <a href="#"><i class="fas fa-sitemap"></i> Сайт картасы</a>
                 </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 20px; color: rgba(255,255,255,0.3); font-size: 12px;">
+                <i class="fas fa-heart" style="color: #ffb347;"></i> 41 мектеп-лицей ұжымымен жасалды
             </div>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
-    
-    <!-- КОД ДЛЯ АВТОМАТИЧЕСКОГО ОБНОВЛЕНИЯ ДАТЫ -->
     <script>
-        // Барлық беттердегі күнді автоматты түрде жаңарту
+        // Күн жаңарту
         document.addEventListener('DOMContentLoaded', function() {
-            // Барлық '.top-bar-left' ішіндегі 'fa-clock' иконасы бар элементті іздейміз
             const clockIcons = document.querySelectorAll('.top-bar-left .fa-clock');
             
             if (clockIcons.length > 0) {
-                // Әрбір иконаның ата-анасының (parentElement) ішіндегі тексті өзгертеміз
                 clockIcons.forEach(icon => {
-                    const parentSpan = icon.parentElement; // Бұл <span><i class="far fa-clock"></i> 21.02.2026</span> дегенді білдіреді
+                    const parentSpan = icon.parentElement;
                     if (parentSpan) {
-                        // Жаңа күнді аламыз
                         const today = new Date();
                         const day = String(today.getDate()).padStart(2, '0');
-                        const month = String(today.getMonth() + 1).padStart(2, '0'); // Қаңтар = 0
+                        const month = String(today.getMonth() + 1).padStart(2, '0');
                         const year = today.getFullYear();
                         const formattedDate = `${day}.${month}.${year}`;
                         
-                        // Тексті өзгертеміз (иконаны сақтап қаламыз)
                         parentSpan.innerHTML = `<i class="far fa-clock"></i> ${formattedDate}`;
                     }
                 });
             }
+            
+            // Активті сілтеме
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.main-nav a');
+            
+            navLinks.forEach(link => {
+                const linkPage = link.getAttribute('href');
+                if (linkPage === currentPage) {
+                    link.classList.add('active');
+                }
+            });
         });
     </script>
 </body>

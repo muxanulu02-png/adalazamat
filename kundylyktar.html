@@ -39,6 +39,7 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
             transition: transform 0.3s;
+            cursor: pointer;
         }
         
         .gallery-item:hover {
@@ -50,6 +51,89 @@
             height: 250px;
             object-fit: cover;
             display: block;
+            transition: opacity 0.3s;
+        }
+        
+        .gallery-item:hover img {
+            opacity: 0.9;
+        }
+        
+        /* Lightbox стильдері */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            object-fit: contain;
+            border: 3px solid white;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(255,255,255,0.3);
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            transition: color 0.3s;
+            z-index: 10000;
+        }
+        
+        .lightbox-close:hover {
+            color: #ffb347;
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 50px;
+            color: white;
+            cursor: pointer;
+            padding: 20px;
+            transition: color 0.3s;
+            z-index: 10000;
+        }
+        
+        .lightbox-nav:hover {
+            color: #ffb347;
+        }
+        
+        .lightbox-prev {
+            left: 20px;
+        }
+        
+        .lightbox-next {
+            right: 20px;
+        }
+        
+        .lightbox-counter {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: white;
+            font-size: 16px;
+            z-index: 10000;
         }
         
         .students-info {
@@ -207,6 +291,16 @@
             .gallery-item {
                 width: calc(50% - 15px);
             }
+            
+            .lightbox-nav {
+                font-size: 30px;
+            }
+            
+            .lightbox-close {
+                font-size: 30px;
+                top: 20px;
+                right: 20px;
+            }
         }
     </style>
 </head>
@@ -261,20 +355,20 @@
             <!-- Сынып фотосы және статистика блогы -->
             <div class="class-photo-section">
                 <!-- Фото галерея (4-5 фото) -->
-                <div class="photo-gallery">
-                    <div class="gallery-item">
+                <div class="photo-gallery" id="photoGallery">
+                    <div class="gallery-item" onclick="openLightbox(0)">
                         <img src="images/class-photo-1.jpg" alt="Сынып фото 1" onerror="this.src='https://via.placeholder.com/300x250?text=Сынып+фото+1'">
                     </div>
-                    <div class="gallery-item">
+                    <div class="gallery-item" onclick="openLightbox(1)">
                         <img src="images/class-photo-2.jpg" alt="Сынып фото 2" onerror="this.src='https://via.placeholder.com/300x250?text=Сынып+фото+2'">
                     </div>
-                    <div class="gallery-item">
+                    <div class="gallery-item" onclick="openLightbox(2)">
                         <img src="images/class-photo-3.jpg" alt="Сынып фото 3" onerror="this.src='https://via.placeholder.com/300x250?text=Сынып+фото+3'">
                     </div>
-                    <div class="gallery-item">
+                    <div class="gallery-item" onclick="openLightbox(3)">
                         <img src="images/class-photo-4.jpg" alt="Сынып фото 4" onerror="this.src='https://via.placeholder.com/300x250?text=Сынып+фото+4'">
                     </div>
-                    <div class="gallery-item">
+                    <div class="gallery-item" onclick="openLightbox(4)">
                         <img src="images/class-photo-5.jpg" alt="Сынып фото 5" onerror="this.src='https://via.placeholder.com/300x250?text=Сынып+фото+5'">
                     </div>
                 </div>
@@ -363,6 +457,15 @@
         </div>
     </section>
 
+    <!-- Lightbox (фото үлкейту) -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <span class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">&#10094;</span>
+        <span class="lightbox-nav lightbox-next" onclick="changeImage(1)">&#10095;</span>
+        <img id="lightbox-img" src="" alt="Үлкейтілген фото">
+        <div class="lightbox-counter" id="lightbox-counter"></div>
+    </div>
+
     <!-- Футер -->
     <footer class="footer">
         <div class="container">
@@ -388,18 +491,89 @@
                     <p><i class="fas fa-phone" style="color: #ffb347; margin-right: 8px;"></i> +7 (777) 123 45 67</p>
                     <p><i class="fas fa-envelope" style="color: #ffb347; margin-right: 8px;"></i> shynar@school.kz</p>
                 </div>
-               
                 </div>
             </div>
             <div class="footer-bottom" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; color: white;">
                 <p>&copy; 2026 Адал азамат. Барлық құқықтар қорғалған.</p>
                 <div>
-
                 </div>
             </div>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        // Lightbox функциялары
+        let currentImageIndex = 0;
+        const images = [
+            'images/class-photo-1.jpg',
+            'images/class-photo-2.jpg',
+            'images/class-photo-3.jpg',
+            'images/class-photo-4.jpg',
+            'images/class-photo-5.jpg'
+        ];
+        
+        function openLightbox(index) {
+            currentImageIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const counter = document.getElementById('lightbox-counter');
+            
+            // Фото жоқ болса, placeholder көрсету
+            lightboxImg.src = images[index];
+            lightboxImg.onerror = function() {
+                this.src = 'https://via.placeholder.com/800x600?text=Фото+жүктелмеді';
+            };
+            
+            counter.textContent = (index + 1) + ' / ' + images.length;
+            lightbox.classList.add('active');
+            
+            // Скроллды бұғаттау
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            
+            if (currentImageIndex < 0) {
+                currentImageIndex = images.length - 1;
+            } else if (currentImageIndex >= images.length) {
+                currentImageIndex = 0;
+            }
+            
+            const lightboxImg = document.getElementById('lightbox-img');
+            const counter = document.getElementById('lightbox-counter');
+            
+            lightboxImg.src = images[currentImageIndex];
+            lightboxImg.onerror = function() {
+                this.src = 'https://via.placeholder.com/800x600?text=Фото+жүктелмеді';
+            };
+            
+            counter.textContent = (currentImageIndex + 1) + ' / ' + images.length;
+        }
+        
+        // Esc пернесімен жабу
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (e.key === 'ArrowLeft') {
+                changeImage(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeImage(1);
+            }
+        });
+        
+        // Lightbox сыртын басқанда жабу
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+    </script>
 </body>
 </html>

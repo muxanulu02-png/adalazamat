@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>House Repair HTML</title>
+    <title>Адал азамат - Шынар Ерланқызы</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Главный CSS -->
@@ -51,6 +51,21 @@
         .quote-form:hover::after {
             opacity: 1;
         }
+        
+        /* Стили для активных ссылок */
+        .main-nav a {
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .main-nav a:hover {
+            color: #ffb347;
+        }
+        
+        .main-nav a.active {
+            color: #ffb347;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -75,15 +90,15 @@
         <div class="container">
             <div class="logo">
                 <h1>Тақырыбы <span>Адал азамат</span></h1>
-                <p class="logo-text">Мұғалім:Насиболла Шынар Ерланқызы</p>
+                <p class="logo-text">Мұғалім: Насиболла Шынар Ерланқызы</p>
             </div>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="#" class="active">Басты бет</a></li>
-                    <li><a href="#">Құндылықтар </a></li>
-                    <li><a href="#">Ай атаулары</a></li>
-                    <li><a href="#">Адал азамат- біртұтас тәрбие» бойынша жұмыстарым</a></li>
-                    <li><a href="#">Жеке деректер</a></li>
+                    <li><a href="index.html" class="active">Басты бет</a></li>
+                    <li><a href="kundylyktar.html">Құндылықтар</a></li>
+                    <li><a href="ai-ataulary.html">Ай атаулары</a></li>
+                    <li><a href="adal-azamat.html">Адал азамат - біртұтас тәрбие</a></li>
+                    <li><a href="jeke-derekter.html">Жеке деректер</a></li>
                 </ul>
             </nav>
             <a href="#" class="quote-btn">Насиболла Шынар Ерланқызы</a>
@@ -99,10 +114,9 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h2>Адал азамат <span></span><br></h2>
-                    <p>Мұғалім: Насиболла Шынар Ерланқызы
-Мекеме: 41 мектеп-лицей
-Лауазымы:Ағылшын тілі пәні мұғалімі
-</p>
+                    <p>Мұғалім: Насиболла Шынар Ерланқызы<br>
+Мекеме: 41 мектеп-лицей<br>
+Лауазымы: Ағылшын тілі пәні мұғалімі</p>
                 </div>
                 
                 <!-- ЗДЕСЬ ТЕПЕРЬ ФОТО ВМЕСТО ФОРМЫ -->
@@ -116,7 +130,7 @@
     <!-- Секция отзывов Client Stories -->
     <section class="testimonials">
         <div class="container">
-            <h2 class="section-title">CLIENT STORIES</h2>
+            <h2 class="section-title">Пікірлер</h2>
             <div class="testimonials-slider" id="testimonialsSlider">
                 <div class="testimonials-track">
                     <div class="testimonial-card">
@@ -127,8 +141,8 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <p class="testimonial-text">"Great theme & fast Support."</p>
-                        <p class="client-name">Nicole Smith <span>Purchaser</span></p>
+                        <p class="testimonial-text">"Өте жақсы мұғалім! Балам ағылшын тілін жақсы көретін болды."</p>
+                        <p class="client-name">Айгүл Серік <span>Ата-ана</span></p>
                     </div>
 
                     <div class="testimonial-card">
@@ -139,8 +153,8 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <p class="testimonial-text">"A friend recommended M2, and I couldn't be happier… it was fast, easy, and most importantly, it allowed me to focus on my business while leaving the construction matters to the professionals."</p>
-                        <p class="client-name">John Doe <span>SEO, Some Co.</span></p>
+                        <p class="testimonial-text">"Шынар Ерланқызының сабақтары өте қызықты өтеді. Біз ағылшын тілін үйренуді жақсы көреміз!"</p>
+                        <p class="client-name">Ержан Нұрлан <span>Оқушы</span></p>
                     </div>
 
                     <div class="testimonial-card">
@@ -151,8 +165,8 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <p class="testimonial-text">"Best purchase i made on ThemeForest. Great Theme!"</p>
-                        <p class="client-name">Anna Smith <span>Purchaser</span></p>
+                        <p class="testimonial-text">"Кәсіби маман, балалармен тіл табыса біледі. Рахмет!"</p>
+                        <p class="client-name">Гүлнар Асқар <span>Ата-ана</span></p>
                     </div>
 
                     <div class="testimonial-card">
@@ -163,8 +177,8 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <p class="testimonial-text">"Hi! I've just check and it works perfectly! Thank you very much for your kindness and for all the work you've done to solve all issues. I'll write about your fantastic support wherever I can. Thanks again."</p>
-                        <p class="client-name">Anna Black <span>Purchaser</span></p>
+                        <p class="testimonial-text">"Сабақтар әрқашан қызықты және пайдалы. Шынар Ерланқызы - үздік мұғалім!"</p>
+                        <p class="client-name">Дәурен Қайрат <span>Оқушы</span></p>
                     </div>
 
                     <div class="testimonial-card">
@@ -175,8 +189,8 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <p class="testimonial-text">"Hello All, Firstly, thank you so much for the great template! I have spent around 10hrs looking for a good template and yours was the best!"</p>
-                        <p class="client-name">Mike Doe <span>Purchaser</span></p>
+                        <p class="testimonial-text">"Баламның үлгерімі жақсарды, ағылшын тіліне деген қызығушылығы артты."</p>
+                        <p class="client-name">Ләззат Марат <span>Ата-ана</span></p>
                     </div>
 
                     <div class="testimonial-card">
@@ -187,8 +201,8 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <p class="testimonial-text">"Great theme & fast Support."</p>
-                        <p class="client-name">Nicole Smith <span>Purchaser</span></p>
+                        <p class="testimonial-text">"Өте шыдамды, түсіндіруі анық және түсінікті."</p>
+                        <p class="client-name">Айжан Бақыт <span>Ата-ана</span></p>
                     </div>
 
                     <div class="testimonial-card">
@@ -199,8 +213,8 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <p class="testimonial-text">"A friend recommended M2, and I couldn't be happier… it was fast, easy, and most importantly, it allowed me to focus on my business while leaving the construction matters to the professionals."</p>
-                        <p class="client-name">John Doe <span>SEO, Some Co.</span></p>
+                        <p class="testimonial-text">"Шынар Ерланқызының сабақтарында әрқашан жаңа әдіс-тәсілдер қолданылады."</p>
+                        <p class="client-name">Меруерт Талғат <span>Әріптес</span></p>
                     </div>
                 </div>
                 <div class="slider-nav">
@@ -214,40 +228,40 @@
     <!-- Блог секция -->
     <section class="blog">
         <div class="container">
-            <h2 class="section-title">BLOG</h2>
-            <p class="section-subtitle">We are happy to share a sampling of our media appearances and mentions with you here</p>
+            <h2 class="section-title">Блог</h2>
+            <p class="section-subtitle">Менің жұмыстарым мен жетістіктерім</p>
             
             <div class="blog-grid">
                 <article class="blog-card">
                     <div class="blog-image">
-                        <img src="images/deck-rescue.jpg" alt="Deck Rescue" onerror="this.src='https://via.placeholder.com/380x250'">
+                        <img src="images/deck-rescue.jpg" alt="Ағылшын тілін үйрену" onerror="this.src='https://via.placeholder.com/380x250?text=Ағылшын+тілі'">
                     </div>
                     <div class="blog-content">
-                        <h3>Deck Rescue: Renew Your Deck</h3>
-                        <p>Aenean convallis elementum sollicitudin. Duis suscipit ex eget sagittis finibus. Pellentesque in eleifend enim, eget sagittis erat. Nulla vestibulum lorem...</p>
-                        <a href="#" class="read-more">READ MORE</a>
+                        <h3>Ағылшын тілін қалай тез үйренуге болады?</h3>
+                        <p>Ағылшын тілін үйренудің тиімді әдістері мен тәсілдері. Жаңа сөздерді жаттау, грамматиканы түсіну және сөйлеу дағдыларын дамыту.</p>
+                        <a href="#" class="read-more">ТОЛЫҒЫРАҚ</a>
                     </div>
                 </article>
 
                 <article class="blog-card">
                     <div class="blog-image">
-                        <img src="images/remove-wall.jpg" alt="Remove Wall" onerror="this.src='https://via.placeholder.com/380x250'">
+                        <img src="images/remove-wall.jpg" alt="Адал азамат тәрбиесі" onerror="this.src='https://via.placeholder.com/380x250?text=Адал+азамат'">
                     </div>
                     <div class="blog-content">
-                        <h3>How to Remove a Wall</h3>
-                        <p>Nulla tempus massa libero, at luctus lorem sagittis sit amet. Maecenas faucibus dapibus nisl, in euismod nunc efficitur vitae. Mauris blandit ut tellus ac...</p>
-                        <a href="#" class="read-more">READ MORE</a>
+                        <h3>Адал азамат тәрбиесі - біртұтас бағдарлама</h3>
+                        <p>Оқушыларды адалдыққа, еңбекқорлыққа және патриотизмге тәрбиелеу жолдары. Мектептегі тәрбие жұмысының тиімді әдістері.</p>
+                        <a href="#" class="read-more">ТОЛЫҒЫРАҚ</a>
                     </div>
                 </article>
 
                 <article class="blog-card">
                     <div class="blog-image">
-                        <img src="images/soundproof.jpg" alt="Soundproof Room" onerror="this.src='https://via.placeholder.com/380x250'">
+                        <img src="images/soundproof.jpg" alt="Жаңа әдіс-тәсілдер" onerror="this.src='https://via.placeholder.com/380x250?text=Жаңа+әдістер'">
                     </div>
                     <div class="blog-content">
-                        <h3>How to Soundproof a Room</h3>
-                        <p>Nunc id purus porta, dignissim ligula sit amet, laoreet odio. Nunc dignissim venenatis dolor, eu dictum libero mollis at. Phasellus ac feugiat quam. Morbi...</p>
-                        <a href="#" class="read-more">READ MORE</a>
+                        <h3>Ағылшын тілі сабағында қолданатын жаңа әдіс-тәсілдер</h3>
+                        <p>Интерактивті ойындар, топтық жұмыс, жобалық әдіс және басқа да тиімді тәсілдер туралы.</p>
+                        <a href="#" class="read-more">ТОЛЫҒЫРАҚ</a>
                     </div>
                 </article>
             </div>
@@ -259,15 +273,15 @@
         <div class="container">
             <div class="why-choose-grid">
                 <div class="why-choose-content">
-                    <h2>WHY CHOOSE US</h2>
-                    <p>We turn your home into the coziest place on earth. Many year experience and hundreds of projects have made our team a professional on this area. We are attentive to our customers and we stand behind our promise to deliver timely and quality service. Our company does its work with the customer in mind. That is why your are getting the best service in the country to fulfill your most sophisticated demands.</p>
+                    <h2>НЕГІЗГІ ҚҰНДЫЛЫҚТАР</h2>
+                    <p>Біздің мектеп-лицейде оқушыларды тәрбиелеуде басты назарда ұстайтын құндылықтар: адалдық, еңбекқорлық, патриотизм, білімділік және жауапкершілік. Әрбір оқушы - болашақтың адал азаматы.</p>
                 </div>
                 <div class="skills-section">
-                    <h3>SKILLS</h3>
+                    <h3>ҚҰЗЫРЕТТІЛІКТЕР</h3>
                     
                     <div class="skill-item">
                         <div class="skill-label">
-                            <span>Electrical</span>
+                            <span>Ағылшын тілі</span>
                             <span class="skill-percent" data-target="95">0%</span>
                         </div>
                         <div class="progress-bar">
@@ -277,7 +291,7 @@
 
                     <div class="skill-item">
                         <div class="skill-label">
-                            <span>Cabinet Repairs</span>
+                            <span>Тәрбие жұмысы</span>
                             <span class="skill-percent" data-target="90">0%</span>
                         </div>
                         <div class="progress-bar">
@@ -287,7 +301,7 @@
 
                     <div class="skill-item">
                         <div class="skill-label">
-                            <span>Plumbing Repairs</span>
+                            <span>Жаңа әдіс-тәсілдер</span>
                             <span class="skill-percent" data-target="99">0%</span>
                         </div>
                         <div class="progress-bar">
@@ -302,15 +316,15 @@
     <!-- Style Panel -->
     <section class="style-panel">
         <div class="container">
-            <h3>Choose Your Style</h3>
+            <h3>Тақырып таңдау</h3>
             <div class="style-options">
                 <div class="style-option">
-                    <span>Body style:</span>
-                    <button class="style-btn light-btn active">Light</button>
-                    <button class="style-btn dark-btn">Dark</button>
+                    <span>Фон түсі:</span>
+                    <button class="style-btn light-btn active">Ашық</button>
+                    <button class="style-btn dark-btn">Қараңғы</button>
                 </div>
                 <div class="style-option">
-                    <span>Theme colors:</span>
+                    <span>Негізгі түс:</span>
                     <div class="color-picker">
                         <span class="color-dot active" data-color="#ffb347" style="background: #ffb347"></span>
                         <span class="color-dot" data-color="#3498db" style="background: #3498db"></span>
@@ -326,26 +340,28 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-section">
-                    <h4>HOUSE REPAIR</h4>
-                    <p>Professional building services since 2005</p>
+                    <h4>АДАЛ АЗАМАТ</h4>
+                    <p>Мұғалім: Насиболла Шынар Ерланқызы</p>
+                    <p>41 мектеп-лицей</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Quick Links</h4>
+                    <h4>Мәзір</h4>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="index.html">Басты бет</a></li>
+                        <li><a href="kundylyktar.html">Құндылықтар</a></li>
+                        <li><a href="ai-ataulary.html">Ай атаулары</a></li>
+                        <li><a href="adal-azamat.html">Адал азамат - біртұтас тәрбие</a></li>
+                        <li><a href="jeke-derekter.html">Жеке деректер</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> 123 Main Street, New York</p>
-                    <p><i class="fas fa-phone"></i> +1 (800) 456 78 90</p>
-                    <p><i class="fas fa-envelope"></i> info@houserepair.com</p>
+                    <h4>Байланыс</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 41 мектеп-лицей, Қазақстан</p>
+                    <p><i class="fas fa-phone"></i> +7 (XXX) XXX XX XX</p>
+                    <p><i class="fas fa-envelope"></i> shynar@school.kz</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Follow Us</h4>
+                    <h4>Әлеуметтік желілер</h4>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -355,16 +371,32 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 House Repair HTML. All rights reserved.</p>
+                <p>&copy; 2026 Адал азамат. Барлық құқықтар қорғалған.</p>
                 <div class="login-links">
-                    <a href="#"><i class="fas fa-lock"></i> Login</a>
+                    <a href="#"><i class="fas fa-lock"></i> Кіру</a>
                     <span>|</span>
-                    <a href="#">Problem with login?</a>
+                    <a href="#">Кіруде проблема бар?</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        // Активация текущей страницы в меню
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.main-nav a');
+            
+            navLinks.forEach(link => {
+                const linkPage = link.getAttribute('href');
+                if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

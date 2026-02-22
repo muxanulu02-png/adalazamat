@@ -1158,36 +1158,29 @@
     document.getElementById('modalTitle').textContent = data.title;
     
     // Вставляем видео (бірнеше видео қолдау)
-    const videoContainer = document.getElementById('videoContainer');
+    // Вставляем видео (бірнеше видео қолдау)
+const videoContainer = document.getElementById('videoContainer');
+
+if (data.videos && data.videos.length > 0) {
+    let videosHtml = '<div style="background:#f0f0f0; padding:15px; border-radius:15px; margin-bottom:20px;">';
+    videosHtml += '<p style="color:#333; margin-bottom:10px;"><i class="fas fa-info-circle"></i> Видео файлдары тексерілуде...</p>';
     
-    if (data.videos && data.videos.length > 0) {
-        // Егер videos массиві болса, барлық видеоларды көрсет
-        let videosHtml = '';
-        data.videos.forEach((video, index) => {
-            videosHtml += `
-                <div style="margin-bottom: 20px;">
-                    <video controls style="width:100%; border-radius:15px;" poster="images/project${projectNumber}/poster${index+1}.jpg">
-                        <source src="${video}" type="video/mp4">
-                        Сіздің браузеріңіз видео тегін қолдамайды.
-                    </video>
-                </div>
-            `;
-        });
-        videoContainer.innerHTML = videosHtml;
-    } 
-    else if (data.video) {
-        // Ескі нұсқамен үйлесімділік үшін (бір ғана видео)
-        videoContainer.innerHTML = `
-            <video controls style="width:100%; border-radius:15px;" poster="images/project${projectNumber}/poster.jpg">
-                <source src="${data.video}" type="video/mp4">
-                Сіздің браузеріңіз видео тегін қолдамайды.
-            </video>
+    data.videos.forEach((video, index) => {
+        videosHtml += `
+            <div style="margin-bottom: 25px; padding:15px; background:white; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
+                <p style="margin-bottom:8px; font-weight:bold; color:#ffb347;">Видео ${index+1}: ${video}</p>
+                <video controls style="width:100%; border-radius:10px;" 
+                       onerror="this.parentElement.innerHTML+='<p style=\'color:red; margin-top:10px;\'><i class=\'fas fa-exclamation-circle\'></i> Қате: Видео жүктелмеді! Файл жолын тексеріңіз: ${video}</p>'">
+                    <source src="${video}" type="video/mp4">
+                    Браузер видео тегін қолдамайды
+                </video>
+                <p style="margin-top:8px; color:#666; font-size:13px;">Файл жолы: <strong>${video}</strong></p>
+            </div>
         `;
-    }
-    else {
-        // Видео жоқ болса
-        videoContainer.innerHTML = '<p style="color:#666; text-align:center; padding:40px;">Видео жоқ</p>';
-    }
+    });
+    videosHtml += '</div>';
+    videoContainer.innerHTML = videosHtml;
+} 
     
     // Вставляем фото
     const photosGrid = document.getElementById('photosGrid');

@@ -549,12 +549,31 @@
 
         .video-container {
             width: 100%;
+        }
+
+        .video-item {
+            margin-bottom: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .video-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffb347;
+            margin-bottom: 10px;
+        }
+
+        .video-wrapper {
+            width: 100%;
             background: #000;
-            border-radius: 20px;
+            border-radius: 10px;
             overflow: hidden;
         }
 
-        .video-container video {
+        .video-wrapper video {
             width: 100%;
             height: auto;
             display: block;
@@ -1014,7 +1033,7 @@
             <div class="modal-body">
                 <!-- Видео секция -->
                 <div class="video-section">
-                    <h3><i class="fas fa-video"></i> Видео</h3>
+                    <h3><i class="fas fa-video"></i> Видеолар</h3>
                     <div class="video-container" id="videoContainer">
                         <!-- Видео будет вставлено через JavaScript -->
                     </div>
@@ -1059,7 +1078,17 @@
                         <li><a href="menin-synybym.html"><i class="fas fa-chevron-right"></i> Менің сыныбым</a></li>
                         <li><a href="jeke-derekter.html"><i class="fas fa-chevron-right"></i> Жеке деректер</a></li>
                     </ul>
-                </div>    
+                </div>
+                
+                <div class="footer-section">
+                    <h4>БАЙЛАНЫС</h4>
+                    <p><i class="fas fa-phone"></i> +7 (xxx) xxx-xx-xx</p>
+                    <p><i class="fas fa-envelope"></i> shynar.nasibolla.02@mail.ru</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
             </div>
             
             <div class="footer-bottom">
@@ -1067,28 +1096,17 @@
                     <i class="far fa-copyright"></i> 2026 Адал азамат. Барлық құқықтар қорғалған. 
                     <span style="color: #ffb347; margin-left: 10px;">#БіртұтасТәрбие</span>
                 </p>
-                <div class="login-links">
-                    <a href="#"><i class="fas fa-lock"></i> Кіру</a>
-                    <span>|</span>
-                    <a href="#"><i class="fas fa-question-circle"></i> Кіруде проблема бар?</a>
-                    <span>|</span>
-                    <a href="#"><i class="fas fa-sitemap"></i> Сайт картасы</a>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 20px; color: rgba(255,255,255,0.3); font-size: 12px;">
-                <i class="fas fa-heart" style="color: #ffb347;"></i> 41 мектеп-лицей ұжымымен жасалды
             </div>
         </div>
     </footer>
 
     <script>
-        // Данные для каждого проекта (жергілікті файлдар)
+        // Данные для каждого проекта
         const projectsData = {
             1: {
                 badge: '№1 Жоба',
                 title: '«Stop bullying»',
-                video: 'videos/project1/video.mp4',
+                videos: ['videos/project1/video.mp4'],
                 photos: [
                     'images/project1/photo1.jpg',
                     'images/project1/photo2.jpg',
@@ -1097,25 +1115,25 @@
                     'images/project1/photo5.jpg'
                 ]
             },
-         2: {
-    badge: '№2 Жоба',
-    title: '«Көңілді үзіліс»',
-    videos: [
-        'videos/project2/video1.mp4',
-        'videos/project2/video2.mp4',
-        'videos/project2/video3.mp4'
-    ],
-    photos: [
-        'images/project2/photo1.jpg',
-        'images/project2/photo2.jpg',
-        'images/project2/photo4.jpg',
-        'images/project2/photo5.jpg'
-    ]
-},
+            2: {
+                badge: '№2 Жоба',
+                title: '«Көңілді үзіліс»',
+                videos: [
+                    'videos/project2/video1.mp4',
+                    'videos/project2/video2.mp4',
+                    'videos/project2/video3.mp4'
+                ],
+                photos: [
+                    'images/project2/photo1.jpg',
+                    'images/project2/photo2.jpg',
+                    'images/project2/photo4.jpg',
+                    'images/project2/photo5.jpg'
+                ]
+            },
             3: {
                 badge: '№3 Жоба',
                 title: '«Ұрпаққа аманат»',
-                video: 'videos/project3/video.mp4',
+                videos: ['videos/project3/video.mp4'],
                 photos: [
                     'images/project3/photo1.jpg',
                     'images/project3/photo2.jpg',
@@ -1129,6 +1147,7 @@
             4: {
                 badge: '№4 Жоба',
                 title: '«Зерек оқырман»',
+                videos: [],
                 photos: [
                     'images/project4/photo1.jpg',
                     'images/project4/photo2.jpg',
@@ -1138,7 +1157,7 @@
             5: {
                 badge: '№5 Жоба',
                 title: '«Белсенді жұма»',
-                video: 'videos/project5/video.mp4',
+                videos: ['videos/project5/video.mp4'],
                 photos: [
                     'images/project5/photo1.jpg',
                     'images/project5/photo2.jpg',
@@ -1150,61 +1169,67 @@
         };
 
         function openModal(projectNumber) {
-    const modal = document.getElementById('projectModal');
-    const data = projectsData[projectNumber];
-    
-    // Обновляем содержимое модала
-    document.getElementById('modalBadge').textContent = data.badge;
-    document.getElementById('modalTitle').textContent = data.title;
-    
-    // Вставляем видео (бірнеше видео қолдау)
-    // Вставляем видео (бірнеше видео қолдау)
-const videoContainer = document.getElementById('videoContainer');
-
-if (data.videos && data.videos.length > 0) {
-    let videosHtml = '<div style="background:#f0f0f0; padding:15px; border-radius:15px; margin-bottom:20px;">';
-    videosHtml += '<p style="color:#333; margin-bottom:10px;"><i class="fas fa-info-circle"></i> Видео файлдары тексерілуде...</p>';
-    
-    data.videos.forEach((video, index) => {
-        videosHtml += `
-            <div style="margin-bottom: 25px; padding:15px; background:white; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
-                <p style="margin-bottom:8px; font-weight:bold; color:#ffb347;">Видео ${index+1}: ${video}</p>
-                <video controls style="width:100%; border-radius:10px;" 
-                       onerror="this.parentElement.innerHTML+='<p style=\'color:red; margin-top:10px;\'><i class=\'fas fa-exclamation-circle\'></i> Қате: Видео жүктелмеді! Файл жолын тексеріңіз: ${video}</p>'">
-                    <source src="${video}" type="video/mp4">
-                    Браузер видео тегін қолдамайды
-                </video>
-                <p style="margin-top:8px; color:#666; font-size:13px;">Файл жолы: <strong>${video}</strong></p>
-            </div>
-        `;
-    });
-    videosHtml += '</div>';
-    videoContainer.innerHTML = videosHtml;
-} 
-    
-    // Вставляем фото
-    const photosGrid = document.getElementById('photosGrid');
-    if (data.photos && data.photos.length > 0) {
-        photosGrid.innerHTML = data.photos.map(photo => `
-            <div class="photo-item" onclick="openImageLightbox('${photo}')">
-                <img src="${photo}" alt="Project photo" onerror="this.src='https://via.placeholder.com/300x200?text=Фото+жүктелмеді'">
-            </div>
-        `).join('');
-    } else {
-        photosGrid.innerHTML = '<p style="color:#666; text-align:center; padding:40px;">Фотосуреттер жоқ</p>';
-    }
-    
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
+            const modal = document.getElementById('projectModal');
+            const data = projectsData[projectNumber];
+            
+            document.getElementById('modalBadge').textContent = data.badge;
+            document.getElementById('modalTitle').textContent = data.title;
+            
+            // Видеоларды көрсету
+            const videoContainer = document.getElementById('videoContainer');
+            
+            if (data.videos && data.videos.length > 0) {
+                let videosHtml = '';
+                
+                data.videos.forEach((video, index) => {
+                    videosHtml += `
+                        <div class="video-item">
+                            <div class="video-title">
+                                <i class="fas fa-play-circle" style="color:#ffb347; margin-right:8px;"></i>
+                                ${index + 1}-ші видео
+                            </div>
+                            <div class="video-wrapper">
+                                <video controls preload="metadata">
+                                    <source src="${video}?t=1" type="video/mp4">
+                                    Сіздің браузеріңіз видео тегін қолдамайды.
+                                </video>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                videoContainer.innerHTML = videosHtml;
+            } else {
+                videoContainer.innerHTML = '<p style="color:#666; text-align:center; padding:40px;">Бұл жобада видео жоқ</p>';
+            }
+            
+            // Фотосуреттерді көрсету
+            const photosGrid = document.getElementById('photosGrid');
+            
+            if (data.photos && data.photos.length > 0) {
+                photosGrid.innerHTML = data.photos.map(photo => `
+                    <div class="photo-item" onclick="openImageLightbox('${photo}')">
+                        <img src="${photo}" alt="Project photo" 
+                             onerror="this.src='https://via.placeholder.com/300x200?text=Фото+жүктелмеді'">
+                    </div>
+                `).join('');
+            } else {
+                photosGrid.innerHTML = '<p style="color:#666; text-align:center; padding:40px;">Фотосуреттер жоқ</p>';
+            }
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
 
         function closeModal() {
             document.getElementById('projectModal').classList.remove('active');
             document.body.style.overflow = 'auto';
             
-            // Останавливаем видео
-            const videoContainer = document.getElementById('videoContainer');
-            videoContainer.innerHTML = '';
+            // Видеоларды тоқтату
+            const videos = document.querySelectorAll('#videoContainer video');
+            videos.forEach(video => {
+                video.pause();
+            });
         }
 
         function openImageLightbox(src) {
@@ -1220,14 +1245,12 @@ if (data.videos && data.videos.length > 0) {
             document.body.style.overflow = 'auto';
         }
 
-        // Закрытие модала при клике вне контента
         document.getElementById('projectModal').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeModal();
             }
         });
 
-        // Закрытие по ESC
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeModal();
@@ -1235,26 +1258,17 @@ if (data.videos && data.videos.length > 0) {
             }
         });
 
-        // Күн жаңарту
         document.addEventListener('DOMContentLoaded', function() {
-            const clockIcons = document.querySelectorAll('.top-bar-left .fa-clock');
+            const today = new Date();
+            const day = String(today.getDate()).padStart(2, '0');
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            const year = today.getFullYear();
             
-            if (clockIcons.length > 0) {
-                clockIcons.forEach(icon => {
-                    const parentSpan = icon.parentElement;
-                    if (parentSpan) {
-                        const today = new Date();
-                        const day = String(today.getDate()).padStart(2, '0');
-                        const month = String(today.getMonth() + 1).padStart(2, '0');
-                        const year = today.getFullYear();
-                        const formattedDate = `${day}.${month}.${year}`;
-                        
-                        parentSpan.innerHTML = `<i class="far fa-clock"></i> ${formattedDate}`;
-                    }
-                });
+            const clockSpan = document.querySelector('.top-bar-left span');
+            if (clockSpan) {
+                clockSpan.innerHTML = `<i class="far fa-clock"></i> ${day}.${month}.${year}`;
             }
             
-            // Активті сілтеме
             const currentPage = window.location.pathname.split('/').pop();
             const navLinks = document.querySelectorAll('.main-nav a');
             

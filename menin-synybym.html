@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Менің сыныбым - Адал азамат</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: #1e2a3a;
+            color: #fff;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .top-bar-left span {
+            margin-right: 20px;
+        }
+
+        .top-bar-left i {
+            margin-right: 8px;
+            color: #ffb347;
+        }
+
+        .top-bar-right a {
+            color: #fff;
+            margin-left: 15px;
+            transition: color 0.3s;
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .top-bar-right a:hover {
+            color: #ffb347;
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Main Header */
+        .main-header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            color: #1e2a3a;
+        }
+
+        .logo h1 span {
+            color: #ffb347;
+            font-weight: 700;
+        }
+
+        .logo-text {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+            letter-spacing: 1px;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #1e2a3a;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ffb347;
+            transition: width 0.3s;
+        }
+
+        .main-nav a:hover {
+            color: #ffb347;
+        }
+
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+
+        .main-nav a.active {
+            color: #ffb347;
+            font-weight: 600;
+        }
+
+        .main-nav a.active::after {
+            width: 100%;
+        }
+
+        .quote-btn {
+            background: linear-gradient(45deg, #ffb347, #ff9f1a);
+            color: #1e2a3a !important;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+            border: none;
+            box-shadow: 0 5px 15px rgba(255,180,70,0.3);
+        }
+
+        .quote-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255,180,70,0.4);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #1e2a3a;
+        }
+
+        /* My Class Page */
+        .myclass-page {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-header h1 {
+            font-size: 42px;
+            color: white;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .page-header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #ffb347, #ff9f1a);
+            border-radius: 2px;
+        }
+
+        .page-header p {
+            font-size: 20px;
+            color: rgba(255,255,255,0.9);
+            max-width: 700px;
+            margin: 20px auto 0;
+        }
+
+        .class-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ffb347, #ff9f1a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+            color: #1e2a3a;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1e2a3a;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-size: 32px;
+            color: white;
+            margin: 50px 0 30px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .students-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .student-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+
+        .student-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+
+        .student-avatar {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .student-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .student-card:hover .student-avatar img {
+            transform: scale(1.1);
+        }
+
+        .student-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ffb347;
+            color: #1e2a3a;
+            padding: 5px 15px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .student-info {
+            padding: 20px;
+        }
+
+        .student-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e2a3a;
+            margin-bottom: 5px;
+        }
+
+        .student-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .student-stats i {
+            color: #ffb347;
+            margin-right: 5px;
+        }
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .achievement-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .achievement-icon {
+            font-size: 48px;
+            color: #ffb347;
+            margin-bottom: 15px;
+        }
+
+        .achievement-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1e2a3a;
+            margin-bottom: 10px;
+        }
+
+        .achievement-desc {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .class-photo {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 50px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .class-photo h3 {
+            font-size: 24px;
+            color: #1e2a3a;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .photo-item {
+            height: 200px;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .photo-item:hover {
+            transform: scale(1.05);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.95);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            object-fit: contain;
+            border: 3px solid #ffb347;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(255,180,70,0.3);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            transition: color 0.3s;
+            z-index: 10000;
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-close:hover {
+            color: #ffb347;
+            background: rgba(255,255,255,0.2);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            padding: 20px;
+            transition: all 0.3s;
+            z-index: 10000;
+            background: rgba(255,255,255,0.1);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .lightbox-nav:hover {
+            color: #ffb347;
+            background: rgba(255,255,255,0.2);
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        .lightbox-counter {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: white;
+            font-size: 16px;
+            z-index: 10000;
+            background: rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border-radius: 30px;
+            display: inline-block;
+            margin: 0 auto;
+            width: auto;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1e2a3a 0%, #2c3e50 100%);
+            color: #fff;
+            padding: 60px 0 20px;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ffb347, #ff9f1a, #ffb347);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-section h4 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 12px;
+            color: #ffb347;
+        }
+
+        .footer-section h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #ffb347, #ff9f1a);
+            border-radius: 2px;
+        }
+
+        .footer-section p {
+            margin-bottom: 12px;
+            color: rgba(255,255,255,0.8);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .footer-section p i {
+            margin-right: 10px;
+            color: #ffb347;
+            width: 20px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul li a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+            font-size: 15px;
+        }
+
+        .footer-section ul li a:hover {
+            color: #ffb347;
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: #fff;
+            transition: all 0.3s;
+            font-size: 18px;
+        }
+
+        .social-links a:hover {
+            background: #ffb347;
+            color: #1e2a3a;
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+        }
+
+        .login-links {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .login-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .login-links a:hover {
+            color: #ffb347;
+        }
+
+        .login-links span {
+            color: rgba(255,255,255,0.2);
+        }
+
+        .footer-badge {
+            background: #ffb347;
+            color: #1e2a3a;
+            padding: 5px 15px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 992px) {
+            .main-nav {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .class-stats, .students-grid, .achievement-grid, .photo-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .class-stats, .students-grid, .achievement-grid, .photo-gallery {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            .lightbox-nav {
+                font-size: 30px;
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Верхняя полоса -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-left">
+                <span><i class="far fa-clock"></i> 21.02.2026</span>
+                <span><i class="fas fa-phone-alt"></i> +7 (777) 123-45-67</span>
+                <span><i class="fas fa-envelope"></i> shynar@school.kz</span>
+            </div>
+            <div class="top-bar-right">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Хедер -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1><span>Адал азамат</span></h1>
+                <p class="logo-text">Насиболла Шынар Ерланқызы</p>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Басты бет</a></li>
+                    <li><a href="kundylyktar.html">Құндылықтар</a></li>
+                    <li><a href="ai-ataulary.html">Ай атаулары</a></li>
+                    <li><a href="adal-azamat.html">Адал азамат</a></li>
+                    <li><a href="menin-synybym.html" class="active">Менің сыныбым</a></li>
+                    <li><a href="jeke-derekter.html">Жеке деректер</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="quote-btn"><i class="fas fa-user-graduate"></i> 41 мектеп-лицей</a>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Менің сыныбым беті -->
+    <section class="myclass-page">
+        <div class="container">
+            <div class="page-header">
+                <h1>МЕНІҢ СЫНЫБЫМ</h1>
+                <p><i class="fas fa-heart" style="color: #ffb347;"></i> 11 "Ә" сынып - Біз біргеміз!</p>
+            </div>
+
+            <!-- Статистика -->
+            <div class="class-stats">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    <div class="stat-number">24</div>
+                    <div class="stat-label">Барлық оқушы</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-female"></i></div>
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Қыз бала</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-male"></i></div>
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Ұл бала</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-star"></i></div>
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Үздіктер</div>
+                </div>
+            </div>
+
+            <!-- Жетістіктер -->
+            <h2 class="section-title"><i class="fas fa-trophy"></i> Сынып жетістіктері</h2>
+            <div class="achievement-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon"><i class="fas fa-medal"></i></div>
+                    <div class="achievement-title">Үздік сынып - 2025</div>
+                    <div class="achievement-desc">Мектепішілік байқауда 1-орын</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon"><i class="fas fa-futbol"></i></div>
+                    <div class="achievement-title">Спорттық жетістік</div>
+                    <div class="achievement-desc">Волейболдан 2-орын</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon"><i class="fas fa-microphone"></i></div>
+                    <div class="achievement-title">Өнерлі сынып</div>
+                    <div class="achievement-desc">Мектептік концерттерге белсенді қатысу</div>
+                </div>
+            </div>
+
+            <!-- Оқушылар тізімі -->
+            <h2 class="section-title"><i class="fas fa-user-graduate"></i> Оқушылар тізімі</h2>
+            <div class="students-grid">
+                <!-- Қыздар -->
+                <div class="student-card">
+                    <div class="student-avatar">
+                        <img src="images/student1.jpg" alt="Оқушы" onerror="this.src='https://via.placeholder.com/200?text=Қыз'">
+                        <span class="student-badge"><i class="fas fa-star"></i> Үздік</span>
+                    </div>
+                    <div class="student-info">
+                        <div class="student-name">Айдана Мұрат</div>
+                        <div class="student-stats">
+                            <span><i class="fas fa-female"></i> Қыз</span>
+                            <span><i class="fas fa-star"></i> Үздік</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="student-card">
+                    <div class="student-avatar">
+                        <img src="images/student2.jpg" alt="Оқушы" onerror="this.src='https://via.placeholder.com/200?text=Қыз'">
+                        <span class="student-badge"><i class="fas fa-medal"></i> Екпінді</span>
+                    </div>
+                    <div class="student-info">
+                        <div class="student-name">Әлия Серік</div>
+                        <div class="student-stats">
+                            <span><i class="fas fa-female"></i> Қыз</span>
+                            <span><i class="fas fa-medal"></i> Екпінді</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="student-card">
+                    <div class="student-avatar">
+                        <img src="images/student3.jpg" alt="Оқушы" onerror="this.src='https://via.placeholder.com/200?text=Қыз'">
+                    </div>
+                    <div class="student-info">
+                        <div class="student-name">Гүлнұр Асқар</div>
+                        <div class="student-stats">
+                            <span><i class="fas fa-female"></i> Қыз</span>
+                            <span><i class="fas fa-book"></i> Жақсы</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="student-card">
+                    <div class="student-avatar">
+                        <img src="images/student4.jpg" alt="Оқушы" onerror="this.src='https://via.placeholder.com/200?text=Қыз'">
+                        <span class="student-badge"><i class="fas fa-star"></i> Үздік</span>
+                    </div>
+                    <div class="student-info">
+                        <div class="student-name">Динара Нұрлан</div>
+                        <div class="student-stats">
+                            <span><i class="fas fa-female"></i> Қыз</span>
+                            <span><i class="fas fa-star"></i> Үздік</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="student-card">
+                    <div class="student-avatar">
+                        <img src="images/student5.jpg" alt="Оқушы" onerror="this.src='https://via.placeholder.com/200?text=Қыз'">
+                    </div>
+                    <div class="student-info">
+                        <div class="student-name">Жансая Марат</div>
+                        <div class="student-stats">
+                            <span><i class="fas fa-female"></i> Қыз</span>
+                            <span><i class="fas fa-book"></i> Жақсы</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="student-card">
+                    <div class="student-avatar">
+                        <img src="images/student6.jpg" alt="Оқушы" onerror="this.src='https://via.placeholder.com/200?text=Қыз'">
+                        <span class="student-badge"><i class="fas fa-medal"></i> Екпінді</span>
+                    </div>
+                    <div class="student-info">
+                        <div class="student-name">Зере Бақыт</div>
+                        <div class="student-stats">
+                            <span><i class="fas fa-female"></i> Қыз</span>
+                            <span><i class="fas fa-medal"></i> Екпінді</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Ұлдар -->
+                <div class="student-card">
+                    <div class="student-avatar">
+                        <img src="images/student7.jpg" alt="Оқушы" onerror="this.src='https://via.placeholder.com/200?text=Ұл'">
+                        <span class="student-badge"><i class="fas fa-star"></i> Үздік</span>
+                    </div>
+                    <div class="student-info">
+                        <div class="student-name">Абай Нұрлан</div>
+                        <div class="student-stats">
+                            <span><i class="fas fa-male"></i> Ұл</span>
+                            <span><i class="fas fa-star"></i> Үздік</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="student-card">
+                    <div class="student-avatar">
+                        <img src="images/student8.jpg" alt="Оқушы" onerror="this.src='https://via.placeholder.com/200?text=Ұл'">
+                    </div>
+                    <div class="student-info">
+                        <div class="student-name">Бауыржан Ерлан</div>
+                        <div class="student-stats">
+                            <span><i class="fas fa-male"></i> Ұл</span>
+                            <span><i class="fas fa-book"></i> Жақсы</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="student-card">
+                    <div class="student-avatar">
+                        <img src="images/student9.jpg" alt="Оқушы" onerror="this.src='https://via.placeholder.com/200?text=Ұл'">
+                        <span class="student-badge"><i class="fas fa-medal"></i> Екпінді</span>
+                    </div>
+                    <div class="student-info">
+                        <div class="student-name">Дастан Серік</div>
+                        <div class="student-stats">
+                            <span><i class="fas fa-male"></i> Ұл</span>
+                            <span><i class="fas fa-medal"></i> Екпінді</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="student-card">
+                    <div class="student-avatar">
+                        <img src="images/student10.jpg" alt="Оқушы" onerror="this.src='https://via.placeholder.com/200?text=Ұл'">
+                    </div>
+                    <div class="student-info">
+                        <div class="student-name">Ержан Марат</div>
+                        <div class="student-stats">
+                            <span><i class="fas fa-male"></i> Ұл</span>
+                            <span><i class="fas fa-book"></i> Жақсы</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="student-card">
+                    <div class="student-avatar">
+                        <img src="images/student11.jpg" alt="Оқушы" onerror="this.src='https://via.placeholder.com/200?text=Ұл'">
+                        <span class="student-badge"><i class="fas fa-star"></i> Үздік</span>
+                    </div>
+                    <div class="student-info">
+                        <div class="student-name">Жандос Әлім</div>
+                        <div class="student-stats">
+                            <span><i class="fas fa-male"></i> Ұл</span>
+                            <span><i class="fas fa-star"></i> Үздік</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="student-card">
+                    <div class="student-avatar">
+                        <img src="images/student12.jpg" alt="Оқушы" onerror="this.src='https://via.placeholder.com/200?text=Ұл'">
+                        <span class="student-badge"><i class="fas fa-medal"></i> Екпінді</span>
+                    </div>
+                    <div class="student-info">
+                        <div class="student-name">Қайрат Нұржан</div>
+                        <div class="student-stats">
+                            <span><i class="fas fa-male"></i> Ұл</span>
+                            <span><i class="fas fa-medal"></i> Екпінді</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Сынып фотосы -->
+            <div class="class-photo">
+                <h3><i class="fas fa-camera"></i> Сынып альбомы</h3>
+                <div class="photo-gallery" id="photoGallery">
+                    <div class="photo-item" onclick="openLightbox(0)">
+                        <img src="images/class-photo-1.jpg" alt="Сынып фото 1" onerror="this.src='https://via.placeholder.com/300x200?text=Сынып+фото+1'">
+                    </div>
+                    <div class="photo-item" onclick="openLightbox(1)">
+                        <img src="images/class-photo-2.jpg" alt="Сынып фото 2" onerror="this.src='https://via.placeholder.com/300x200?text=Сынып+фото+2'">
+                    </div>
+                    <div class="photo-item" onclick="openLightbox(2)">
+                        <img src="images/class-photo-3.jpg" alt="Сынып фото 3" onerror="this.src='https://via.placeholder.com/300x200?text=Сынып+фото+3'">
+                    </div>
+                    <div class="photo-item" onclick="openLightbox(3)">
+                        <img src="images/class-photo-4.jpg" alt="Сынып фото 4" onerror="this.src='https://via.placeholder.com/300x200?text=Сынып+фото+4'">
+                    </div>
+                    <div class="photo-item" onclick="openLightbox(4)">
+                        <img src="images/class-photo-5.jpg" alt="Сынып фото 5" onerror="this.src='https://via.placeholder.com/300x200?text=Сынып+фото+5'">
+                    </div>
+                    <div class="photo-item" onclick="openLightbox(5)">
+                        <img src="images/class-photo-6.jpg" alt="Сынып фото 6" onerror="this.src='https://via.placeholder.com/300x200?text=Сынып+фото+6'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></span>
+        <span class="lightbox-nav lightbox-prev" onclick="changeImage(-1)"><i class="fas fa-chevron-left"></i></span>
+        <span class="lightbox-nav lightbox-next" onclick="changeImage(1)"><i class="fas fa-chevron-right"></i></span>
+        <img id="lightbox-img" src="" alt="Үлкейтілген фото">
+        <div class="lightbox-counter" id="lightbox-counter"></div>
+    </div>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <div class="footer-badge">БІЗДІҢ МЕКТЕП</div>
+                    <h4>АДАЛ АЗАМАТ</h4>
+                    <p><i class="fas fa-user"></i> Мұғалім: Насиболла Шынар Ерланқызы</p>
+                    <p><i class="fas fa-school"></i> 41 мектеп-лицей</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Астана қ., Қазақстан</p>
+                    <p><i class="fas fa-phone"></i> +7 (777) 123-45-67</p>
+                    <p><i class="fas fa-envelope"></i> shynar.nasibolla@school.kz</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>МӘЗІР</h4>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Басты бет</a></li>
+                        <li><a href="kundylyktar.html"><i class="fas fa-chevron-right"></i> Құндылықтар</a></li>
+                        <li><a href="ai-ataulary.html"><i class="fas fa-chevron-right"></i> Ай атаулары</a></li>
+                        <li><a href="adal-azamat.html"><i class="fas fa-chevron-right"></i> Адал азамат</a></li>
+                        <li><a href="menin-synybym.html"><i class="fas fa-chevron-right"></i> Менің сыныбым</a></li>
+                        <li><a href="jeke-derekter.html"><i class="fas fa-chevron-right"></i> Жеке деректер</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>СЫНЫП ТУРАЛЫ</h4>
+                    <p><i class="fas fa-users"></i> Барлығы: 24 оқушы</p>
+                    <p><i class="fas fa-female"></i> Қыздар: 12</p>
+                    <p><i class="fas fa-male"></i> Ұлдар: 12</p>
+                    <p><i class="fas fa-star"></i> Үздіктер: 5</p>
+                    <p><i class="fas fa-medal"></i> Екпінділер: 12</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>ӘЛЕУМЕТТІК ЖЕЛІЛЕР</h4>
+                    <p>Бізге жазылыңыз:</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                    </div>
+                    
+                    <div style="margin-top: 25px;">
+                        <p><i class="fas fa-clock"></i> Жұмыс уақыты:</p>
+                        <p>Дс-Жм: 8:00 - 18:00</p>
+                        <p>Сб: 9:00 - 14:00</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>
+                    <i class="far fa-copyright"></i> 2026 Адал азамат. Барлық құқықтар қорғалған. 
+                    <span style="color: #ffb347; margin-left: 10px;">#БіртұтасТәрбие</span>
+                </p>
+                <div class="login-links">
+                    <a href="#"><i class="fas fa-lock"></i> Кіру</a>
+                    <span>|</span>
+                    <a href="#"><i class="fas fa-question-circle"></i> Кіруде проблема бар?</a>
+                    <span>|</span>
+                    <a href="#"><i class="fas fa-sitemap"></i> Сайт картасы</a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 20px; color: rgba(255,255,255,0.3); font-size: 12px;">
+                <i class="fas fa-heart" style="color: #ffb347;"></i> 41 мектеп-лицей ұжымымен жасалды
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Lightbox функциялары
+        let currentImageIndex = 0;
+        const images = [
+            'images/class-photo-1.jpg',
+            'images/class-photo-2.jpg',
+            'images/class-photo-3.jpg',
+            'images/class-photo-4.jpg',
+            'images/class-photo-5.jpg',
+            'images/class-photo-6.jpg'
+        ];
+        
+        function openLightbox(index) {
+            currentImageIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const counter = document.getElementById('lightbox-counter');
+            
+            lightboxImg.src = images[index];
+            lightboxImg.onerror = function() {
+                this.src = 'https://via.placeholder.com/800x600?text=Фото+жүктелмеді';
+            };
+            
+            counter.textContent = (index + 1) + ' / ' + images.length;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            
+            if (currentImageIndex < 0) {
+                currentImageIndex = images.length - 1;
+            } else if (currentImageIndex >= images.length) {
+                currentImageIndex = 0;
+            }
+            
+            const lightboxImg = document.getElementById('lightbox-img');
+            const counter = document.getElementById('lightbox-counter');
+            
+            lightboxImg.src = images[currentImageIndex];
+            lightboxImg.onerror = function() {
+                this.src = 'https://via.placeholder.com/800x600?text=Фото+жүктелмеді';
+            };
+            
+            counter.textContent = (currentImageIndex + 1) + ' / ' + images.length;
+        }
+        
+        // Пернелермен басқару
+        document.addEventListener('keydown', function(e) {
+            const lightbox = document.getElementById('lightbox');
+            if (!lightbox.classList.contains('active')) return;
+            
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (e.key === 'ArrowLeft') {
+                changeImage(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeImage(1);
+            }
+        });
+        
+        // Lightbox сыртын басқанда жабу
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        // Күн жаңарту
+        document.addEventListener('DOMContentLoaded', function() {
+            const clockIcons = document.querySelectorAll('.top-bar-left .fa-clock');
+            
+            if (clockIcons.length > 0) {
+                clockIcons.forEach(icon => {
+                    const parentSpan = icon.parentElement;
+                    if (parentSpan) {
+                        const today = new Date();
+                        const day = String(today.getDate()).padStart(2, '0');
+                        const month = String(today.getMonth() + 1).padStart(2, '0');
+                        const year = today.getFullYear();
+                        const formattedDate = `${day}.${month}.${year}`;
+                        
+                        parentSpan.innerHTML = `<i class="far fa-clock"></i> ${formattedDate}`;
+                    }
+                });
+            }
+            
+            // Активті сілтеме
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.main-nav a');
+            
+            navLinks.forEach(link => {
+                const linkPage = link.getAttribute('href');
+                if (linkPage === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

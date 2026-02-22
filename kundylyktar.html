@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Құндылықтар - Адал азамат</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Главный CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Дополнительные стили для страницы құндылықтар */
+        .values-page {
+            padding: 60px 0;
+            background: #f8f9fa;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .value-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: #ffb347;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 32px;
+        }
+        
+        .value-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #1e2a3a;
+        }
+        
+        .value-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .page-header h1 {
+            font-size: 42px;
+            color: #1e2a3a;
+            margin-bottom: 15px;
+        }
+        
+        .page-header p {
+            font-size: 18px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Верхняя полоса с контактами -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-left">
+                <span><i class="far fa-clock"></i> 21.02.2026</span>
+                <span><i class="fas fa-phone-alt"></i></span>
+            </div>
+            <div class="top-bar-right">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Основной хедер с навигацией -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1>Тақырыбы <span>Адал азамат</span></h1>
+                <p class="logo-text">Мұғалім: Насиболла Шынар Ерланқызы</p>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Басты бет</a></li>
+                    <li><a href="kundylyktar.html" class="active">Құндылықтар</a></li>
+                    <li><a href="ai-ataulary.html">Ай атаулары</a></li>
+                    <li><a href="adal-azamat.html">Адал азамат - біртұтас тәрбие</a></li>
+                    <li><a href="jeke-derekter.html">Жеке деректер</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="quote-btn">Насиболла Шынар Ерланқызы</a>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Құндылықтар беті -->
+    <section class="values-page">
+        <div class="container">
+            <div class="page-header">
+                <h1>ҚҰНДЫЛЫҚТАР</h1>
+                <p>Біздің мектеп-лицейде оқушыларды тәрбиелеуде басты назарда ұстайтын құндылықтар</p>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Адалдық</h3>
+                    <p>Адалдық - әрбір адамның бойында болуы тиіс басты қасиет. Шыншылдық, әділдік және таза жүректен шыққан іс-әрекеттер.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Еңбекқорлық</h3>
+                    <p>Еңбекқорлық - табысқа жетудің басты жолы. Еңбек ету арқылы адам өз мақсаттарына жетеді және қоғамға пайдалы болады.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <h3>Патриотизм</h3>
+                    <p>Өз елін, Отанын сүю, оның дамуына үлес қосу, мемлекеттік рәміздерді құрметтеу - әр азаматтың парызы.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Білімділік</h3>
+                    <p>Үздіксіз білім алу, өзін-өзі дамыту, жаңа технологияларды меңгеру - заман талабы.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Жауапкершілік</h3>
+                    <p>Өз іс-әрекетіне, сөзіне және отбасы алдындағы жауапкершілікті сезіну - ер жеткен адамның белгісі.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Құрмет</h3>
+                    <p>Үлкенді сыйлау, кішіге ізет көрсету, ата-ананы, ұстаздарды және достарды құрметтеу.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>АДАЛ АЗАМАТ</h4>
+                    <p>Мұғалім: Насиболла Шынар Ерланқызы</p>
+                    <p>41 мектеп-лицей</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Мәзір</h4>
+                    <ul>
+                        <li><a href="index.html">Басты бет</a></li>
+                        <li><a href="kundylyktar.html">Құндылықтар</a></li>
+                        <li><a href="ai-ataulary.html">Ай атаулары</a></li>
+                        <li><a href="adal-azamat.html">Адал азамат - біртұтас тәрбие</a></li>
+                        <li><a href="jeke-derekter.html">Жеке деректер</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Байланыс</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 41 мектеп-лицей, Қазақстан</p>
+                    <p><i class="fas fa-phone"></i> +7 (XXX) XXX XX XX</p>
+                    <p><i class="fas fa-envelope"></i> shynar@school.kz</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Әлеуметтік желілер</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Адал азамат. Барлық құқықтар қорғалған.</p>
+                <div class="login-links">
+                    <a href="#"><i class="fas fa-lock"></i> Кіру</a>
+                    <span>|</span>
+                    <a href="#">Кіруде проблема бар?</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ай атаулары - Адал азамат</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Главный CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Дополнительные стили для страницы ай атаулары */
+        .months-page {
+            padding: 60px 0;
+            background: #f8f9fa;
+        }
+        
+        .months-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .month-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .month-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .month-header {
+            background: #ffb347;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .month-header h3 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .month-body {
+            padding: 25px;
+        }
+        
+        .month-body p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .month-info {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            font-size: 14px;
+            color: #888;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .page-header h1 {
+            font-size: 42px;
+            color: #1e2a3a;
+            margin-bottom: 15px;
+        }
+        
+        .page-header p {
+            font-size: 18px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Верхняя полоса с контактами -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-left">
+                <span><i class="far fa-clock"></i> 21.02.2026</span>
+                <span><i class="fas fa-phone-alt"></i></span>
+            </div>
+            <div class="top-bar-right">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Основной хедер с навигацией -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1>Тақырыбы <span>Адал азамат</span></h1>
+                <p class="logo-text">Мұғалім: Насиболла Шынар Ерланқызы</p>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Басты бет</a></li>
+                    <li><a href="kundylyktar.html">Құндылықтар</a></li>
+                    <li><a href="ai-ataulary.html" class="active">Ай атаулары</a></li>
+                    <li><a href="adal-azamat.html">Адал азамат - біртұтас тәрбие</a></li>
+                    <li><a href="jeke-derekter.html">Жеке деректер</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="quote-btn">Насиболла Шынар Ерланқызы</a>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Ай атаулары беті -->
+    <section class="months-page">
+        <div class="container">
+            <div class="page-header">
+                <h1>АЙ АТАУЛАРЫ</h1>
+                <p>Қазақша ай атауларының мағынасы мен ерекшеліктері</p>
+            </div>
+            
+            <div class="months-grid">
+                <div class="month-card">
+                    <div class="month-header">
+                        <h3>Қаңтар</h3>
+                    </div>
+                    <div class="month-body">
+                        <p>Қаңтар - жылдың бірінші айы. Бұл айдың аты "қаңтару" сөзінен шыққан, яғни суық, аязды деген мағынаны білдіреді.</p>
+                        <div class="month-info">
+                            <span><i class="far fa-calendar"></i> 31 күн</span>
+                            <span><i class="fas fa-snowflake"></i> Қыс мезгілі</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="month-card">
+                    <div class="month-header">
+                        <h3>Ақпан</h3>
+                    </div>
+                    <div class="month-body">
+                        <p>Ақпан - жылдың екінші айы. Аты "ақ" және "пан" сөздерінен шыққан, яғни ақ қар деген мағынаны білдіреді.</p>
+                        <div class="month-info">
+                            <span><i class="far fa-calendar"></i> 28/29 күн</span>
+                            <span><i class="fas fa-snowflake"></i> Қыс мезгілі</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="month-card">
+                    <div class="month-header">
+                        <h3>Наурыз</h3>
+                    </div>
+                    <div class="month-body">
+                        <p>Наурыз - жылдың үшінші айы. Ұлыстың ұлы күні - Наурыз мейрамы осы айда тойланады.</p>
+                        <div class="month-info">
+                            <span><i class="far fa-calendar"></i> 31 күн</span>
+                            <span><i class="fas fa-leaf"></i> Көктем мезгілі</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="month-card">
+                    <div class="month-header">
+                        <h3>Сәуір</h3>
+                    </div>
+                    <div class="month-body">
+                        <p>Сәуір - жылдың төртінші айы. Бұл айда табиғат оянып, гүлдер сәулелене бастайды.</p>
+                        <div class="month-info">
+                            <span><i class="far fa-calendar"></i> 30 күн</span>
+                            <span><i class="fas fa-leaf"></i> Көктем мезгілі</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="month-card">
+                    <div class="month-header">
+                        <h3>Мамыр</h3>
+                    </div>
+                    <div class="month-body">
+                        <p>Мамыр - жылдың бесінші айы. Табиғаттың гүлденген, көгерген кезеңі.</p>
+                        <div class="month-info">
+                            <span><i class="far fa-calendar"></i> 31 күн</span>
+                            <span><i class="fas fa-leaf"></i> Көктем мезгілі</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="month-card">
+                    <div class="month-header">
+                        <h3>Маусым</h3>
+                    </div>
+                    <div class="month-body">
+                        <p>Маусым - жылдың алтыншы айы. Жазғы демалыс, жеміс-жидектердің пісетін кезі.</p>
+                        <div class="month-info">
+                            <span><i class="far fa-calendar"></i> 30 күн</span>
+                            <span><i class="fas fa-sun"></i> Жаз мезгілі</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="month-card">
+                    <div class="month-header">
+                        <h3>Шілде</h3>
+                    </div>
+                    <div class="month-body">
+                        <p>Шілде - жылдың жетінші айы. Жаздың ең ыстық, шілдедегі ыстық ай.</p>
+                        <div class="month-info">
+                            <span><i class="far fa-calendar"></i> 31 күн</span>
+                            <span><i class="fas fa-sun"></i> Жаз мезгілі</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="month-card">
+                    <div class="month-header">
+                        <h3>Тамыз</h3>
+                    </div>
+                    <div class="month-body">
+                        <p>Тамыз - жылдың сегізінші айы. Егін жинау, орақ науқанының кезі.</p>
+                        <div class="month-info">
+                            <span><i class="far fa-calendar"></i> 31 күн</span>
+                            <span><i class="fas fa-sun"></i> Жаз мезгілі</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="month-card">
+                    <div class="month-header">
+                        <h3>Қыркүйек</h3>
+                    </div>
+                    <div class="month-body">
+                        <p>Қыркүйек - жылдың тоғызыншы айы. Білім күні, мектептердің ашылуы осы айда.</p>
+                        <div class="month-info">
+                            <span><i class="far fa-calendar"></i> 30 күн</span>
+                            <span><i class="fas fa-leaf"></i> Күз мезгілі</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="month-card">
+                    <div class="month-header">
+                        <h3>Қазан</h3>
+                    </div>
+                    <div class="month-body">
+                        <p>Қазан - жылдың оныншы айы. Күздің ортасы, алтын күз.</p>
+                        <div class="month-info">
+                            <span><i class="far fa-calendar"></i> 31 күн</span>
+                            <span><i class="fas fa-leaf"></i> Күз мезгілі</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="month-card">
+                    <div class="month-header">
+                        <h3>Қараша</h3>
+                    </div>
+                    <div class="month-body">
+                        <p>Қараша - жылдың он бірінші айы. Күздің соңғы айы, қыстың басталуы.</p>
+                        <div class="month-info">
+                            <span><i class="far fa-calendar"></i> 30 күн</span>
+                            <span><i class="fas fa-leaf"></i> Күз мезгілі</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="month-card">
+                    <div class="month-header">
+                        <h3>Желтоқсан</h3>
+                    </div>
+                    <div class="month-body">
+                        <p>Желтоқсан - жылдың он екінші айы. Қыстың басы, Тәуелсіздік күні осы айда тойланады.</p>
+                        <div class="month-info">
+                            <span><i class="far fa-calendar"></i> 31 күн</span>
+                            <span><i class="fas fa-snowflake"></i> Қыс мезгілі</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>АДАЛ АЗАМАТ</h4>
+                    <p>Мұғалім: Насиболла Шынар Ерланқызы</p>
+                    <p>41 мектеп-лицей</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Мәзір</h4>
+                    <ul>
+                        <li><a href="index.html">Басты бет</a></li>
+                        <li><a href="kundylyktar.html">Құндылықтар</a></li>
+                        <li><a href="ai-ataulary.html">Ай атаулары</a></li>
+                        <li><a href="adal-azamat.html">Адал азамат - біртұтас тәрбие</a></li>
+                        <li><a href="jeke-derekter.html">Жеке деректер</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Байланыс</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 41 мектеп-лицей, Қазақстан</p>
+                    <p><i class="fas fa-phone"></i> +7 (XXX) XXX XX XX</p>
+                    <p><i class="fas fa-envelope"></i> shynar@school.kz</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Әлеуметтік желілер</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Адал азамат. Барлық құқықтар қорғалған.</p>
+                <div class="login-links">
+                    <a href="#"><i class="fas fa-lock"></i> Кіру</a>
+                    <span>|</span>
+                    <a href="#">Кіруде проблема бар?</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

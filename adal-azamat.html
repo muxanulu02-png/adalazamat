@@ -1151,33 +1151,60 @@
         };
 
         function openModal(projectNumber) {
-            const modal = document.getElementById('projectModal');
-            const data = projectsData[projectNumber];
-            
-            // Обновляем содержимое модала
-            document.getElementById('modalBadge').textContent = data.badge;
-            document.getElementById('modalTitle').textContent = data.title;
-            
-            // Вставляем видео (жергілікті файл)
-            const videoContainer = document.getElementById('videoContainer');
-            videoContainer.innerHTML = `
-                <video controls poster="images/project${projectNumber}/poster.jpg">
-                    <source src="${data.video}" type="video/mp4">
-                    Сіздің браузеріңіз видео тегін қолдамайды.
-                </video>
-            `;
-            
-            // Вставляем фото
-            const photosGrid = document.getElementById('photosGrid');
-            photosGrid.innerHTML = data.photos.map(photo => `
-                <div class="photo-item" onclick="openImageLightbox('${photo}')">
-                    <img src="${photo}" alt="Project photo" onerror="this.src='https://via.placeholder.com/300x200?text=Фото+жүктелмеді'">
+    const modal = document.getElementById('projectModal');
+    const data = projectsData[projectNumber];
+    
+    // Обновляем содержимое модала
+    document.getElementById('modalBadge').textContent = data.badge;
+    document.getElementById('modalTitle').textContent = data.title;
+    
+    // Вставляем видео (бірнеше видео қолдау)
+    const videoContainer = document.getElementById('videoContainer');
+    
+    if (data.videos && data.videos.length > 0) {
+        // Егер videos массиві болса, барлық видеоларды көрсет
+        let videosHtml = '';
+        data.videos.forEach((video, index) => {
+            videosHtml += `
+                <div style="margin-bottom: 20px;">
+                    <video controls style="width:100%; border-radius:15px;" poster="images/project${projectNumber}/poster${index+1}.jpg">
+                        <source src="${video}" type="video/mp4">
+                        Сіздің браузеріңіз видео тегін қолдамайды.
+                    </video>
                 </div>
-            `).join('');
-            
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
+            `;
+        });
+        videoContainer.innerHTML = videosHtml;
+    } 
+    else if (data.video) {
+        // Ескі нұсқамен үйлесімділік үшін (бір ғана видео)
+        videoContainer.innerHTML = `
+            <video controls style="width:100%; border-radius:15px;" poster="images/project${projectNumber}/poster.jpg">
+                <source src="${data.video}" type="video/mp4">
+                Сіздің браузеріңіз видео тегін қолдамайды.
+            </video>
+        `;
+    }
+    else {
+        // Видео жоқ болса
+        videoContainer.innerHTML = '<p style="color:#666; text-align:center; padding:40px;">Видео жоқ</p>';
+    }
+    
+    // Вставляем фото
+    const photosGrid = document.getElementById('photosGrid');
+    if (data.photos && data.photos.length > 0) {
+        photosGrid.innerHTML = data.photos.map(photo => `
+            <div class="photo-item" onclick="openImageLightbox('${photo}')">
+                <img src="${photo}" alt="Project photo" onerror="this.src='https://via.placeholder.com/300x200?text=Фото+жүктелмеді'">
+            </div>
+        `).join('');
+    } else {
+        photosGrid.innerHTML = '<p style="color:#666; text-align:center; padding:40px;">Фотосуреттер жоқ</p>';
+    }
+    
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
 
         function closeModal() {
             document.getElementById('projectModal').classList.remove('active');

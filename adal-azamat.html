@@ -7,7 +7,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -19,19 +19,20 @@
             font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
             color: #333;
+            background: #f0f2f5;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 30px;
         }
 
         /* Top Bar */
         .top-bar {
             background: #1e2a3a;
             color: #fff;
-            padding: 10px 0;
+            padding: 12px 0;
             font-size: 14px;
         }
 
@@ -43,7 +44,7 @@
         }
 
         .top-bar-left span {
-            margin-right: 20px;
+            margin-right: 25px;
         }
 
         .top-bar-left i {
@@ -54,25 +55,27 @@
         .top-bar-right a {
             color: #fff;
             margin-left: 15px;
-            transition: color 0.3s;
-            width: 32px;
-            height: 32px;
+            transition: all 0.3s;
+            width: 36px;
+            height: 36px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             background: rgba(255,255,255,0.1);
             border-radius: 50%;
+            font-size: 16px;
         }
 
         .top-bar-right a:hover {
             color: #ffb347;
             background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
         }
 
         /* Main Header */
         .main-header {
             background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -82,17 +85,21 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 15px 30px;
         }
 
         .logo h1 {
             font-size: 28px;
             color: #1e2a3a;
+            font-weight: 700;
         }
 
         .logo h1 span {
             color: #ffb347;
-            font-weight: 700;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffb347, #ff9f1a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .logo-text {
@@ -105,7 +112,7 @@
         .main-nav ul {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 30px;
         }
 
         .main-nav a {
@@ -125,7 +132,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: #ffb347;
+            background: linear-gradient(90deg, #ffb347, #ff9f1a);
             transition: width 0.3s;
         }
 
@@ -147,7 +154,7 @@
         }
 
         .quote-btn {
-            background: linear-gradient(45deg, #ffb347, #ff9f1a);
+            background: linear-gradient(135deg, #ffb347, #ff9f1a);
             color: #1e2a3a !important;
             padding: 12px 25px;
             border-radius: 50px;
@@ -157,11 +164,18 @@
             transition: all 0.3s;
             border: none;
             box-shadow: 0 5px 15px rgba(255,180,70,0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .quote-btn i {
+            font-size: 16px;
         }
 
         .quote-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255,180,70,0.4);
+            box-shadow: 0 8px 25px rgba(255,180,70,0.5);
         }
 
         .mobile-menu-btn {
@@ -173,8 +187,9 @@
 
         /* Program Page */
         .program-page {
-            padding: 60px 0;
+            padding: 60px 0 80px;
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: calc(100vh - 250px);
         }
 
         .page-header {
@@ -183,22 +198,28 @@
         }
 
         .page-header h1 {
-            font-size: 42px;
+            font-size: 48px;
             color: #1e2a3a;
             margin-bottom: 15px;
             position: relative;
             display: inline-block;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #1e2a3a, #2c3e50);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .page-header h1::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(90deg, #ffb347, #ff9f1a);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #ffb347, #ff9f1a, #ffb347);
             border-radius: 2px;
         }
 
@@ -206,77 +227,222 @@
             font-size: 18px;
             color: #666;
             max-width: 700px;
-            margin: 20px auto 0;
-        }
-
-        .program-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .program-section {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-            border-left: 5px solid #ffb347;
-        }
-
-        .program-section:hover {
-            transform: translateX(10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-
-        .program-section h2 {
-            color: #1e2a3a;
-            font-size: 28px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .program-section h2 i {
-            color: #ffb347;
-            font-size: 32px;
-        }
-
-        .program-section p {
-            color: #666;
+            margin: 25px auto 0;
             line-height: 1.8;
-            font-size: 16px;
         }
 
-        .program-badge {
-            display: inline-block;
-            background: #ffb347;
-            color: #1e2a3a;
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 20px;
+        .page-header p i {
+            color: #ffb347;
+            margin-right: 8px;
         }
 
+        /* Program Highlight */
         .program-highlight {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(145deg, #667eea, #764ba2);
             color: white;
-            padding: 40px;
-            border-radius: 20px;
-            margin-bottom: 30px;
+            padding: 60px 40px;
+            border-radius: 40px;
+            margin-bottom: 60px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 50px rgba(102, 126, 234, 0.3);
+        }
+
+        .program-highlight::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .program-highlight h3 {
-            font-size: 32px;
-            margin-bottom: 15px;
+            font-size: 42px;
+            margin-bottom: 20px;
+            position: relative;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .program-highlight h3 i {
+            margin-right: 15px;
+            color: #ffb347;
         }
 
         .program-highlight p {
-            font-size: 18px;
-            opacity: 0.9;
+            font-size: 20px;
+            opacity: 0.95;
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Projects Grid - 5 красивый карточек */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            padding: 40px 30px;
+            border-radius: 30px;
+            color: white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 40px 60px rgba(0,0,0,0.3);
+        }
+
+        .project-card::after {
+            content: '✦';
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 80px;
+            opacity: 0.1;
+            color: white;
+            font-weight: 300;
+            transform: rotate(15deg);
+        }
+
+        .project-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            align-self: flex-start;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .project-badge i {
+            margin-right: 8px;
+        }
+
+        .project-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: rgba(255,255,255,0.2);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .project-card h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .project-card h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 2px;
+            transition: width 0.3s;
+        }
+
+        .project-card:hover h2::after {
+            width: 100px;
+        }
+
+        .project-card p {
+            font-size: 15px;
+            line-height: 1.8;
+            opacity: 0.95;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .project-card p strong {
+            color: #ffb347;
+            font-weight: 600;
+        }
+
+        .project-stats {
+            display: flex;
+            gap: 15px;
+            margin-top: auto;
+            font-size: 14px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .project-stats span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .project-stats i {
+            color: #ffb347;
+        }
+
+        /* Градиентные цвета для карточек */
+        .card-1 { 
+            background: linear-gradient(145deg, #FF6B6B, #FF4757);
+        }
+        .card-2 { 
+            background: linear-gradient(145deg, #4ECDC4, #45B7AA);
+        }
+        .card-3 { 
+            background: linear-gradient(145deg, #A8E6CF, #56B4A0);
+        }
+        .card-4 { 
+            background: linear-gradient(145deg, #FFD93D, #F6B024);
+        }
+        .card-5 { 
+            background: linear-gradient(145deg, #6C5CE7, #5A4AB3);
         }
 
         /* Footer */
@@ -444,6 +610,9 @@
             .footer-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
@@ -454,8 +623,11 @@
                 flex-direction: column;
                 text-align: center;
             }
-            .program-section {
-                padding: 30px;
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .program-highlight h3 {
+                font-size: 28px;
             }
         }
     </style>
@@ -508,43 +680,84 @@
         <div class="container">
             <div class="page-header">
                 <h1>АДАЛ АЗАМАТ</h1>
-                <p><i class="fas fa-star" style="color: #ffb347;"></i> Біртұтас тәрбие бағдарламасын жүзеге асырудағы педагогикалық тәжірибе</p>
+                <p><i class="fas fa-star"></i> Біртұтас тәрбие бағдарламасын жүзеге асырудағы педагогикалық тәжірибе</p>
             </div>
             
-            <div class="program-content">
-                <div class="program-highlight">
-                    <h3><i class="fas fa-quote-left"></i> Тәрбие - болашақ негізі</h3>
-                    <p>Біздің басты мақсатымыз - адал, саналы, білімді ұрпақ тәрбиелеу</p>
+            <div class="program-highlight">
+                <h3><i class="fas fa-quote-left"></i> Тәрбие - болашақ негізі</h3>
+                <p>Біздің басты мақсатымыз - адал, саналы, білімді ұрпақ тәрбиелеу</p>
+            </div>
+
+            <!-- 5 жоба - әдемі карточкалар -->
+            <div class="projects-grid">
+                <!-- №1 Жоба -->
+                <div class="project-card card-1">
+                    <span class="project-badge"><i class="fas fa-shield-alt"></i> №1 Жоба</span>
+                    <div class="project-icon">
+                        <i class="fas fa-hand-peace"></i>
+                    </div>
+                    <h2>«Stop bullying»</h2>
+                    <p><strong>Мақсаты:</strong> Буллингтің алдын алу, білім беру ортасында оқушылар мен жасөспірімдер арасында қорлау, мазақтау, зорлық-зомбылық пен кибербуллинг алдын алу, жолын кесу, достық қарым-қатынасты нығайту және қауіпсіз, сыйластыққа негізделген орта қалыптастыру.</p>
+                    <div class="project-stats">
+                        <span><i class="fas fa-users"></i> 24 оқушы</span>
+                        <span><i class="fas fa-calendar"></i> 2025-2026</span>
+                    </div>
                 </div>
 
-                <div class="program-section">
-                    <span class="program-badge"><i class="fas fa-shield-alt"></i> №1 Жоба</span>
-                    <h2><i class="fas fa-hand-peace"></i> «Stop bullying»</h2>
-                    <p><strong>Мақсаты:</strong> Буллингтің алдын алу, білім беру ортасында оқушылар мен жасөспірімдер арасында қорлау, мазақтау, зорлық-зомбылық пен кибербуллинг алдын алу, жолын кесу, достық қарым-қатынасты нығайту және қауіпсіз, сыйластыққа негізделген орта қалыптастыру.</p>
-                </div>
-                
-                <div class="program-section">
-                    <span class="program-badge"><i class="fas fa-smile"></i> №2 Жоба</span>
-                    <h2><i class="fas fa-gamepad"></i> «Көңілді үзіліс»</h2>
+                <!-- №2 Жоба -->
+                <div class="project-card card-2">
+                    <span class="project-badge"><i class="fas fa-smile"></i> №2 Жоба</span>
+                    <div class="project-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h2>«Көңілді үзіліс»</h2>
                     <p><strong>Мақсаты:</strong> Көңілді үзіліс-оқушылардың сабақ арасындағы бос уақытын тиімді, белсенді әрі қызықты өткізуге бағытталған шара. Басты мақсаты - балалардың зейінін дамылдырып, физикалық және эмоцияналдық күйін көтеру, сондай-ақ қимыл-қозғалыс ойындары арқылы ұйымшылдықты дамытып, сабаққа ынтасын арттыру.</p>
+                    <div class="project-stats">
+                        <span><i class="fas fa-clock"></i> Апта сайын</span>
+                        <span><i class="fas fa-smile"></i> 95% қатысу</span>
+                    </div>
                 </div>
-                
-                <div class="program-section">
-                    <span class="program-badge"><i class="fas fa-flag"></i> №3 Жоба</span>
-                    <h2><i class="fas fa-hand-holding-heart"></i> «Ұрпаққа аманат» жобасы</h2>
+
+                <!-- №3 Жоба -->
+                <div class="project-card card-3">
+                    <span class="project-badge"><i class="fas fa-flag"></i> №3 Жоба</span>
+                    <div class="project-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h2>«Ұрпаққа аманат»</h2>
                     <p><strong>Мақсаты:</strong> Өскелең ұрпақ бойына «Мен қазақпын» деген аса мақтаныш сезімін ұялату мақсатында бабалар ерлігін, ұлылар даналығын, ата-баба дәстүрін, әдет-ғұрыпын дәріптеу арқылы туған жер, атамекен, Отанға деген сүйіспеншілікті, құрметті үйрету.</p>
+                    <div class="project-stats">
+                        <span><i class="fas fa-flag"></i> 10 іс-шара</span>
+                        <span><i class="fas fa-heart"></i> 100% оқушы</span>
+                    </div>
                 </div>
-                
-                <div class="program-section">
-                    <span class="program-badge"><i class="fas fa-book"></i> №4 Жоба</span>
-                    <h2><i class="fas fa-book-open"></i> «Зерек оқырман» жобасы</h2>
+
+                <!-- №4 Жоба -->
+                <div class="project-card card-4">
+                    <span class="project-badge"><i class="fas fa-book"></i> №4 Жоба</span>
+                    <div class="project-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h2>«Зерек оқырман»</h2>
                     <p><strong>Мақсаты:</strong> Оқушылардың оқу сауаттылығын арттыру, көркем шығармаларды саналы әрі сыни тұрғыда оқуға баулу, кітап оқуға деген қызығушылығын ояту, оқырман мәдениетін қалыптастыру. Құндылықтарды қалыптастырудағы жүйелі және кешенді жұмыс оқу-тәрбие процесінде күн сайын және апта сайын іске асырылатын іс-шараларды қамтиды.</p>
+                    <div class="project-stats">
+                        <span><i class="fas fa-book"></i> 50+ кітап</span>
+                        <span><i class="fas fa-star"></i> 15 үздік</span>
+                    </div>
                 </div>
-                
-                <div class="program-section">
-                    <span class="program-badge"><i class="fas fa-futbol"></i> №5 Жоба</span>
-                    <h2><i class="fas fa-family"></i> «Белсенді жұма» жобасы</h2>
+
+                <!-- №5 Жоба -->
+                <div class="project-card card-5">
+                    <span class="project-badge"><i class="fas fa-futbol"></i> №5 Жоба</span>
+                    <div class="project-icon">
+                        <i class="fas fa-family"></i>
+                    </div>
+                    <h2>«Белсенді жұма»</h2>
                     <p><strong>Мақсаты:</strong> Ата-ана, мектеп, бала үштігінің байланысын нығайту арқылы, ата-ана жауапкершілігін арттыру. Қоғам өмірінде жаңашыл, белсенді ата-аналар легін көбейтіп, салауаттылыққа шақыру.</p>
+                    <div class="project-stats">
+                        <span><i class="fas fa-users"></i> 48 ата-ана</span>
+                        <span><i class="fas fa-calendar"></i> Апта сайын</span>
+                    </div>
                 </div>
             </div>
         </div>

@@ -227,5 +227,32 @@
     </footer>
 
     <script src="js/main.js"></script>
+    
+    <!-- КОД ДЛЯ АВТОМАТИЧЕСКОГО ОБНОВЛЕНИЯ ДАТЫ -->
+    <script>
+        // Барлық беттердегі күнді автоматты түрде жаңарту
+        document.addEventListener('DOMContentLoaded', function() {
+            // Барлық '.top-bar-left' ішіндегі 'fa-clock' иконасы бар элементті іздейміз
+            const clockIcons = document.querySelectorAll('.top-bar-left .fa-clock');
+            
+            if (clockIcons.length > 0) {
+                // Әрбір иконаның ата-анасының (parentElement) ішіндегі тексті өзгертеміз
+                clockIcons.forEach(icon => {
+                    const parentSpan = icon.parentElement; // Бұл <span><i class="far fa-clock"></i> 21.02.2026</span> дегенді білдіреді
+                    if (parentSpan) {
+                        // Жаңа күнді аламыз
+                        const today = new Date();
+                        const day = String(today.getDate()).padStart(2, '0');
+                        const month = String(today.getMonth() + 1).padStart(2, '0'); // Қаңтар = 0
+                        const year = today.getFullYear();
+                        const formattedDate = `${day}.${month}.${year}`;
+                        
+                        // Тексті өзгертеміз (иконаны сақтап қаламыз)
+                        parentSpan.innerHTML = `<i class="far fa-clock"></i> ${formattedDate}`;
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

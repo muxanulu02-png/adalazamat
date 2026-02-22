@@ -82,6 +82,75 @@
             max-width: 700px;
             margin: 0 auto;
         }
+        
+        /* === ЖАҢА СТИЛЬДЕР (Адал Азамат секциясы) === */
+        .adal-azamat-section {
+            background: linear-gradient(to bottom, #FFF59D, #FFEB3B);
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 40px auto;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            text-align: center;
+            color: #333;
+        }
+        
+        .adal-azamat-section h1 { 
+            font-size: 3.8em; 
+            color: #C62828; 
+            margin: 0; 
+            text-transform: uppercase; 
+            letter-spacing: 3px; 
+        }
+        
+        .adal-azamat-section h2 { 
+            font-size: 2.4em; 
+            color: #1565C0; 
+            margin: 10px 0 40px; 
+        }
+        
+        .adal-azamat-values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+        
+        .adal-azamat-card {
+            padding: 25px;
+            border-radius: 20px;
+            color: white;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+        
+        .adal-azamat-card:hover { transform: translateY(-10px); }
+        
+        .adal-azamat-card h3 { font-size: 1.5em; margin-bottom: 10px; }
+        
+        .adal-azamat-months {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .adal-azamat-month-card {
+            background: #333;
+            color: white;
+            padding: 18px 12px;
+            border-radius: 12px;
+            width: 160px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .adal-azamat-month-card strong { 
+            display: block; 
+            font-size: 1.3em; 
+            margin-bottom: 8px; 
+        }
+        /* === ЖАҢА СТИЛЬДЕР СОҢЫ === */
     </style>
 </head>
 <body>
@@ -289,6 +358,40 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- ===== ЖАҢА ҚОСЫЛҒАН БЛОК (Адал Азамат) ===== -->
+            <div class="adal-azamat-section">
+                <h1>"АДАЛ АЗАМАТ"</h1>
+                <h2>БІРТҰТАС ТӘРБИЕ БАҒДАРЛАМАСЫ</h2>
+
+                <div class="adal-azamat-values">
+                    <div class="adal-azamat-card" style="background:#2196F3;">
+                        <h3>Тәуелсіздік және Отаншылдық</h3>
+                        <p>Елін, жерін сүйетін, ұлттық мүддеге қызмет ететін, Отан дамуына үлес қосатын азаматты тәрбиелеу.</p>
+                    </div>
+                    <div class="adal-azamat-card" style="background:#4CAF50;">
+                        <h3>Бірлік және Ынтымақ</h3>
+                        <p>Қоғамдағы бірлікті, өзара сыйластық пен көмекті нығайту, ұлттық тұтастықты сақтау.</p>
+                    </div>
+                    <div class="adal-azamat-card" style="background:#FF9800;">
+                        <h3>Әділдік және Жауапкершілік</h3>
+                        <p>Әділеттілікті, сөз бен іске жауапкершілікті, моральдық тазалықты қалыптастыру.</p>
+                    </div>
+                    <div class="adal-azamat-card" style="background:#9C27B0;">
+                        <h3>Еңбекқорлық және Кәсіби біліктілік</h3>
+                        <p>Адал еңбекке, білімге, кәсіби дамуға ұмтылу, өзін-өзі жетілдіру.</p>
+                    </div>
+                    <div class="adal-azamat-card" style="background:#E91E63;">
+                        <h3>Жасампаздық және Жаңашылдық</h3>
+                        <p>Шығармашылық, инновация, проблемаларды шешу, қоғамға пайда әкелу.</p>
+                    </div>
+                    <div class="adal-azamat-card" style="background:#607D8B;">
+                        <h3>Заң және Тәртіп</h3>
+                        <p>Заңға бағыну, тәртіпті сақтау, қоғамдық қауіпсіздікті қамтамасыз ету.</p>
+                    </div>
+                </div>
+            <!-- ===== ЖАҢА БЛОК СОҢЫ ===== -->
+            
         </div>
     </section>
 

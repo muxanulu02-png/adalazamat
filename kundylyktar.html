@@ -7,7 +7,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -19,19 +19,20 @@
             font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
             color: #333;
+            background: #f0f2f5;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 30px;
         }
 
         /* Top Bar */
         .top-bar {
             background: #1e2a3a;
             color: #fff;
-            padding: 10px 0;
+            padding: 12px 0;
             font-size: 14px;
         }
 
@@ -43,7 +44,7 @@
         }
 
         .top-bar-left span {
-            margin-right: 20px;
+            margin-right: 25px;
         }
 
         .top-bar-left i {
@@ -54,25 +55,27 @@
         .top-bar-right a {
             color: #fff;
             margin-left: 15px;
-            transition: color 0.3s;
-            width: 32px;
-            height: 32px;
+            transition: all 0.3s;
+            width: 36px;
+            height: 36px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             background: rgba(255,255,255,0.1);
             border-radius: 50%;
+            font-size: 16px;
         }
 
         .top-bar-right a:hover {
             color: #ffb347;
             background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
         }
 
         /* Main Header */
         .main-header {
             background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -82,17 +85,21 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 15px 30px;
         }
 
         .logo h1 {
             font-size: 28px;
             color: #1e2a3a;
+            font-weight: 700;
         }
 
         .logo h1 span {
             color: #ffb347;
-            font-weight: 700;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffb347, #ff9f1a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .logo-text {
@@ -105,7 +112,7 @@
         .main-nav ul {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 30px;
         }
 
         .main-nav a {
@@ -125,7 +132,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: #ffb347;
+            background: linear-gradient(90deg, #ffb347, #ff9f1a);
             transition: width 0.3s;
         }
 
@@ -147,7 +154,7 @@
         }
 
         .quote-btn {
-            background: linear-gradient(45deg, #ffb347, #ff9f1a);
+            background: linear-gradient(135deg, #ffb347, #ff9f1a);
             color: #1e2a3a !important;
             padding: 12px 25px;
             border-radius: 50px;
@@ -157,11 +164,18 @@
             transition: all 0.3s;
             border: none;
             box-shadow: 0 5px 15px rgba(255,180,70,0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .quote-btn i {
+            font-size: 16px;
         }
 
         .quote-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255,180,70,0.4);
+            box-shadow: 0 8px 25px rgba(255,180,70,0.5);
         }
 
         .mobile-menu-btn {
@@ -171,93 +185,204 @@
             color: #1e2a3a;
         }
 
-        /* Values Page - тек Адал Азамат секциясы */
+        /* Values Page - Толық экран */
         .values-page {
-            padding: 60px 0;
+            padding: 60px 0 80px;
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            min-height: calc(100vh - 300px);
+            min-height: calc(100vh - 250px);
+            display: flex;
+            align-items: center;
         }
 
         .page-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .page-header h1 {
-            font-size: 42px;
+            font-size: 48px;
             color: #1e2a3a;
             margin-bottom: 15px;
             position: relative;
             display: inline-block;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #1e2a3a, #2c3e50);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .page-header h1::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(90deg, #ffb347, #ff9f1a);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #ffb347, #ff9f1a, #ffb347);
             border-radius: 2px;
         }
 
-        /* Адал Азамат секциясы */
+        /* Адал Азамат секциясы - Толық экран, әдемі дизайн */
         .adal-azamat-section {
-            background: linear-gradient(to bottom, #FFF59D, #FFEB3B);
-            padding: 50px 30px;
-            max-width: 1200px;
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            padding: 60px 40px;
+            max-width: 1300px;
             margin: 0 auto;
-            border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-radius: 50px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
             text-align: center;
             color: #333;
+            border: 1px solid rgba(255,180,70,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .adal-azamat-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ffb347, #ff9f1a, #ffb347, #ff9f1a, #ffb347);
+            background-size: 200% 100%;
+            animation: gradientMove 3s linear infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 0%; }
         }
 
         .adal-azamat-section h1 { 
-            font-size: 3.8em; 
-            color: #C62828; 
-            margin: 0; 
+            font-size: 4.2em; 
+            background: linear-gradient(135deg, #C62828, #E91E63);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0 0 10px; 
             text-transform: uppercase; 
-            letter-spacing: 3px; 
-            font-weight: 700;
+            letter-spacing: 4px; 
+            font-weight: 800;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            display: inline-block;
+        }
+
+        .adal-azamat-section h1::before,
+        .adal-azamat-section h1::after {
+            content: '✦';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ffb347;
+            font-size: 0.8em;
+            opacity: 0.5;
+        }
+
+        .adal-azamat-section h1::before {
+            left: -40px;
+        }
+
+        .adal-azamat-section h1::after {
+            right: -40px;
         }
 
         .adal-azamat-section h2 { 
-            font-size: 2.4em; 
-            color: #1565C0; 
-            margin: 10px 0 40px; 
-            font-weight: 600;
+            font-size: 2.6em; 
+            background: linear-gradient(135deg, #1565C0, #2196F3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 10px 0 50px; 
+            font-weight: 700;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+            padding: 0 20px;
         }
 
+        .adal-azamat-section h2::before,
+        .adal-azamat-section h2::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, #ffb347, transparent);
+        }
+
+        .adal-azamat-section h2::before {
+            left: -50px;
+        }
+
+        .adal-azamat-section h2::after {
+            right: -50px;
+            transform: rotate(180deg);
+        }
+
+        /* 6 карточка - әдемі дизайн */
         .adal-azamat-values {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
         }
 
         .adal-azamat-card {
-            padding: 30px;
-            border-radius: 20px;
+            padding: 35px 25px;
+            border-radius: 30px;
             color: white;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            transition: all 0.3s;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             text-align: left;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .adal-azamat-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+        }
+
+        .adal-azamat-card:hover::before {
+            opacity: 1;
         }
 
         .adal-azamat-card:hover { 
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 30px rgba(0,0,0,0.3);
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 40px rgba(0,0,0,0.3);
+        }
+
+        .adal-azamat-card::after {
+            content: '✦';
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 60px;
+            opacity: 0.1;
+            color: white;
+            font-weight: 300;
         }
 
         .adal-azamat-card h3 { 
-            font-size: 1.5em; 
-            margin-bottom: 15px;
+            font-size: 1.6em; 
+            margin-bottom: 20px;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
 
         .adal-azamat-card h3::after {
@@ -265,46 +390,62 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 40px;
-            height: 2px;
+            width: 60px;
+            height: 3px;
             background: rgba(255,255,255,0.5);
+            border-radius: 2px;
+            transition: width 0.3s;
+        }
+
+        .adal-azamat-card:hover h3::after {
+            width: 100px;
         }
 
         .adal-azamat-card p {
-            font-size: 14px;
-            line-height: 1.6;
-            opacity: 0.9;
+            font-size: 15px;
+            line-height: 1.8;
+            opacity: 0.95;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
         }
 
-        .adal-azamat-months {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 40px;
+        /* Карточкалардың артқы фондары - gradient */
+        .card-1 { background: linear-gradient(145deg, #2196F3, #1976D2); }
+        .card-2 { background: linear-gradient(145deg, #4CAF50, #388E3C); }
+        .card-3 { background: linear-gradient(145deg, #FF9800, #F57C00); }
+        .card-4 { background: linear-gradient(145deg, #9C27B0, #7B1FA2); }
+        .card-5 { background: linear-gradient(145deg, #E91E63, #C2185B); }
+        .card-6 { background: linear-gradient(145deg, #607D8B, #455A64); }
+
+        @media (max-width: 1200px) {
+            .adal-azamat-values {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
-        .adal-azamat-month-card {
-            background: #333;
-            color: white;
-            padding: 20px 15px;
-            border-radius: 16px;
-            width: 180px;
-            font-weight: bold;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            transition: transform 0.3s;
-            border-left: 5px solid #ffb347;
-        }
-
-        .adal-azamat-month-card:hover {
-            transform: translateY(-5px) scale(1.05);
-        }
-
-        .adal-azamat-month-card strong { 
-            display: block; 
-            font-size: 1.5em; 
-            margin-bottom: 8px; 
-            color: #ffb347;
+        @media (max-width: 768px) {
+            .adal-azamat-values {
+                grid-template-columns: 1fr;
+            }
+            
+            .adal-azamat-section h1 {
+                font-size: 2.8em;
+            }
+            
+            .adal-azamat-section h2 {
+                font-size: 1.8em;
+            }
+            
+            .adal-azamat-section h1::before,
+            .adal-azamat-section h1::after {
+                display: none;
+            }
+            
+            .adal-azamat-section h2::before,
+            .adal-azamat-section h2::after {
+                width: 20px;
+            }
         }
 
         /* Footer */
@@ -327,9 +468,12 @@
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
             margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .footer-section h4 {
@@ -385,70 +529,15 @@
             transform: translateX(5px);
         }
 
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.1);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            color: #fff;
-            transition: all 0.3s;
-            font-size: 18px;
-        }
-
-        .social-links a:hover {
-            background: #ffb347;
-            color: #1e2a3a;
-            transform: translateY(-5px);
-        }
-
         .footer-bottom {
             border-top: 1px solid rgba(255,255,255,0.1);
             padding-top: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
+            text-align: center;
         }
 
         .footer-bottom p {
             color: rgba(255,255,255,0.6);
             font-size: 14px;
-        }
-
-        .login-links {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .login-links a {
-            color: rgba(255,255,255,0.6);
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .login-links a:hover {
-            color: #ffb347;
-        }
-
-        .login-links span {
-            color: rgba(255,255,255,0.2);
         }
 
         .footer-badge {
@@ -470,32 +559,12 @@
                 display: block;
             }
             .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .adal-azamat-section h1 {
-                font-size: 2.8em;
-            }
-            .adal-azamat-section h2 {
-                font-size: 1.8em;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .footer-grid {
                 grid-template-columns: 1fr;
-            }
-            .footer-bottom {
-                flex-direction: column;
                 text-align: center;
             }
-            .adal-azamat-section h1 {
-                font-size: 2.2em;
-            }
-            .adal-azamat-section h2 {
-                font-size: 1.5em;
-            }
-            .adal-azamat-month-card {
-                width: 150px;
+            .footer-section h4::after {
+                left: 50%;
+                transform: translateX(-50%);
             }
         }
     </style>
@@ -506,6 +575,14 @@
         <div class="container">
             <div class="top-bar-left">
                 <span><i class="far fa-clock"></i> 21.02.2026</span>
+            </div>
+            <div class="top-bar-right">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
         </div>
     </div>
 
@@ -540,35 +617,35 @@
                 <h1>ҚҰНДЫЛЫҚТАР</h1>
             </div>
 
-            <!-- АДАЛ АЗАМАТ СЕКЦИЯСЫ -->
+            <!-- АДАЛ АЗАМАТ СЕКЦИЯСЫ - Толық экран, әдемі дизайн -->
             <div class="adal-azamat-section">
                 <h1>"АДАЛ АЗАМАТ"</h1>
                 <h2>БІРТҰТАС ТӘРБИЕ БАҒДАРЛАМАСЫ</h2>
 
                 <div class="adal-azamat-values">
-                    <div class="adal-azamat-card" style="background:#2196F3;">
+                    <div class="adal-azamat-card card-1">
                         <h3>Тәуелсіздік және Отаншылдық</h3>
-                        <p>Елін, жерін сүйетін, ұлттық мүддеге қызмет ететін, Отан дамуына үлес қосатын азаматты тәрбиелеу.</p>
+                        <p>Елін, жерін сүйетін, ұлттық мүддеге қызмет ететін, Отан дамуына үлес қосатын азаматты тәрбиелеу. Ұлттық құндылықтарды дәріптеу, мемлекеттік рәміздерді құрметтеу.</p>
                     </div>
-                    <div class="adal-azamat-card" style="background:#4CAF50;">
+                    <div class="adal-azamat-card card-2">
                         <h3>Бірлік және Ынтымақ</h3>
-                        <p>Қоғамдағы бірлікті, өзара сыйластық пен көмекті нығайту, ұлттық тұтастықты сақтау.</p>
+                        <p>Қоғамдағы бірлікті, өзара сыйластық пен көмекті нығайту, ұлттық тұтастықты сақтау. Бейбітшілік пен келісімді нығайту, этносаралық татулық.</p>
                     </div>
-                    <div class="adal-azamat-card" style="background:#FF9800;">
+                    <div class="adal-azamat-card card-3">
                         <h3>Әділдік және Жауапкершілік</h3>
-                        <p>Әділеттілікті, сөз бен іске жауапкершілікті, моральдық тазалықты қалыптастыру.</p>
+                        <p>Әділеттілікті, сөз бен іске жауапкершілікті, моральдық тазалықты қалыптастыру. Адалдық, шыншылдық, парасаттылық.</p>
                     </div>
-                    <div class="adal-azamat-card" style="background:#9C27B0;">
+                    <div class="adal-azamat-card card-4">
                         <h3>Еңбекқорлық және Кәсіби біліктілік</h3>
-                        <p>Адал еңбекке, білімге, кәсіби дамуға ұмтылу, өзін-өзі жетілдіру.</p>
+                        <p>Адал еңбекке, білімге, кәсіби дамуға ұмтылу, өзін-өзі жетілдіру. Шығармашылық еңбек, кәсіби шеберлік.</p>
                     </div>
-                    <div class="adal-azamat-card" style="background:#E91E63;">
+                    <div class="adal-azamat-card card-5">
                         <h3>Жасампаздық және Жаңашылдық</h3>
-                        <p>Шығармашылық, инновация, проблемаларды шешу, қоғамға пайда әкелу.</p>
+                        <p>Шығармашылық, инновация, проблемаларды шешу, қоғамға пайда әкелу. Жаңа идеялар, креативті ойлау.</p>
                     </div>
-                    <div class="adal-azamat-card" style="background:#607D8B;">
+                    <div class="adal-azamat-card card-6">
                         <h3>Заң және Тәртіп</h3>
-                        <p>Заңға бағыну, тәртіпті сақтау, қоғамдық қауіпсіздікті қамтамасыз ету.</p>
+                        <p>Заңға бағыну, тәртіпті сақтау, қоғамдық қауіпсіздікті қамтамасыз ету. Құқықтық мәдениет, тәртіптілік.</p>
                     </div>
                 </div>
             </div>
@@ -642,6 +719,8 @@
                 const linkPage = link.getAttribute('href');
                 if (linkPage === currentPage) {
                     link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
                 }
             });
         });

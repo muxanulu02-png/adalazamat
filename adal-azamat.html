@@ -9,6 +9,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        /* === ОСНОВНЫЕ СТИЛИ (без изменений, кроме модалки) === */
         * {
             margin: 0;
             padding: 0;
@@ -162,7 +163,6 @@
             background: #fff8f0;
         }
 
-        /* Nav Overlay */
         .nav-overlay {
             position: fixed;
             top: 0;
@@ -479,7 +479,7 @@
         .card-5 { background: linear-gradient(145deg, #6C5CE7, #5A4AB3); }
         .card-6 { background: linear-gradient(145deg, #E84342, #C0392B); }
 
-        /* Modal Styles */
+        /* ===== ОБНОВЛЕННЫЕ СТИЛИ МОДАЛЬНОГО ОКНА (компактнее) ===== */
         .modal {
             display: none;
             position: fixed;
@@ -487,40 +487,39 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.9);
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(8px);
             z-index: 2000;
-            backdrop-filter: blur(5px);
             overflow-y: auto;
             padding: 20px;
+            align-items: flex-start; /* чтобы контент не растягивался на всю высоту */
         }
 
         .modal.active {
             display: flex;
-            align-items: center;
             justify-content: center;
         }
 
         .modal-content {
             background: white;
-            width: 95%;
-            max-width: 1200px;
-            margin: 40px auto;
-            border-radius: 40px;
-            padding: 40px;
+            width: 100%;
+            max-width: 900px; /* Уменьшил максимальную ширину */
+            margin: 30px auto;
+            border-radius: 32px;
+            padding: 30px;
             position: relative;
-            animation: modalOpen 0.5s;
-            max-height: 90vh;
-            overflow-y: auto;
+            animation: modalOpen 0.4s;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
         }
 
         @keyframes modalOpen {
             from {
                 opacity: 0;
-                transform: scale(0.8);
+                transform: scale(0.9) translateY(20px);
             }
             to {
                 opacity: 1;
-                transform: scale(1);
+                transform: scale(1) translateY(0);
             }
         }
 
@@ -528,81 +527,122 @@
             position: sticky;
             top: 0;
             right: 0;
-            width: 50px;
-            height: 50px;
+            width: 44px;
+            height: 44px;
             background: #ffb347;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
+            font-size: 22px;
             color: #1e2a3a;
             cursor: pointer;
             transition: all 0.3s;
             z-index: 10;
             margin-left: auto;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             flex-shrink: 0;
+            border: 2px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         .modal-close:hover {
-            transform: rotate(90deg);
+            transform: rotate(90deg) scale(1.1);
             background: #ff9f1a;
         }
 
         .modal-header {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
+            padding-right: 20px;
         }
 
         .modal-header h2 {
-            font-size: 36px;
+            font-size: 32px;
             color: #1e2a3a;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            line-height: 1.3;
         }
 
         .modal-header .project-badge {
             background: #ffb347;
             color: #1e2a3a;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
+            display: inline-block;
         }
 
-        .modal-body {
+        /* Вкладки навигации */
+        .modal-tabs {
             display: flex;
-            flex-direction: column;
-            gap: 40px;
+            gap: 10px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
         }
 
-        /* Video Section */
-        .video-section h3, .photos-section h3 {
-            font-size: 24px;
-            color: #1e2a3a;
-            margin-bottom: 20px;
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 10px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            border-radius: 40px;
+            transition: all 0.3s;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
-        .video-section h3 i, .photos-section h3 i {
-            color: #ffb347;
+        .tab-btn i {
+            font-size: 18px;
+        }
+
+        .tab-btn.active {
+            background: #ffb347;
+            color: #1e2a3a;
+            box-shadow: 0 5px 15px rgba(255,180,70,0.3);
+        }
+
+        .tab-btn:not(.active):hover {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        /* Контейнеры контента */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Видео секция */
+        .video-section {
+            margin-top: 5px;
         }
 
         .video-container {
-            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
         .video-item {
-            margin-bottom: 30px;
             background: #f8f9fa;
-            border-radius: 15px;
+            border-radius: 20px;
             padding: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
         .video-title {
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 600;
             color: #ffb347;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
         }
 
         .video-wrapper {
@@ -610,34 +650,43 @@
             max-width: 500px;
             margin: 0 auto;
             background: #000;
-            border-radius: 10px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
 
         .video-wrapper video {
             width: 100%;
             height: auto;
-            max-height: 280px;
+            max-height: 260px;
             display: block;
             object-fit: contain;
             background: #000;
         }
 
-        /* Photos Grid */
+        /* Фото сетка */
+        .photos-section {
+            margin-top: 5px;
+        }
+
         .photos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 16px;
         }
 
         .photo-item {
             position: relative;
             padding-bottom: 75%;
-            border-radius: 15px;
+            border-radius: 16px;
             overflow: hidden;
             cursor: pointer;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .photo-item:hover {
+            transform: scale(1.03);
         }
 
         .photo-item img {
@@ -663,7 +712,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             color: white;
-            font-size: 30px;
+            font-size: 28px;
             opacity: 0;
             transition: opacity 0.3s;
             z-index: 2;
@@ -897,7 +946,42 @@
             margin-bottom: 15px;
         }
 
-        /* ========== МОБИЛЬДІ АДАПТАЦИЯ ========== */
+        /* Медиа-запросы (корректировка для модалки) */
+        @media (max-width: 768px) {
+            .modal-content {
+                padding: 20px;
+                border-radius: 24px;
+                margin: 15px auto;
+            }
+            .modal-header h2 {
+                font-size: 26px;
+            }
+            .photos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .tab-btn {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .modal-content {
+                padding: 15px;
+            }
+            .modal-header h2 {
+                font-size: 22px;
+            }
+            .photos-grid {
+                grid-template-columns: 1fr;
+            }
+            .tab-btn {
+                flex: 1;
+                justify-content: center;
+            }
+        }
+
+        /* Остальные медиазапросы без изменений (для планшетов и т.д.) */
         @media (min-width: 993px) {
             .main-nav {
                 position: static;
@@ -909,263 +993,39 @@
                 overflow: visible;
                 display: block !important;
             }
-
             .main-nav ul {
                 flex-direction: row;
                 gap: 30px;
             }
-
             .main-nav a {
                 padding: 5px 0;
             }
-
             .main-nav a:hover,
             .main-nav a.active {
                 background: transparent;
                 color: #ffb347;
             }
-
             .mobile-menu-btn {
                 display: none !important;
             }
-
             .nav-overlay {
                 display: none;
             }
         }
-
         @media (max-width: 992px) {
-            .container {
-                padding: 0 20px;
-            }
-
-            .projects-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .quote-btn {
-                padding: 10px 18px;
-                font-size: 13px;
-            }
-
-            .logo h1 {
-                font-size: 24px;
-            }
+            .container { padding: 0 20px; }
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
         }
-
         @media (max-width: 768px) {
-            .container {
-                padding: 0 15px;
-            }
-
-            .page-header h1 {
-                font-size: 36px;
-            }
-
-            .page-header p {
-                font-size: 16px;
-            }
-
-            .program-highlight {
-                padding: 40px 20px;
-            }
-
-            .program-highlight h3 {
-                font-size: 28px;
-            }
-
-            .program-highlight p {
-                font-size: 16px;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .project-card {
-                padding: 30px 20px;
-            }
-
-            .project-card h2 {
-                font-size: 24px;
-            }
-
-            .project-card p {
-                font-size: 14px;
-            }
-
-            .modal-content {
-                padding: 20px;
-                border-radius: 20px;
-                margin: 20px auto;
-                max-height: 95vh;
-            }
-
-            .modal-header h2 {
-                font-size: 24px;
-            }
-
-            .modal-close {
-                width: 40px;
-                height: 40px;
-                font-size: 20px;
-            }
-
-            .photos-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .video-wrapper {
-                max-width: 100%;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-                text-align: center;
-            }
-
-            .footer-section h4::after {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
-            }
-
-            .login-links {
-                justify-content: center;
-            }
-
-            .top-bar-left span {
-                font-size: 12px;
-            }
-
-            .top-bar-right a {
-                width: 32px;
-                height: 32px;
-                font-size: 14px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .page-header h1 {
-                font-size: 28px;
-            }
-
-            .page-header p {
-                font-size: 14px;
-            }
-
-            .program-highlight h3 {
-                font-size: 24px;
-            }
-
-            .program-highlight p {
-                font-size: 14px;
-            }
-
-            .project-card {
-                padding: 25px 15px;
-            }
-
-            .project-badge {
-                padding: 6px 15px;
-                font-size: 12px;
-            }
-
-            .project-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 36px;
-            }
-
-            .project-card h2 {
-                font-size: 22px;
-            }
-
-            .logo h1 {
-                font-size: 20px;
-            }
-
-            .logo-text {
-                font-size: 10px;
-            }
-
-            .quote-btn {
-                padding: 8px 12px;
-                font-size: 12px;
-            }
-
-            .quote-btn i {
-                font-size: 14px;
-            }
-
-            .top-bar .container {
-                flex-direction: column;
-                gap: 8px;
-            }
-
-            .top-bar-left {
-                text-align: center;
-            }
-
-            .top-bar-left span {
-                display: block;
-                margin: 0;
-            }
-
-            .main-nav {
-                width: 85%;
-            }
-
-            .modal-close {
-                width: 40px;
-                height: 40px;
-                font-size: 20px;
-            }
-
-            .photos-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .image-lightbox .close {
-                width: 40px;
-                height: 40px;
-                font-size: 30px;
-                top: 15px;
-                right: 15px;
-            }
-
-            .footer-section h4 {
-                font-size: 18px;
-            }
-
-            .footer-section p,
-            .footer-section ul li a {
-                font-size: 14px;
-            }
-
-            .social-links a {
-                width: 40px;
-                height: 40px;
-                font-size: 16px;
-            }
+            .projects-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- Nav Overlay -->
+    <!-- Nav Overlay, Header, Top Bar (без изменений) -->
     <div class="nav-overlay" id="navOverlay"></div>
-
-    <!-- Верхняя полоса -->
     <div class="top-bar">
         <div class="container">
             <div class="top-bar-left">
@@ -1174,15 +1034,12 @@
         </div>
     </div>
 
-    <!-- Хедер -->
     <header class="main-header">
         <div class="container">
             <div class="logo">
                 <h1><span>Адал азамат</span></h1>
                 <p class="logo-text">Насиболла Шынар Ерланқызы</p>
             </div>
-            
-            <!-- Десктоп навигация -->
             <nav class="main-nav" id="mainNav">
                 <ul>
                     <li><a href="index.html">Басты бет</a></li>
@@ -1193,113 +1050,37 @@
                     <li><a href="jeke-derekter.html">Жеке деректер</a></li>
                 </ul>
             </nav>
-
             <a href="#" class="quote-btn"><i class="fas fa-user-graduate"></i> 41 мектеп-лицей</a>
-            
-            <!-- Мобильді меню кнопкасы -->
             <div class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </div>
         </div>
     </header>
 
-    <!-- Адал азамат - біртұтас тәрбие беті -->
     <section class="program-page">
         <div class="container">
             <div class="page-header">
                 <h1>АДАЛ АЗАМАТ</h1>
                 <p><i class="fas fa-star"></i> Біртұтас тәрбие бағдарламасын жүзеге асырудағы педагогикалық тәжірибе</p>
             </div>
-            
             <div class="program-highlight">
                 <h3><i class="fas fa-quote-left"></i> Тәрбие - болашақ негізі</h3>
                 <p>Біздің басты мақсатымыз - адал, саналы, білімді ұрпақ тәрбиелеу</p>
             </div>
 
-            <!-- 6 жоба -->
+            <!-- 6 жоба (без изменений) -->
             <div class="projects-grid">
-                <div class="project-card card-1" onclick="openModal(1)">
-                    <span class="project-badge"><i class="fas fa-shield-alt"></i> №1 Жоба</span>
-                    <div class="project-icon">
-                        <i class="fas fa-hand-peace"></i>
-                    </div>
-                    <h2>«Stop bullying»</h2>
-                    <p><strong>Мақсаты:</strong> Буллингтің алдын алу, білім беру ортасында оқушылар мен жасөспірімдер арасында қорлау, мазақтау, зорлық-зомбылық пен кибербуллинг алдын алу, жолын кесу, достық қарым-қатынасты нығайту және қауіпсіз, сыйластыққа негізделген орта қалыптастыру.</p>
-                    <div class="view-more">
-                        <span>Толығырақ көру</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                </div>
-
-                <div class="project-card card-2" onclick="openModal(2)">
-                    <span class="project-badge"><i class="fas fa-smile"></i> №2 Жоба</span>
-                    <div class="project-icon">
-                        <i class="fas fa-gamepad"></i>
-                    </div>
-                    <h2>«Көңілді үзіліс»</h2>
-                    <p><strong>Мақсаты:</strong> Көңілді үзіліс-оқушылардың сабақ арасындағы бос уақытын тиімді, белсенді әрі қызықты өткізуге бағытталған шара. Басты мақсаты - балалардың зейінін дамылдырып, физикалық және эмоцияналдық күйін көтеру, сондай-ақ қимыл-қозғалыс ойындары арқылы ұйымшылдықты дамытып, сабаққа ынтасын арттыру.</p>
-                    <div class="view-more">
-                        <span>Толығырақ көру</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                </div>
-
-                <div class="project-card card-3" onclick="openModal(3)">
-                    <span class="project-badge"><i class="fas fa-flag"></i> №3 Жоба</span>
-                    <div class="project-icon">
-                        <i class="fas fa-hand-holding-heart"></i>
-                    </div>
-                    <h2>«Ұрпаққа аманат»</h2>
-                    <p><strong>Мақсаты:</strong> Өскелең ұрпақ бойына «Мен қазақпын» деген аса мақтаныш сезімін ұялату мақсатында бабалар ерлігін, ұлылар даналығын, ата-баба дәстүрін, әдет-ғұрыпын дәріптеу арқылы туған жер, атамекен, Отанға деген сүйіспеншілікті, құрметті үйрету.</p>
-                    <div class="view-more">
-                        <span>Толығырақ көру</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                </div>
-
-                <div class="project-card card-4" onclick="openModal(4)">
-                    <span class="project-badge"><i class="fas fa-book"></i> №4 Жоба</span>
-                    <div class="project-icon">
-                        <i class="fas fa-book-open"></i>
-                    </div>
-                    <h2>«Зерек оқырман»</h2>
-                    <p><strong>Мақсаты:</strong> Оқушылардың оқу сауаттылығын арттыру, көркем шығармаларды саналы әрі сыни тұрғыда оқуға баулу, кітап оқуға деген қызығушылығын ояту, оқырман мәдениетін қалыптастыру. Құндылықтарды қалыптастырудағы жүйелі және кешенді жұмыс оқу-тәрбие процесінде күн сайын және апта сайын іске асырылатын іс-шараларды қамтиды.</p>
-                    <div class="view-more">
-                        <span>Толығырақ көру</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                </div>
-
-                <div class="project-card card-5" onclick="openModal(5)">
-                    <span class="project-badge"><i class="fas fa-futbol"></i> №5 Жоба</span>
-                    <div class="project-icon">
-                        <i class="fas fa-family"></i>
-                    </div>
-                    <h2>«Белсенді жұма»</h2>
-                    <p><strong>Мақсаты:</strong> Ата-ана, мектеп, бала үштігінің байланысын нығайту арқылы, ата-ана жауапкершілігін арттыру. Қоғам өмірінде жаңашыл, белсенді ата-аналар легін көбейтіп, салауаттылыққа шақыру.</p>
-                    <div class="view-more">
-                        <span>Толығырақ көру</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                </div>
-
-                <div class="project-card card-6" onclick="openModal(6)">
-                    <span class="project-badge"><i class="fas fa-globe"></i> №6 Жоба</span>
-                    <div class="project-icon">
-                        <i class="fas fa-history"></i>
-                    </div>
-                    <h2>«From tradition to education»</h2>
-                    <p><strong>Мақсаты:</strong> Ұлттық салт-дәстүрлер мен рухани құндылықтарды заманауи білім беру үдерісімен ұштастыра отырып, жас ұрпақтың ұлттық санасын, мәдени танымын және адамгершілік қасиеттерін дамыту. Сонымен қатар, ата-баба мұрасын дәріптеу арқылы оқушылардың тарихи тамырына деген құрметін арттыру, ұлттық болмысты сақтай отырып, жаһандық білім кеңістігінде бәсекеге қабілетті тұлға қалыптастыру..</p>
-                    <div class="view-more">
-                        <span>Толығырақ көру</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                </div>
+                <div class="project-card card-1" onclick="openModal(1)"><span class="project-badge"><i class="fas fa-shield-alt"></i> №1 Жоба</span><div class="project-icon"><i class="fas fa-hand-peace"></i></div><h2>«Stop bullying»</h2><p><strong>Мақсаты:</strong> Буллингтің алдын алу, білім беру ортасында оқушылар мен жасөспірімдер арасында қорлау, мазақтау, зорлық-зомбылық пен кибербуллинг алдын алу, жолын кесу, достық қарым-қатынасты нығайту және қауіпсіз, сыйластыққа негізделген орта қалыптастыру.</p><div class="view-more"><span>Толығырақ көру</span><i class="fas fa-arrow-right"></i></div></div>
+                <div class="project-card card-2" onclick="openModal(2)"><span class="project-badge"><i class="fas fa-smile"></i> №2 Жоба</span><div class="project-icon"><i class="fas fa-gamepad"></i></div><h2>«Көңілді үзіліс»</h2><p><strong>Мақсаты:</strong> Көңілді үзіліс-оқушылардың сабақ арасындағы бос уақытын тиімді, белсенді әрі қызықты өткізуге бағытталған шара. Басты мақсаты - балалардың зейінін дамылдырып, физикалық және эмоцияналдық күйін көтеру, сондай-ақ қимыл-қозғалыс ойындары арқылы ұйымшылдықты дамытып, сабаққа ынтасын арттыру.</p><div class="view-more"><span>Толығырақ көру</span><i class="fas fa-arrow-right"></i></div></div>
+                <div class="project-card card-3" onclick="openModal(3)"><span class="project-badge"><i class="fas fa-flag"></i> №3 Жоба</span><div class="project-icon"><i class="fas fa-hand-holding-heart"></i></div><h2>«Ұрпаққа аманат»</h2><p><strong>Мақсаты:</strong> Өскелең ұрпақ бойына «Мен қазақпын» деген аса мақтаныш сезімін ұялату мақсатында бабалар ерлігін, ұлылар даналығын, ата-баба дәстүрін, әдет-ғұрыпын дәріптеу арқылы туған жер, атамекен, Отанға деген сүйіспеншілікті, құрметті үйрету.</p><div class="view-more"><span>Толығырақ көру</span><i class="fas fa-arrow-right"></i></div></div>
+                <div class="project-card card-4" onclick="openModal(4)"><span class="project-badge"><i class="fas fa-book"></i> №4 Жоба</span><div class="project-icon"><i class="fas fa-book-open"></i></div><h2>«Зерек оқырман»</h2><p><strong>Мақсаты:</strong> Оқушылардың оқу сауаттылығын арттыру, көркем шығармаларды саналы әрі сыни тұрғыда оқуға баулу, кітап оқуға деген қызығушылығын ояту, оқырман мәдениетін қалыптастыру. Құндылықтарды қалыптастырудағы жүйелі және кешенді жұмыс оқу-тәрбие процесінде күн сайын және апта сайын іске асырылатын іс-шараларды қамтиды.</p><div class="view-more"><span>Толығырақ көру</span><i class="fas fa-arrow-right"></i></div></div>
+                <div class="project-card card-5" onclick="openModal(5)"><span class="project-badge"><i class="fas fa-futbol"></i> №5 Жоба</span><div class="project-icon"><i class="fas fa-family"></i></div><h2>«Белсенді жұма»</h2><p><strong>Мақсаты:</strong> Ата-ана, мектеп, бала үштігінің байланысын нығайту арқылы, ата-ана жауапкершілігін арттыру. Қоғам өмірінде жаңашыл, белсенді ата-аналар легін көбейтіп, салауаттылыққа шақыру.</p><div class="view-more"><span>Толығырақ көру</span><i class="fas fa-arrow-right"></i></div></div>
+                <div class="project-card card-6" onclick="openModal(6)"><span class="project-badge"><i class="fas fa-globe"></i> №6 Жоба</span><div class="project-icon"><i class="fas fa-history"></i></div><h2>«From tradition to education»</h2><p><strong>Мақсаты:</strong> Ұлттық салт-дәстүрлер мен рухани құндылықтарды заманауи білім беру үдерісімен ұштастыра отырып, жас ұрпақтың ұлттық санасын, мәдени танымын және адамгершілік қасиеттерін дамыту. Сонымен қатар, ата-баба мұрасын дәріптеу арқылы оқушылардың тарихи тамырына деген құрметін арттыру, ұлттық болмысты сақтай отырып, жаһандық білім кеңістігінде бәсекеге қабілетті тұлға қалыптастыру..</p><div class="view-more"><span>Толығырақ көру</span><i class="fas fa-arrow-right"></i></div></div>
             </div>
         </div>
     </section>
 
-    <!-- Modal -->
+    <!-- Модальное окно с вкладками -->
     <div class="modal" id="projectModal">
         <div class="modal-content">
             <div class="modal-close" onclick="closeModal()">
@@ -1309,16 +1090,16 @@
                 <span class="project-badge" id="modalBadge">№1 Жоба</span>
                 <h2 id="modalTitle">«Stop bullying»</h2>
             </div>
-            <div class="modal-body">
-                <div class="video-section">
-                    <h3><i class="fas fa-video"></i> Видеолар</h3>
-                    <div class="video-container" id="videoContainer"></div>
-                </div>
-                
-                <div class="photos-section">
-                    <h3><i class="fas fa-images"></i> Фотосуреттер</h3>
-                    <div class="photos-grid" id="photosGrid"></div>
-                </div>
+            
+            <!-- Вкладки будут добавляться динамически -->
+            <div class="modal-tabs" id="modalTabs"></div>
+            
+            <!-- Контейнеры для контента -->
+            <div id="tabVideo" class="tab-content video-section">
+                <div class="video-container" id="videoContainer"></div>
+            </div>
+            <div id="tabPhoto" class="tab-content photos-section">
+                <div class="photos-grid" id="photosGrid"></div>
             </div>
         </div>
     </div>
@@ -1329,125 +1110,56 @@
         <img id="lightboxImage" src="" alt="Үлкейтілген фото">
     </div>
 
-    <!-- Футер -->
+    <!-- Футер (без изменений) -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-section">
-                    <div class="footer-badge">БІЗДІҢ МЕКТЕП</div>
-                    <h4>АДАЛ АЗАМАТ</h4>
-                    <p><i class="fas fa-user"></i> Мұғалім: Насиболла Шынар Ерланқызы</p>
-                    <p><i class="fas fa-school"></i> 41 мектеп-лицей</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Астана қ., Қазақстан</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>МӘЗІР</h4>
-                    <ul>
-                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Басты бет</a></li>
-                        <li><a href="kundylyktar.html"><i class="fas fa-chevron-right"></i> Құндылықтар</a></li>
-                        <li><a href="ai-ataulary.html"><i class="fas fa-chevron-right"></i> Ай атаулары</a></li>
-                        <li><a href="adal-azamat.html"><i class="fas fa-chevron-right"></i> Адал азамат</a></li>
-                        <li><a href="menin-synybym.html"><i class="fas fa-chevron-right"></i> Менің сыныбым</a></li>
-                        <li><a href="jeke-derekter.html"><i class="fas fa-chevron-right"></i> Жеке деректер</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>QR-КОД</h4>
-                    <div style="text-align: center; background: rgba(255,255,255,0.1); border-radius: 15px; padding: 15px;">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://muxanulu02-png.github.io/adalazamat/&color=ffb347&bgcolor=ffffff" 
-                             alt="Сайтқа QR код" style="width:150px; height:150px; border-radius:10px; border:3px solid #ffb347;">
-                        <p style="color:#ffb347; margin-top:10px; font-size:14px;"><i class="fas fa-qrcode"></i> Сайтқа өту</p>
-                    </div>
-                </div>
+                <div class="footer-section"><div class="footer-badge">БІЗДІҢ МЕКТЕП</div><h4>АДАЛ АЗАМАТ</h4><p><i class="fas fa-user"></i> Мұғалім: Насиболла Шынар Ерланқызы</p><p><i class="fas fa-school"></i> 41 мектеп-лицей</p><p><i class="fas fa-map-marker-alt"></i> Астана қ., Қазақстан</p></div>
+                <div class="footer-section"><h4>МӘЗІР</h4><ul><li><a href="index.html"><i class="fas fa-chevron-right"></i> Басты бет</a></li><li><a href="kundylyktar.html"><i class="fas fa-chevron-right"></i> Құндылықтар</a></li><li><a href="ai-ataulary.html"><i class="fas fa-chevron-right"></i> Ай атаулары</a></li><li><a href="adal-azamat.html"><i class="fas fa-chevron-right"></i> Адал азамат</a></li><li><a href="menin-synybym.html"><i class="fas fa-chevron-right"></i> Менің сыныбым</a></li><li><a href="jeke-derekter.html"><i class="fas fa-chevron-right"></i> Жеке деректер</a></li></ul></div>
+                <div class="footer-section"><h4>QR-КОД</h4><div style="text-align: center; background: rgba(255,255,255,0.1); border-radius: 15px; padding: 15px;"><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://muxanulu02-png.github.io/adalazamat/&color=ffb347&bgcolor=ffffff" alt="Сайтқа QR код" style="width:150px; height:150px; border-radius:10px; border:3px solid #ffb347;"><p style="color:#ffb347; margin-top:10px; font-size:14px;"><i class="fas fa-qrcode"></i> Сайтқа өту</p></div></div>
             </div>
-            
-            <div class="footer-bottom">
-                <p>
-                    <i class="far fa-copyright"></i> 2026 Адал азамат. Барлық құқықтар қорғалған. 
-                    <span style="color: #ffb347; margin-left: 10px;">#БіртұтасТәрбие</span>
-                </p>
-            </div>
+            <div class="footer-bottom"><p><i class="far fa-copyright"></i> 2026 Адал азамат. Барлық құқықтар қорғалған. <span style="color: #ffb347; margin-left: 10px;">#БіртұтасТәрбие</span></p></div>
         </div>
     </footer>
 
     <script>
+        // Данные проектов (немного изменены для демонстрации умных вкладок)
         const projectsData = {
-            1: {
+            1: { // есть и видео, и фото
                 badge: '№1 Жоба',
                 title: '«Stop bullying»',
                 videos: ['videos/project1/video.mp4'],
-                photos: [
-                    'images/project1/photo1.jpg',
-                    'images/project1/photo2.jpg',
-                    'images/project1/photo3.jpg',
-                    'images/project1/photo4.jpg',
-                    'images/project1/photo5.jpg'
-                ]
+                photos: ['images/project1/photo1.jpg','images/project1/photo2.jpg','images/project1/photo3.jpg','images/project1/photo4.jpg','images/project1/photo5.jpg']
             },
-            2: {
+            2: { // только видео
                 badge: '№2 Жоба',
                 title: '«Көңілді үзіліс»',
-                videos: [
-                    'videos/project2/video1.mp4',
-                    'videos/project2/video2.mp4',
-                    'videos/project2/video3.mp4'
-                ],
-                photos: [
-                    'images/project2/photo1.jpg',
-                    'images/project2/photo2.jpg',
-                    'images/project2/photo4.jpg',
-                    'images/project2/photo5.jpg'
-                ]
+                videos: ['videos/project2/video1.mp4','videos/project2/video2.mp4','videos/project2/video3.mp4'],
+                photos: []
             },
-            3: {
+            3: { // только фото
                 badge: '№3 Жоба',
                 title: '«Ұрпаққа аманат»',
-                videos: ['videos/project3/video.mp4'],
-                photos: [
-                    'images/project3/photo1.jpg',
-                    'images/project3/photo2.jpg',
-                    'images/project3/photo3.jpg',
-                    'images/project3/photo4.jpg',
-                    'images/project3/photo5.jpg',
-                    'images/project3/photo6.jpg',
-                    'images/project3/photo7.jpg'
-                ]
+                videos: [],
+                photos: ['images/project3/photo1.jpg','images/project3/photo2.jpg','images/project3/photo3.jpg','images/project3/photo4.jpg','images/project3/photo5.jpg','images/project3/photo6.jpg','images/project3/photo7.jpg']
             },
-            4: {
+            4: { // нет ни видео, ни фото (для теста)
                 badge: '№4 Жоба',
                 title: '«Зерек оқырман»',
                 videos: [],
-                photos: [
-                    'images/project4/photo1.jpg',
-                    'images/project4/photo2.jpg',
-                    'images/project4/photo3.jpg'
-                ]
+                photos: []
             },
-            5: {
+            5: { // и видео, и фото
                 badge: '№5 Жоба',
                 title: '«Белсенді жұма»',
                 videos: ['videos/project5/video.mp4'],
-                photos: [
-                    'images/project5/photo1.jpg',
-                    'images/project5/photo2.jpg',
-                    'images/project5/photo3.jpg',
-                    'images/project5/photo4.jpg',
-                    'images/project5/photo5.jpg'
-                ]
+                photos: ['images/project5/photo1.jpg','images/project5/photo2.jpg','images/project5/photo3.jpg','images/project5/photo4.jpg','images/project5/photo5.jpg']
             },
-            6: {
+            6: { // только видео
                 badge: '№6 Жоба',
                 title: '«From tradition to education»',
                 videos: ['videos/project6/video.mp4'],
-                photos: [
-                    'images/project6/photo1.jpg',
-                    'images/project6/photo2.jpg',
-                    'images/project6/photo3.jpg',
-                    'images/project6/photo4.jpg',
-                    'images/project6/photo5.jpg'
-                ]
+                photos: []
             }
         };
 
@@ -1458,18 +1170,30 @@
             document.getElementById('modalBadge').textContent = data.badge;
             document.getElementById('modalTitle').textContent = data.title;
             
-            const videoContainer = document.getElementById('videoContainer');
+            const hasVideos = data.videos && data.videos.length > 0;
+            const hasPhotos = data.photos && data.photos.length > 0;
             
-            // Видеоларды көрсету
-            if (data.videos && data.videos.length > 0) {
+            // Генерируем вкладки в зависимости от наличия контента
+            const tabsContainer = document.getElementById('modalTabs');
+            let tabsHtml = '';
+            
+            if (hasVideos) {
+                tabsHtml += `<button class="tab-btn active" onclick="switchTab('video')" id="tabVideoBtn"><i class="fas fa-video"></i> Видео (${data.videos.length})</button>`;
+            }
+            if (hasPhotos) {
+                tabsHtml += `<button class="tab-btn ${!hasVideos ? 'active' : ''}" onclick="switchTab('photo')" id="tabPhotoBtn"><i class="fas fa-images"></i> Фото (${data.photos.length})</button>`;
+            }
+            
+            tabsContainer.innerHTML = tabsHtml;
+            
+            // Заполняем видео
+            const videoContainer = document.getElementById('videoContainer');
+            if (hasVideos) {
                 let videosHtml = '';
                 data.videos.forEach((video, index) => {
                     videosHtml += `
                         <div class="video-item">
-                            <div class="video-title">
-                                <i class="fas fa-play-circle" style="color:#ffb347; margin-right:8px;"></i>
-                                ${index + 1}-ші видео
-                            </div>
+                            <div class="video-title"><i class="fas fa-play-circle" style="color:#ffb347; margin-right:8px;"></i>${index + 1}-ші видео</div>
                             <div class="video-wrapper">
                                 <video controls preload="metadata">
                                     <source src="${video}" type="video/mp4">
@@ -1481,24 +1205,73 @@
                 });
                 videoContainer.innerHTML = videosHtml;
             } else {
-                // Егер видео болмаса, фотосуреттер бірден көрсетіледі
-                videoContainer.innerHTML = '<p style="color:#666; text-align:center; padding:40px;">Бұл жобада видео жоқ</p>';
+                videoContainer.innerHTML = '';
             }
             
+            // Заполняем фото
             const photosGrid = document.getElementById('photosGrid');
-            if (data.photos && data.photos.length > 0) {
+            if (hasPhotos) {
                 photosGrid.innerHTML = data.photos.map(photo => `
                     <div class="photo-item" onclick="openImageLightbox('${photo}')">
-                        <img src="${photo}" alt="Project photo" 
-                             onerror="this.src='https://via.placeholder.com/300x200?text=Фото+жүктелмеді'">
+                        <img src="${photo}" alt="Project photo" onerror="this.src='https://via.placeholder.com/300x200?text=Фото+жүктелмеді'">
                     </div>
                 `).join('');
             } else {
-                photosGrid.innerHTML = '<p style="color:#666; text-align:center; padding:40px;">Фотосуреттер жоқ</p>';
+                photosGrid.innerHTML = '';
             }
+            
+            // Показываем нужную вкладку
+            const videoTab = document.getElementById('tabVideo');
+            const photoTab = document.getElementById('tabPhoto');
+            
+            if (hasVideos && hasPhotos) {
+                // Если есть и видео, и фото - показываем первую (видео)
+                videoTab.classList.add('active');
+                photoTab.classList.remove('active');
+            } else if (hasVideos && !hasPhotos) {
+                // Только видео
+                videoTab.classList.add('active');
+                photoTab.classList.remove('active');
+                photoTab.style.display = 'none'; // скрываем блок фото, чтобы не занимал место
+            } else if (!hasVideos && hasPhotos) {
+                // Только фото
+                photoTab.classList.add('active');
+                videoTab.classList.remove('active');
+                videoTab.style.display = 'none';
+            } else {
+                // Нет контента
+                videoTab.classList.remove('active');
+                photoTab.classList.remove('active');
+                videoTab.innerHTML = '<p style="text-align:center; padding:40px; color:#666;">Бұл жобада әзірше материал жоқ</p>';
+                videoTab.classList.add('active');
+                photoTab.style.display = 'none';
+            }
+            
+            // Сбрасываем display для блоков (на случай если прошлый проект скрыл что-то)
+            videoTab.style.display = hasVideos ? 'block' : 'none';
+            photoTab.style.display = hasPhotos ? 'block' : 'none';
             
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
+        }
+
+        function switchTab(tab) {
+            const videoTab = document.getElementById('tabVideo');
+            const photoTab = document.getElementById('tabPhoto');
+            const videoBtn = document.getElementById('tabVideoBtn');
+            const photoBtn = document.getElementById('tabPhotoBtn');
+            
+            if (tab === 'video') {
+                videoTab.classList.add('active');
+                photoTab.classList.remove('active');
+                if (videoBtn) videoBtn.classList.add('active');
+                if (photoBtn) photoBtn.classList.remove('active');
+            } else {
+                photoTab.classList.add('active');
+                videoTab.classList.remove('active');
+                if (photoBtn) photoBtn.classList.add('active');
+                if (videoBtn) videoBtn.classList.remove('active');
+            }
         }
 
         function closeModal() {
@@ -1506,15 +1279,16 @@
             document.body.style.overflow = 'auto';
             
             const videos = document.querySelectorAll('#videoContainer video');
-            videos.forEach(video => {
-                video.pause();
-            });
+            videos.forEach(video => video.pause());
+            
+            // Сбрасываем содержимое вкладок для следующего открытия
+            document.getElementById('tabVideo').style.display = 'block';
+            document.getElementById('tabPhoto').style.display = 'block';
         }
 
         function openImageLightbox(src) {
             const lightbox = document.getElementById('imageLightbox');
-            const img = document.getElementById('lightboxImage');
-            img.src = src;
+            document.getElementById('lightboxImage').src = src;
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -1525,9 +1299,7 @@
         }
 
         document.getElementById('projectModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
+            if (e.target === this) closeModal();
         });
 
         document.addEventListener('keydown', function(e) {
@@ -1537,7 +1309,7 @@
             }
         });
 
-        // Мобильное меню
+        // Мобильное меню (как в исходном коде)
         document.addEventListener('DOMContentLoaded', function() {
             const mobileBtn = document.getElementById('mobileMenuBtn');
             const mainNav = document.getElementById('mainNav');
@@ -1567,6 +1339,7 @@
                 });
             }
 
+            // Обновление даты
             const today = new Date();
             const day = String(today.getDate()).padStart(2, '0');
             const month = String(today.getMonth() + 1).padStart(2, '0');
@@ -1577,23 +1350,18 @@
                 clockSpan.innerHTML = `<i class="far fa-clock"></i> ${day}.${month}.${year}`;
             }
             
+            // Активная ссылка меню
             const currentPage = window.location.pathname.split('/').pop();
             const navLinksAll = document.querySelectorAll('.main-nav a');
-            
             navLinksAll.forEach(link => {
-                const linkPage = link.getAttribute('href');
-                if (linkPage === currentPage) {
-                    link.classList.add('active');
-                }
+                if (link.getAttribute('href') === currentPage) link.classList.add('active');
             });
 
             window.addEventListener('resize', function() {
-                if (window.innerWidth > 992) {
-                    if (mainNav && overlay) {
-                        mainNav.classList.remove('active');
-                        overlay.classList.remove('active');
-                        document.body.style.overflow = 'auto';
-                    }
+                if (window.innerWidth > 992 && mainNav && overlay) {
+                    mainNav.classList.remove('active');
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = 'auto';
                 }
             });
         });

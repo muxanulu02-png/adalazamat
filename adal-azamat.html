@@ -286,7 +286,7 @@
             margin: 0 auto;
         }
 
-        /* Projects Grid - 5 красивый карточек */
+        /* Projects Grid - 6 красивый карточек */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -443,6 +443,10 @@
         }
         .card-5 { 
             background: linear-gradient(145deg, #6C5CE7, #5A4AB3);
+        }
+        /* Новая карточка - From tradition to education */
+        .card-6 { 
+            background: linear-gradient(145deg, #E84342, #C0392B);
         }
 
         /* Modal Styles */
@@ -948,7 +952,7 @@
                 <p>Біздің басты мақсатымыз - адал, саналы, білімді ұрпақ тәрбиелеу</p>
             </div>
 
-            <!-- 5 жоба - әдемі карточкалар -->
+            <!-- 6 жоба - әдемі карточкалар -->
             <div class="projects-grid">
                 <!-- №1 Жоба -->
                 <div class="project-card card-1" onclick="openModal(1)">
@@ -1014,6 +1018,20 @@
                     </div>
                     <h2>«Белсенді жұма»</h2>
                     <p><strong>Мақсаты:</strong> Ата-ана, мектеп, бала үштігінің байланысын нығайту арқылы, ата-ана жауапкершілігін арттыру. Қоғам өмірінде жаңашыл, белсенді ата-аналар легін көбейтіп, салауаттылыққа шақыру.</p>
+                    <div class="view-more">
+                        <span>Толығырақ көру</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- №6 Жоба - НОВАЯ КАРТОЧКА "From tradition to education" -->
+                <div class="project-card card-6" onclick="openModal(6)">
+                    <span class="project-badge"><i class="fas fa-globe"></i> №6 Жоба</span>
+                    <div class="project-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h2>«From tradition to education»</h2>
+                    <p><strong>Мақсаты:</strong> Ұлттық дәстүрлер мен құндылықтарды заманауи білім беру жүйесіне интеграциялау. Ата-бабадан қалған тәлім-тәрбие әдістерін, халықтық педагогиканы қазіргі білім беру стандарттарымен ұштастыра отырып, оқушылардың бойына ұлттық рух пен жаһандық көзқарасты қалыптастыру.</p>
                     <div class="view-more">
                         <span>Толығырақ көру</span>
                         <i class="fas fa-arrow-right"></i>
@@ -1166,6 +1184,19 @@
                     'images/project5/photo3.jpg',
                     'images/project5/photo4.jpg',
                     'images/project5/photo5.jpg'
+                ]
+            },
+            // Новые данные для 6-го проекта
+            6: {
+                badge: '№6 Жоба',
+                title: '«From tradition to education»',
+                videos: ['videos/project6/video.mp4'],
+                photos: [
+                    'images/project6/photo1.jpg',
+                    'images/project6/photo2.jpg',
+                    'images/project6/photo3.jpg',
+                    'images/project6/photo4.jpg',
+                    'images/project6/photo5.jpg'
                 ]
             }
         };

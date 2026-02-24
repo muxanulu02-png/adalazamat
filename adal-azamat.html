@@ -2,7 +2,7 @@
 <html lang="kk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Адал азамат - біртұтас тәрбие</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -20,6 +20,7 @@
             line-height: 1.6;
             color: #333;
             background: #f0f2f5;
+            overflow-x: hidden;
         }
 
         .container {
@@ -41,10 +42,12 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
+            gap: 10px;
         }
 
         .top-bar-left span {
             margin-right: 25px;
+            font-size: 13px;
         }
 
         .top-bar-left i {
@@ -52,9 +55,13 @@
             color: #ffb347;
         }
 
+        .top-bar-right {
+            display: flex;
+            gap: 8px;
+        }
+
         .top-bar-right a {
             color: #fff;
-            margin-left: 15px;
             transition: all 0.3s;
             width: 36px;
             height: 36px;
@@ -64,6 +71,7 @@
             background: rgba(255,255,255,0.1);
             border-radius: 50%;
             font-size: 16px;
+            text-decoration: none;
         }
 
         .top-bar-right a:hover {
@@ -86,12 +94,14 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 30px;
+            position: relative;
         }
 
         .logo h1 {
             font-size: 28px;
             color: #1e2a3a;
             font-weight: 700;
+            line-height: 1.2;
         }
 
         .logo h1 span {
@@ -109,48 +119,66 @@
             letter-spacing: 1px;
         }
 
+        /* Mobile Navigation */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100vh;
+            background: white;
+            box-shadow: -5px 0 30px rgba(0,0,0,0.15);
+            transition: right 0.3s ease;
+            z-index: 1001;
+            padding: 80px 20px 30px;
+            overflow-y: auto;
+        }
+
+        .main-nav.active {
+            right: 0;
+        }
+
         .main-nav ul {
-            display: flex;
             list-style: none;
-            gap: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
         }
 
         .main-nav a {
             text-decoration: none;
             color: #1e2a3a;
             font-weight: 500;
-            font-size: 15px;
+            font-size: 16px;
             transition: all 0.3s;
-            position: relative;
-            padding: 5px 0;
+            padding: 12px 15px;
+            display: block;
+            border-radius: 8px;
         }
 
-        .main-nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #ffb347, #ff9f1a);
-            transition: width 0.3s;
-        }
-
-        .main-nav a:hover {
-            color: #ffb347;
-        }
-
-        .main-nav a:hover::after {
-            width: 100%;
-        }
-
+        .main-nav a:hover,
         .main-nav a.active {
             color: #ffb347;
-            font-weight: 600;
+            background: #fff8f0;
         }
 
-        .main-nav a.active::after {
+        /* Nav Overlay */
+        .nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .nav-overlay.active {
+            opacity: 1;
+            visibility: visible;
         }
 
         .quote-btn {
@@ -167,6 +195,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            white-space: nowrap;
         }
 
         .quote-btn i {
@@ -179,10 +208,25 @@
         }
 
         .mobile-menu-btn {
-            display: none;
-            font-size: 24px;
+            display: block;
+            font-size: 28px;
             cursor: pointer;
             color: #1e2a3a;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .mobile-menu-btn:hover {
+            background: #f5f5f5;
+        }
+
+        .mobile-menu-btn i {
+            pointer-events: none;
         }
 
         /* Program Page */
@@ -286,7 +330,7 @@
             margin: 0 auto;
         }
 
-        /* Projects Grid - 6 красивый карточек */
+        /* Projects Grid */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -428,26 +472,12 @@
             transform: translateX(5px);
         }
 
-        /* Градиентные цвета для карточек */
-        .card-1 { 
-            background: linear-gradient(145deg, #FF6B6B, #FF4757);
-        }
-        .card-2 { 
-            background: linear-gradient(145deg, #4ECDC4, #45B7AA);
-        }
-        .card-3 { 
-            background: linear-gradient(145deg, #A8E6CF, #56B4A0);
-        }
-        .card-4 { 
-            background: linear-gradient(145deg, #FFD93D, #F6B024);
-        }
-        .card-5 { 
-            background: linear-gradient(145deg, #6C5CE7, #5A4AB3);
-        }
-        /* Новая карточка - From tradition to education */
-        .card-6 { 
-            background: linear-gradient(145deg, #E84342, #C0392B);
-        }
+        .card-1 { background: linear-gradient(145deg, #FF6B6B, #FF4757); }
+        .card-2 { background: linear-gradient(145deg, #4ECDC4, #45B7AA); }
+        .card-3 { background: linear-gradient(145deg, #A8E6CF, #56B4A0); }
+        .card-4 { background: linear-gradient(145deg, #FFD93D, #F6B024); }
+        .card-5 { background: linear-gradient(145deg, #6C5CE7, #5A4AB3); }
+        .card-6 { background: linear-gradient(145deg, #E84342, #C0392B); }
 
         /* Modal Styles */
         .modal {
@@ -571,23 +601,23 @@
         }
 
         .video-wrapper {
-    width: 100%;
-    max-width: 500px;     /* Видео енін шектеу (керек болса өзгертіңіз) */
-    margin: 0 auto;       /* Ортаға туралау */
-    background: #000;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
 
-.video-wrapper video {
-    width: 100%;
-    height: auto;
-    max-height: 280px;    /* Видео биіктігін шектеу (керек болса өзгертіңіз) */
-    display: block;
-    object-fit: contain;  /* Видео толық көріну үшін */
-    background: #000;
-}
+        .video-wrapper video {
+            width: 100%;
+            height: auto;
+            max-height: 280px;
+            display: block;
+            object-fit: contain;
+            background: #000;
+        }
 
         /* Photos Grid */
         .photos-grid {
@@ -776,6 +806,7 @@
             transition: all 0.3s;
             display: inline-block;
             font-size: 15px;
+            padding: 5px 0;
         }
 
         .footer-section ul li a:hover {
@@ -791,8 +822,8 @@
         }
 
         .social-links a {
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             background: rgba(255,255,255,0.1);
             display: inline-flex;
             align-items: center;
@@ -839,6 +870,7 @@
             display: flex;
             align-items: center;
             gap: 5px;
+            padding: 8px 12px;
         }
 
         .login-links a:hover {
@@ -852,7 +884,7 @@
         .footer-badge {
             background: #ffb347;
             color: #1e2a3a;
-            padding: 5px 15px;
+            padding: 8px 20px;
             border-radius: 25px;
             font-size: 12px;
             font-weight: 600;
@@ -860,48 +892,267 @@
             margin-bottom: 15px;
         }
 
-        @media (max-width: 992px) {
+        /* ========== МОБИЛЬДІ АДАПТАЦИЯ ========== */
+        @media (min-width: 993px) {
             .main-nav {
+                position: static;
+                width: auto;
+                height: auto;
+                background: transparent;
+                box-shadow: none;
+                padding: 0;
+                overflow: visible;
+                display: block !important;
+            }
+
+            .main-nav ul {
+                flex-direction: row;
+                gap: 30px;
+            }
+
+            .main-nav a {
+                padding: 5px 0;
+            }
+
+            .main-nav a:hover,
+            .main-nav a.active {
+                background: transparent;
+                color: #ffb347;
+            }
+
+            .mobile-menu-btn {
+                display: none !important;
+            }
+
+            .nav-overlay {
                 display: none;
             }
-            .mobile-menu-btn {
-                display: block;
+        }
+
+        @media (max-width: 992px) {
+            .container {
+                padding: 0 20px;
             }
+
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .footer-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            .projects-grid {
-                grid-template-columns: repeat(2, 1fr);
+
+            .quote-btn {
+                padding: 10px 18px;
+                font-size: 13px;
+            }
+
+            .logo h1 {
+                font-size: 24px;
             }
         }
 
         @media (max-width: 768px) {
-            .footer-grid {
-                grid-template-columns: 1fr;
+            .container {
+                padding: 0 15px;
             }
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
+
+            .page-header h1 {
+                font-size: 36px;
             }
-            .projects-grid {
-                grid-template-columns: 1fr;
+
+            .page-header p {
+                font-size: 16px;
             }
+
+            .program-highlight {
+                padding: 40px 20px;
+            }
+
             .program-highlight h3 {
                 font-size: 28px;
             }
+
+            .program-highlight p {
+                font-size: 16px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card {
+                padding: 30px 20px;
+            }
+
+            .project-card h2 {
+                font-size: 24px;
+            }
+
+            .project-card p {
+                font-size: 14px;
+            }
+
             .modal-content {
                 padding: 20px;
+                border-radius: 20px;
+                margin: 20px auto;
             }
+
             .modal-header h2 {
                 font-size: 24px;
             }
+
             .photos-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .video-wrapper {
+                max-width: 100%;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+
+            .footer-section h4::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .login-links {
+                justify-content: center;
+            }
+
+            .top-bar-left span {
+                font-size: 12px;
+            }
+
+            .top-bar-right a {
+                width: 32px;
+                height: 32px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 28px;
+            }
+
+            .page-header p {
+                font-size: 14px;
+            }
+
+            .program-highlight h3 {
+                font-size: 24px;
+            }
+
+            .program-highlight p {
+                font-size: 14px;
+            }
+
+            .project-card {
+                padding: 25px 15px;
+            }
+
+            .project-badge {
+                padding: 6px 15px;
+                font-size: 12px;
+            }
+
+            .project-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 36px;
+            }
+
+            .project-card h2 {
+                font-size: 22px;
+            }
+
+            .logo h1 {
+                font-size: 20px;
+            }
+
+            .logo-text {
+                font-size: 10px;
+            }
+
+            .quote-btn {
+                padding: 8px 12px;
+                font-size: 12px;
+            }
+
+            .quote-btn i {
+                font-size: 14px;
+            }
+
+            .top-bar .container {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .top-bar-left {
+                text-align: center;
+            }
+
+            .top-bar-left span {
+                display: block;
+                margin: 0;
+            }
+
+            .main-nav {
+                width: 85%;
+            }
+
+            .modal-close {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+
+            .photos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .image-lightbox .close {
+                width: 40px;
+                height: 40px;
+                font-size: 30px;
+                top: 15px;
+                right: 15px;
+            }
+
+            .footer-section h4 {
+                font-size: 18px;
+            }
+
+            .footer-section p,
+            .footer-section ul li a {
+                font-size: 14px;
+            }
+
+            .social-links a {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Nav Overlay -->
+    <div class="nav-overlay" id="navOverlay"></div>
+
     <!-- Верхняя полоса -->
     <div class="top-bar">
         <div class="container">
@@ -922,7 +1173,9 @@
                 <h1><span>Адал азамат</span></h1>
                 <p class="logo-text">Насиболла Шынар Ерланқызы</p>
             </div>
-            <nav class="main-nav">
+            
+            <!-- Десктоп навигация -->
+            <nav class="main-nav" id="mainNav">
                 <ul>
                     <li><a href="index.html">Басты бет</a></li>
                     <li><a href="kundylyktar.html">Құндылықтар</a></li>
@@ -932,8 +1185,11 @@
                     <li><a href="jeke-derekter.html">Жеке деректер</a></li>
                 </ul>
             </nav>
+
             <a href="#" class="quote-btn"><i class="fas fa-user-graduate"></i> 41 мектеп-лицей</a>
-            <div class="mobile-menu-btn">
+            
+            <!-- Мобильді меню кнопкасы -->
+            <div class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </div>
         </div>
@@ -952,9 +1208,8 @@
                 <p>Біздің басты мақсатымыз - адал, саналы, білімді ұрпақ тәрбиелеу</p>
             </div>
 
-            <!-- 6 жоба - әдемі карточкалар -->
+            <!-- 6 жоба -->
             <div class="projects-grid">
-                <!-- №1 Жоба -->
                 <div class="project-card card-1" onclick="openModal(1)">
                     <span class="project-badge"><i class="fas fa-shield-alt"></i> №1 Жоба</span>
                     <div class="project-icon">
@@ -968,7 +1223,6 @@
                     </div>
                 </div>
 
-                <!-- №2 Жоба -->
                 <div class="project-card card-2" onclick="openModal(2)">
                     <span class="project-badge"><i class="fas fa-smile"></i> №2 Жоба</span>
                     <div class="project-icon">
@@ -982,7 +1236,6 @@
                     </div>
                 </div>
 
-                <!-- №3 Жоба -->
                 <div class="project-card card-3" onclick="openModal(3)">
                     <span class="project-badge"><i class="fas fa-flag"></i> №3 Жоба</span>
                     <div class="project-icon">
@@ -996,7 +1249,6 @@
                     </div>
                 </div>
 
-                <!-- №4 Жоба -->
                 <div class="project-card card-4" onclick="openModal(4)">
                     <span class="project-badge"><i class="fas fa-book"></i> №4 Жоба</span>
                     <div class="project-icon">
@@ -1010,7 +1262,6 @@
                     </div>
                 </div>
 
-                <!-- №5 Жоба -->
                 <div class="project-card card-5" onclick="openModal(5)">
                     <span class="project-badge"><i class="fas fa-futbol"></i> №5 Жоба</span>
                     <div class="project-icon">
@@ -1024,7 +1275,6 @@
                     </div>
                 </div>
 
-                <!-- №6 Жоба - НОВАЯ КАРТОЧКА "From tradition to education" -->
                 <div class="project-card card-6" onclick="openModal(6)">
                     <span class="project-badge"><i class="fas fa-globe"></i> №6 Жоба</span>
                     <div class="project-icon">
@@ -1041,7 +1291,7 @@
         </div>
     </section>
 
-    <!-- Modal для отображения контента проекта -->
+    <!-- Modal -->
     <div class="modal" id="projectModal">
         <div class="modal-content">
             <div class="modal-close" onclick="closeModal()">
@@ -1052,26 +1302,20 @@
                 <h2 id="modalTitle">«Stop bullying»</h2>
             </div>
             <div class="modal-body">
-                <!-- Видео секция -->
                 <div class="video-section">
                     <h3><i class="fas fa-video"></i> Видеолар</h3>
-                    <div class="video-container" id="videoContainer">
-                        <!-- Видео будет вставлено через JavaScript -->
-                    </div>
+                    <div class="video-container" id="videoContainer"></div>
                 </div>
                 
-                <!-- Фото галерея -->
                 <div class="photos-section">
                     <h3><i class="fas fa-images"></i> Фотосуреттер</h3>
-                    <div class="photos-grid" id="photosGrid">
-                        <!-- Фото будут вставлены через JavaScript -->
-                    </div>
+                    <div class="photos-grid" id="photosGrid"></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Image Lightbox для увеличения фото -->
+    <!-- Image Lightbox -->
     <div class="image-lightbox" id="imageLightbox" onclick="closeImageLightbox()">
         <span class="close" onclick="closeImageLightbox()">&times;</span>
         <img id="lightboxImage" src="" alt="Үлкейтілген фото">
@@ -1121,7 +1365,6 @@
     </footer>
 
     <script>
-        // Данные для каждого проекта
         const projectsData = {
             1: {
                 badge: '№1 Жоба',
@@ -1186,7 +1429,6 @@
                     'images/project5/photo5.jpg'
                 ]
             },
-            // Новые данные для 6-го проекта
             6: {
                 badge: '№6 Жоба',
                 title: '«From tradition to education»',
@@ -1208,12 +1450,10 @@
             document.getElementById('modalBadge').textContent = data.badge;
             document.getElementById('modalTitle').textContent = data.title;
             
-            // Видеоларды көрсету
             const videoContainer = document.getElementById('videoContainer');
             
             if (data.videos && data.videos.length > 0) {
                 let videosHtml = '';
-                
                 data.videos.forEach((video, index) => {
                     videosHtml += `
                         <div class="video-item">
@@ -1230,15 +1470,12 @@
                         </div>
                     `;
                 });
-                
                 videoContainer.innerHTML = videosHtml;
             } else {
                 videoContainer.innerHTML = '<p style="color:#666; text-align:center; padding:40px;">Бұл жобада видео жоқ</p>';
             }
             
-            // Фотосуреттерді көрсету
             const photosGrid = document.getElementById('photosGrid');
-            
             if (data.photos && data.photos.length > 0) {
                 photosGrid.innerHTML = data.photos.map(photo => `
                     <div class="photo-item" onclick="openImageLightbox('${photo}')">
@@ -1258,7 +1495,6 @@
             document.getElementById('projectModal').classList.remove('active');
             document.body.style.overflow = 'auto';
             
-            // Видеоларды тоқтату
             const videos = document.querySelectorAll('#videoContainer video');
             videos.forEach(video => {
                 video.pause();
@@ -1291,7 +1527,36 @@
             }
         });
 
+        // Мобильное меню
         document.addEventListener('DOMContentLoaded', function() {
+            const mobileBtn = document.getElementById('mobileMenuBtn');
+            const mainNav = document.getElementById('mainNav');
+            const overlay = document.getElementById('navOverlay');
+            
+            if (mobileBtn && mainNav && overlay) {
+                mobileBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    mainNav.classList.toggle('active');
+                    overlay.classList.toggle('active');
+                    document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : 'auto';
+                });
+
+                overlay.addEventListener('click', function() {
+                    mainNav.classList.remove('active');
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+
+                const navLinks = mainNav.querySelectorAll('a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mainNav.classList.remove('active');
+                        overlay.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    });
+                });
+            }
+
             const today = new Date();
             const day = String(today.getDate()).padStart(2, '0');
             const month = String(today.getMonth() + 1).padStart(2, '0');
@@ -1303,12 +1568,22 @@
             }
             
             const currentPage = window.location.pathname.split('/').pop();
-            const navLinks = document.querySelectorAll('.main-nav a');
+            const navLinksAll = document.querySelectorAll('.main-nav a');
             
-            navLinks.forEach(link => {
+            navLinksAll.forEach(link => {
                 const linkPage = link.getAttribute('href');
                 if (linkPage === currentPage) {
                     link.classList.add('active');
+                }
+            });
+
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 992) {
+                    if (mainNav && overlay) {
+                        mainNav.classList.remove('active');
+                        overlay.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    }
                 }
             });
         });
